@@ -1,7 +1,7 @@
 // 별빛노트: 해설카드 DB (20장)
 // 형식: category/title/wrong/why/fix/summary/stepup
 
-const masterExplainDB = [
+masterDB.expression = [
   {
     "category": "경어와 톤",
     "title": "보여 주세요와 보세요의 차이",
@@ -248,5 +248,3 @@ const masterExplainDB = [
     "stepup": "공식 공지 문맥에서는 ‘공연’이 자연스럽게 쓰이는 경우가 많습니다."
   }
 ];
-
-export default masterExplainDB;
