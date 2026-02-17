@@ -171,6 +171,14 @@
         .section-block li{margin:8px 0;}
         .sum-box{margin-top:10px; padding:12px; border:var(--border); border-radius:14px; background:#fff; line-height:1.7;}
 
+    
+        /* ===== explain scroll+footer (hard override) ===== */
+        #screen-explain .content{overflow:hidden;}
+        #explain-viewer{display:flex; flex-direction:column; flex:1; min-height:0;}
+        .explain-scroll{flex:1; min-height:0; overflow-y:auto; -webkit-overflow-scrolling:touch; touch-action:pan-y;}
+        .explain-footer{flex-shrink:0; position:sticky; bottom:0; background:var(--bg-game); padding-top:10px; padding-bottom:6px;}
+        .explain-footer button{height:auto;}
+
     </style>
 </head>
 <body>
@@ -208,9 +216,11 @@
 
             <div id="explain-viewer" class="hidden" style="display:flex; flex-direction:column; flex:1; min-height:0;">
                 <div id="explain-meta" style="text-align:center; color:var(--primary); margin-bottom:10px; font-weight:bold;"></div>
-                <div class="quiz-card explain-scroll" style="padding:18px 15px; text-align:left;">
-                    <div id="explain-card" style="font-size:1rem; line-height:1.75; text-align:left; word-break:keep-all;"></div>
+                <div class="explain-scroll">
+                <div class="quiz-card" style="padding:18px 15px; text-align:left;">
+                    <div id="explain-card" style="font-size:1rem;"></div>
                 </div>
+            </div>
                 <div style="height:10px;"></div>
                 <div class="explain-footer" style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px;">
                     <button class="btn-pixel" onclick="prevExplain()">◀ 이전</button>
