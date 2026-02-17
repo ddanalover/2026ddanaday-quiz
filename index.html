@@ -95,8 +95,8 @@
             background: rgba(0,0,0,0.8); display: none; justify-content: center; align-items: center; z-index: 9999; 
         }
         #feedback-overlay.show { display: flex !important; }
-        .modal { background: #fff; border: var(--border); width: 85%; max-height: 80%; display: flex; flex-direction: column; padding: 20px; border-radius: 15px; }
-        .f-scroll { flex: 1; overflow-y: auto; background: #FFF9C4; border: 2px dashed var(--primary); padding: 15px; margin-bottom: 15px; border-radius: 10px; }
+        .modal { background: #fff; min-height:0; border: var(--border); width: 85%; max-height: 80%; display: flex; flex-direction: column; padding: 20px; border-radius: 15px; }
+        .f-scroll { flex: 1; min-height:0; min-height: 0; overflow-y: auto; background: #FFF9C4; border: 2px dashed var(--primary); padding: 15px; margin-bottom: 15px; border-radius: 10px; }
 
         .score-box { background: #fff; border: var(--border); padding: 10px; text-align: center; border-radius: 10px; flex-shrink: 0; }
         .review-list { margin: 15px 0; display: flex; flex-direction: column; gap: 10px; overflow-y: auto; flex: 1; min-height: 0; padding-right: 5px; }
@@ -129,16 +129,47 @@
         #explain-viewer{gap:0;}
         #explain-meta{margin-bottom:6px;}
         #explain-card{line-height:1.7;}
-        .label{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:2px solid #000; border-radius:999px; font-weight:900; font-size:0.95rem; margin-top:14px;}
-        .label.bad{background:rgba(231,76,60,0.12); color:#C0392B;}
-        .label.why{background:rgba(142,68,173,0.12); color:#6C3483;}
-        .label.good{background:rgba(39,174,96,0.12); color:#1E8449;}
-        .label.up{background:rgba(149,165,166,0.18); color:#2c2c2c;}
-        .label.sum{background:rgba(253,216,53,0.18); color:#2c2c2c;}
+        .label{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:0;border-radius:12px;font-weight:900;font-size:0.95rem;margin-top:14px;}
+        .label.bad{background:rgba(231,76,60,0.10);color:#C0392B;border-left:6px solid #E74C3C;}
+        .label.why{background:rgba(142,68,173,0.10);color:#6C3483;border-left:6px solid #8E44AD;}
+        .label.good{background:rgba(39,174,96,0.10);color:#1E8449;border-left:6px solid #27AE60;}
+        .label.up{background:rgba(149,165,166,0.14);color:#2c2c2c;border-left:6px solid #7f8c8d;}
+        .label.sum{background:rgba(253,216,53,0.16);color:#2c2c2c;border-left:6px solid #FDD835;}
         .section-block{margin-top:8px;}
         .section-block ul{margin:8px 0 0 18px; padding:0;}
         .section-block li{margin:8px 0;}
         .sum-box{margin-top:14px; padding:12px; border:var(--border); border-radius:14px; background:#fff;}
+
+    
+        /* explain content polish */
+        #explain-card ul{margin:8px 0 0 18px; padding:0;}
+        #explain-card li{margin:8px 0;}
+        #explain-card .exp-h2{font-size:1.15rem; margin-top:2px;}
+        #explain-card .section-block{white-space:normal;}
+    
+        /* ===== 해설집 UI (최종) ===== */
+        #screen-explain .content{overflow:hidden; padding:16px 20px 14px 20px; min-height:0;}
+        #explain-viewer{display:flex; flex-direction:column; flex:1; min-height:0;}
+        #explain-meta{flex-shrink:0; margin-bottom:6px; text-align:center; color:var(--primary); font-weight:900;}
+        .explain-scroll{flex:1; min-height:0; overflow-y:auto; -webkit-overflow-scrolling:touch; touch-action:pan-y;}
+        .explain-footer{flex-shrink:0; margin-top:12px;}
+
+        /* 타이틀 */
+        .exp-h2{font-weight:900; font-size:1.25rem; margin:2px 0 8px 0; color:#222;}
+
+        /* 라벨(좌측 바) */
+        .label{display:inline-flex; align-items:center; gap:8px; padding:8px 12px;
+               border:0; border-radius:12px; font-weight:900; font-size:0.95rem; margin-top:14px;}
+        .label.bad{background:rgba(231,76,60,0.10); color:#C0392B; border-left:6px solid #E74C3C;}
+        .label.why{background:rgba(142,68,173,0.10); color:#6C3483; border-left:6px solid #8E44AD;}
+        .label.good{background:rgba(39,174,96,0.10); color:#1E8449; border-left:6px solid #27AE60;}
+        .label.up{background:rgba(149,165,166,0.14); color:#2c2c2c; border-left:6px solid #7f8c8d;}
+        .label.sum{background:rgba(253,216,53,0.16); color:#2c2c2c; border-left:6px solid #FDD835;}
+
+        .section-block{margin-top:8px; line-height:1.75; text-align:left; word-break:keep-all;}
+        .section-block ul{margin:8px 0 0 18px; padding:0;}
+        .section-block li{margin:8px 0;}
+        .sum-box{margin-top:10px; padding:12px; border:var(--border); border-radius:14px; background:#fff; line-height:1.7;}
 
     </style>
 </head>
@@ -177,8 +208,8 @@
 
             <div id="explain-viewer" class="hidden" style="display:flex; flex-direction:column; flex:1; min-height:0;">
                 <div id="explain-meta" style="text-align:center; color:var(--primary); margin-bottom:10px; font-weight:bold;"></div>
-                <div class="quiz-card explain-scroll" style="padding:20px 15px; text-align:left;">
-                    <div id="explain-card" class="question" style="font-size:1rem;"></div>
+                <div class="quiz-card explain-scroll" style="padding:18px 15px; text-align:left;">
+                    <div id="explain-card" style="font-size:1rem; line-height:1.75; text-align:left; word-break:keep-all;"></div>
                 </div>
                 <div style="height:10px;"></div>
                 <div class="explain-footer" style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px;">
@@ -204,9 +235,8 @@
                 <button class="btn-pixel btn-opt" id="opt0"></button>
                 <button class="btn-pixel btn-opt" id="opt1"></button>
             </div>
-            <div style="height:26px;"></div>
-            <div style="display:flex; justify-content:center;">
-                <button class="btn-pixel btn-opt" style="width:60%; background:#95a5a6; color:#000; padding:12px 10px; font-size:0.95rem;" onclick="quitQuiz()">그만풀기</button>
+            <div style="margin-top:auto; padding-top:22px; display:flex; justify-content:center;">
+                <button class="btn-pixel btn-opt" style="width:52%; background:#c9ced3; color:#000; padding:10px 8px; font-size:0.9rem;" onclick="quitQuiz()">그만풀기</button>
             </div>
         </div>
     </div>
@@ -215,7 +245,7 @@
         <div class="modal">
             <span id="f-mark" style="font-size:3.5rem; text-align:center;">🌟</span>
             <div id="f-title" style="font-size: 1.4rem; font-weight: bold; text-align:center; margin:10px 0;"></div>
-            <div class="f-scroll"><div id="f-exp" style="line-height:1.7; font-size:1.1rem; word-break: keep-all;"></div></div>
+            <div class="f-scroll"><div id="f-exp" style="line-height:1.7; font-size:1.05rem; word-break:keep-all; text-align:left;"></div></div>
             <button class="btn-pixel" onclick="handleContinue()">계속하기 ▶</button>
         </div>
     </div>
@@ -384,7 +414,7 @@ function quitQuiz() { showScreen('screen-category'); }
           <div class="label sum">🧷 핵심만</div>
           <div class="sum-box">${c.summary}</div>
         `;
-}
+    }
 
     function prevExplain() {
         if (!explainCards.length) return;
