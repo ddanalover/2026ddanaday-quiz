@@ -706,5 +706,4 @@ masterDB.kanji = [
       answer: 0,
       explanation: "「<ruby>歩<rt>ある</rt></ruby>く」는 '걷다'라는 뜻입니다.<br>예문: <b><ruby>駅<rt>えき</rt></ruby>まで<ruby>歩<rt>ある</rt></ruby>きます。</b><br>번역: 역까지 걸어갑니다."
     }
-  ]
-};
+  ];
