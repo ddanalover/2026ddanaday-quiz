@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>별빛노트: 일본어 뽀개기</title>
+    <title>λ³„λΉ›λ…ΈνΈ: μΌλ³Έμ–΄ λ½€κ°κΈ°</title>
     <link href="https://fonts.googleapis.com/css2?family=Jua&family=Kosugi+Maru&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -107,68 +107,91 @@
     
         #screen-explain .content{padding:16px 20px 16px 20px;}
         #explain-viewer{min-height:0;}
-        .explain-footer{position:sticky; bottom:0; background:var(--bg-game); padding-top:10px; padding-bottom:6px;}
-        .explain-footer::before{content:''; position:absolute; left:0; right:0; top:-10px; height:10px; background:linear-gradient(to bottom, rgba(255,253,231,0), rgba(255,253,231,1));}
         .explain-scroll{flex:1; min-height:0; overflow-y:auto;}
 
-        /* explainbook 스타일 */
+        /* explainbook μ¤νƒ€μΌ */
         .exp-h2{font-weight:900; font-size:1.05rem; margin-top:6px;}
         .exp-bad{margin-top:10px; color:#E74C3C; font-weight:900;}
         .exp-good{margin-top:10px; color:var(--primary); font-weight:900;}
         .exp-ex{margin-top:10px; color:#333;}
         .exp-ex b{font-weight:900;}
+    
+        /* explain footer fixed */
+        #screen-explain .content{overflow:hidden;}
+        #explain-viewer{display:flex; flex-direction:column; flex:1; min-height:0;}
+        #explain-meta{flex-shrink:0;}
+        .explain-scroll{flex:1; min-height:0; overflow-y:auto;}
+        .explain-footer{flex-shrink:0; margin-top:10px;}
+
+    
+        /* explain UI tuning */
+        #screen-explain .content{padding:16px 20px 14px 20px;}
+        #explain-viewer{gap:0;}
+        #explain-meta{margin-bottom:6px;}
+        #explain-card{line-height:1.7;}
+        .label{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:2px solid #000; border-radius:999px; font-weight:900; font-size:0.95rem; margin-top:14px;}
+        .label.bad{background:rgba(231,76,60,0.12); color:#C0392B;}
+        .label.why{background:rgba(142,68,173,0.12); color:#6C3483;}
+        .label.good{background:rgba(39,174,96,0.12); color:#1E8449;}
+        .label.up{background:rgba(149,165,166,0.18); color:#2c2c2c;}
+        .label.sum{background:rgba(253,216,53,0.18); color:#2c2c2c;}
+        .section-block{margin-top:8px;}
+        .section-block ul{margin:8px 0 0 18px; padding:0;}
+        .section-block li{margin:8px 0;}
+        .sum-box{margin-top:14px; padding:12px; border:var(--border); border-radius:14px; background:#fff;}
+
     </style>
 </head>
 <body>
 
 <div id="app">
     <div id="screen-home" class="content" style="justify-content:center; align-items:center; background: radial-gradient(circle, #FFFDE7 0%, #F5F7FF 100%);">
-        <div class="home-star">🌟</div>
-        <div class="main-title">별빛노트</div>
-        <div class="sub-title">💥일본어 공부 뽀개기💥</div>
-        <button class="btn-pixel" style="width:85%; background:#8E44AD;" onclick="showScreen('screen-category')">도전 시작!</button>
+        <div class="home-star">π</div>
+        <div class="main-title">λ³„λΉ›λ…ΈνΈ</div>
+        <div class="sub-title">π’¥μΌλ³Έμ–΄ κ³µλ¶€ λ½€κ°κΈ°π’¥</div>
+        <button class="btn-pixel" style="width:85%; background:#8E44AD;" onclick="showScreen('screen-category')">λ„μ „ μ‹μ‘!</button>
     </div>
 
     <div id="screen-category" class="hidden">
-        <header>분야 선택</header>
+        <header>λ¶„μ•Ό μ„ νƒ</header>
         <div class="content" style="justify-content:center;">
             <div style="display:grid; gap:20px;">
-                <button class="btn-pixel" style="background:#F39C12" onclick="startQuiz('kanji')">🉐 한자</button>
-                <button class="btn-pixel" style="background:#3498DB" onclick="startQuiz('expression')">📖 표현</button>
-                <button class="btn-pixel" style="background:#95a5a6" onclick="openExplainMenu()">📚 해설집</button>
+                <button class="btn-pixel" style="background:#F39C12" onclick="startQuiz('kanji')">π‰ ν•μ</button>
+                <button class="btn-pixel" style="background:#3498DB" onclick="startQuiz('expression')">π“– ν‘ν„</button>
+                <button class="btn-pixel" style="background:#95a5a6" onclick="openExplainMenu()">π“ ν•΄μ„¤μ§‘</button>
             </div>
-            <button class="btn-pixel btn-opt" style="margin-top:50px;" onclick="showScreen('screen-home')">홈으로</button>
+            <button class="btn-pixel btn-opt" style="margin-top:50px;" onclick="showScreen('screen-home')">ν™μΌλ΅</button>
         </div>
     </div>
 
     <div id="screen-explain" class="hidden">
-        <header>해설집</header>
+        <header>ν•΄μ„¤μ§‘</header>
         <div class="content">
             <div id="explain-menu" style="display:grid; gap:15px; margin-top:20px;">
-                <button class="btn-pixel" style="background:#F39C12" onclick="startExplainSection('particle')">📍 조사</button>
-                <button class="btn-pixel" style="background:#3498DB" onclick="startExplainSection('keigo')">🙇 경어</button>
-                <button class="btn-pixel" style="background:#27AE60" onclick="startExplainSection('word')">🍎 어휘</button>
+                <button class="btn-pixel" style="background:#F39C12" onclick="startExplainSection('particle')">π“ μ΅°μ‚¬</button>
+                <button class="btn-pixel" style="background:#3498DB" onclick="startExplainSection('keigo')">π™‡ κ²½μ–΄</button>
+                <button class="btn-pixel" style="background:#27AE60" onclick="startExplainSection('word')">π μ–΄ν</button>
                 <div class="spacer"></div>
-                <button class="btn-pixel btn-opt" onclick="showScreen('screen-category')">뒤로가기</button>
+                <button class="btn-pixel btn-opt" onclick="showScreen('screen-category')">λ’¤λ΅κ°€κΈ°</button>
             </div>
 
-            <div id="explain-viewer" class="hidden" style="display:flex; flex-direction:column; flex:1;">
+            <div id="explain-viewer" class="hidden" style="display:flex; flex-direction:column; flex:1; min-height:0;">
                 <div id="explain-meta" style="text-align:center; color:var(--primary); margin-bottom:10px; font-weight:bold;"></div>
                 <div class="quiz-card explain-scroll" style="padding:20px 15px; text-align:left;">
                     <div id="explain-card" class="question" style="font-size:1rem;"></div>
                 </div>
                 <div style="height:10px;"></div>
                 <div class="explain-footer" style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px;">
-                    <button class="btn-pixel" onclick="prevExplain()">◀ 이전</button>
-                    <button class="btn-pixel btn-opt" onclick="openExplainMenu()">목록</button>
-                    <button class="btn-pixel" onclick="nextExplain()">다음 ▶</button>
+                    <button class="btn-pixel" onclick="prevExplain()">β—€ μ΄μ „</button>
+                    <button class="btn-pixel btn-opt" onclick="openExplainMenu()">λª©λ΅</button>
+                    <button class="btn-pixel" onclick="nextExplain()">λ‹¤μ β–¶</button>
                 </div>
             </div>
         </div>
     </div>
 
     <div id="screen-quiz" class="hidden">
-        <header id="quiz-header">진행 중
+        <header id="quiz-header">μ§„ν–‰ μ¤‘
 </header>
         <div class="progress-bar"><div id="progress-fill"></div></div>
         <div class="content">
@@ -183,33 +206,33 @@
             </div>
             <div style="height:26px;"></div>
             <div style="display:flex; justify-content:center;">
-                <button class="btn-pixel btn-opt" style="width:60%; background:#95a5a6; color:#000; padding:12px 10px; font-size:0.95rem;" onclick="quitQuiz()">그만풀기</button>
+                <button class="btn-pixel btn-opt" style="width:60%; background:#95a5a6; color:#000; padding:12px 10px; font-size:0.95rem;" onclick="quitQuiz()">κ·Έλ§ν’€κΈ°</button>
             </div>
         </div>
     </div>
 
     <div id="feedback-overlay">
         <div class="modal">
-            <span id="f-mark" style="font-size:3.5rem; text-align:center;">🌟</span>
+            <span id="f-mark" style="font-size:3.5rem; text-align:center;">π</span>
             <div id="f-title" style="font-size: 1.4rem; font-weight: bold; text-align:center; margin:10px 0;"></div>
             <div class="f-scroll"><div id="f-exp" style="line-height:1.7; font-size:1.1rem; word-break: keep-all;"></div></div>
-            <button class="btn-pixel" onclick="handleContinue()">계속하기 ▶</button>
+            <button class="btn-pixel" onclick="handleContinue()">κ³„μ†ν•κΈ° β–¶</button>
         </div>
     </div>
 
     <div id="screen-result" class="hidden">
-        <header>결과 리포트</header>
+        <header>κ²°κ³Ό λ¦¬ν¬νΈ</header>
         <div class="content" style="justify-content: flex-start; padding-top: 20px;">
             <div class="score-box">
-                모은 별 개수: <span id="res-c" style="color:var(--primary); font-size:2.2rem;">0</span>/5
+                λª¨μ€ λ³„ κ°μ: <span id="res-c" style="color:var(--primary); font-size:2.2rem;">0</span>/5
             </div>
-            <div style="text-align:center; font-size:0.9rem; color:#666; margin-top: 5px;">(클릭하면 해설이 보입니다)</div>
+            <div style="text-align:center; font-size:0.9rem; color:#666; margin-top: 5px;">(ν΄λ¦­ν•λ©΄ ν•΄μ„¤μ΄ λ³΄μ…λ‹λ‹¤)</div>
             <div id="review-list" class="review-list"></div>
             <div class="result-footer">
-                <button class="btn-pixel btn-sm" style="background:#95a5a6;" onclick="showScreen('screen-home')">처음으로</button>
-                <button class="btn-pixel btn-sm" style="background:#3498DB;" onclick="showScreen('screen-category')">분야 선택</button>
-                <button class="btn-pixel btn-sm" id="btn-retry-bottom" onclick="retryCurrentQuiz()">다시풀기</button>
-                <button class="btn-pixel btn-sm" style="background:#27AE60;" onclick="continuePlay()">계속풀기</button>
+                <button class="btn-pixel btn-sm" style="background:#95a5a6;" onclick="showScreen('screen-home')">μ²μμΌλ΅</button>
+                <button class="btn-pixel btn-sm" style="background:#3498DB;" onclick="showScreen('screen-category')">λ¶„μ•Ό μ„ νƒ</button>
+                <button class="btn-pixel btn-sm" id="btn-retry-bottom" onclick="retryCurrentQuiz()">λ‹¤μ‹ν’€κΈ°</button>
+                <button class="btn-pixel btn-sm" style="background:#27AE60;" onclick="continuePlay()">κ³„μ†ν’€κΈ°</button>
             </div>
         </div>
     </div>
@@ -247,10 +270,10 @@
 
     function startQuiz(cat, isRetry = false) {
         curCat = cat;
-        if (!window.masterDB[cat] || window.masterDB[cat].length === 0) { alert("문제가 아직 등록되지 않았습니다."); return; }
+        if (!window.masterDB[cat] || window.masterDB[cat].length === 0) { alert("λ¬Έμ κ°€ μ•„μ§ λ“±λ΅λμ§€ μ•μ•μµλ‹λ‹¤."); return; }
         if (!isRetry) qSet = [...window.masterDB[cat]].sort(() => 0.5 - Math.random()).slice(0, 5);
         curIdx = 0; score = 0; history = [];
-        const t = {kanji:'🉐 한자', expression:'📖 표현'};
+        const t = {kanji:'π‰ ν•μ', expression:'π“– ν‘ν„'};
         document.getElementById('quiz-header').childNodes[0].nodeValue = t[cat];
         showScreen('screen-quiz');
         render();
@@ -275,10 +298,10 @@
         const d = qSet[curIdx]; 
         if(isC) { score++; playSnd('c'); } else { playSnd('w'); }
         history.push({...d, isC: isC});
-        document.getElementById('f-mark').innerText = isC ? "🌟" : "☁️";
-        document.getElementById('f-title').innerText = isC ? "정답입니다!" : "아쉬워요!";
+        document.getElementById('f-mark').innerText = isC ? "π" : "βοΈ";
+        document.getElementById('f-title').innerText = isC ? "μ •λ‹µμ…λ‹λ‹¤!" : "μ•„μ‰¬μ›μ”!";
         document.getElementById('f-title').style.color = isC ? "var(--primary)" : "#E74C3C";
-        document.getElementById('f-exp').innerHTML = `<b>정답: ${d.o[d.a]}</b><br><br>${d.e}`;
+        document.getElementById('f-exp').innerHTML = `<b>μ •λ‹µ: ${d.o[d.a]}</b><br><br>${d.e}`;
         document.getElementById('feedback-overlay').classList.add('show');
     }
 
@@ -294,10 +317,10 @@
         list.innerHTML = "";
         history.forEach((item, i) => {
             const div = document.createElement('div'); div.className = 'review-item';
-            div.innerHTML = `<b>${i+1}. ${item.q}</b><br><span style="color:${item.isC?'var(--primary)':'#E74C3C'}">✅ 정답: ${item.o[item.a]}</span>`;
+            div.innerHTML = `<b>${i+1}. ${item.q}</b><br><span style="color:${item.isC?'var(--primary)':'#E74C3C'}">β… μ •λ‹µ: ${item.o[item.a]}</span>`;
             div.onclick = () => {
-                document.getElementById('f-title').innerText = "해설 복습";
-                document.getElementById('f-exp').innerHTML = `<b>문제: ${item.q}</b><br><br><b>정답: ${item.o[item.a]}</b><br><br>${item.e}`;
+                document.getElementById('f-title').innerText = "ν•΄μ„¤ λ³µμµ";
+                document.getElementById('f-exp').innerHTML = `<b>λ¬Έμ : ${item.q}</b><br><br><b>μ •λ‹µ: ${item.o[item.a]}</b><br><br>${item.e}`;
                 document.getElementById('feedback-overlay').classList.add('show');
             };
             list.appendChild(div);
@@ -316,14 +339,14 @@ function quitQuiz() { showScreen('screen-category'); }
 
     function startExplainSection(sectionKey) {
         // sectionKey: particle | keigo | word
-        const map = { particle: "조사 사용", keigo: "경어와 톤", word: "단어 선택" };
+        const map = { particle: "μ΅°μ‚¬ μ‚¬μ©", keigo: "κ²½μ–΄μ™€ ν†¤", word: "λ‹¨μ–΄ μ„ νƒ" };
         const cat = map[sectionKey];
 
         const db = window.masterExplainDB || [];
         explainCards = db.filter(x => x.category === cat);
         explainIndex = 0;
 
-        if (explainCards.length === 0) { alert("내용이 없습니다."); return; }
+        if (explainCards.length === 0) { alert("λ‚΄μ©μ΄ μ—†μµλ‹λ‹¤."); return; }
 
         document.getElementById('explain-menu').classList.add('hidden');
         document.getElementById('explain-viewer').classList.remove('hidden');
@@ -342,25 +365,26 @@ function quitQuiz() { showScreen('screen-category'); }
         card.innerHTML = `
           <div class="exp-h2">${c.title}</div>
 
-          <div class="exp-bad">❌ 어색한 문장 사례</div>
-          <div>${c.wrong}</div>
+          <div class="label bad">β μμ£Ό ν•λ” μ‹¤μ</div>
+          <div class="section-block">${c.wrong}</div>
 
-          <div class="exp-h2" style="margin-top:12px;">🔎 왜 어색한가</div>
-          <div>${c.why}</div>
+          <div class="label why">π” μ™ μ–΄μƒ‰ν• κΉ</div>
+          <div class="section-block">${c.why}</div>
 
-          <div class="exp-good">✅ 자연스럽게 쓰려면</div>
-          <ul style="margin:6px 0 0 18px; padding:0;">
-            ${fixList}
-          </ul>
-
-          <div class="exp-h2" style="margin-top:12px;">🔼 스텝업</div>
-          <div>${c.stepup}</div>
-
-          <div class="exp-ex" style="margin-top:12px;">
-            <b>📌 한 줄 정리</b><br>${c.summary}
+          <div class="label good">β… μ΄λ ‡κ² λ§ν•΄μ”</div>
+          <div class="section-block">
+            <ul>
+              ${fixList}
+            </ul>
           </div>
+
+          <div class="label up">β• ν• λ‹¨κ³„ λ”</div>
+          <div class="section-block">${c.stepup}</div>
+
+          <div class="label sum">π§· ν•µμ‹¬λ§</div>
+          <div class="sum-box">${c.summary}</div>
         `;
-    }
+}
 
     function prevExplain() {
         if (!explainCards.length) return;
