@@ -105,6 +105,12 @@
         .result-footer { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 8px; flex-shrink: 0; }
         .btn-sm { padding: 12px 5px; font-size: 0.9rem; }
     
+        #screen-explain .content{padding:16px 20px 16px 20px;}
+        #explain-viewer{min-height:0;}
+        .explain-footer{position:sticky; bottom:0; background:var(--bg-game); padding-top:10px; padding-bottom:6px;}
+        .explain-footer::before{content:''; position:absolute; left:0; right:0; top:-10px; height:10px; background:linear-gradient(to bottom, rgba(255,253,231,0), rgba(255,253,231,1));}
+        .explain-scroll{flex:1; min-height:0; overflow-y:auto;}
+
         /* explainbook 스타일 */
         .exp-h2{font-weight:900; font-size:1.05rem; margin-top:6px;}
         .exp-bad{margin-top:10px; color:#E74C3C; font-weight:900;}
@@ -148,11 +154,11 @@
 
             <div id="explain-viewer" class="hidden" style="display:flex; flex-direction:column; flex:1;">
                 <div id="explain-meta" style="text-align:center; color:var(--primary); margin-bottom:10px; font-weight:bold;"></div>
-                <div class="quiz-card" style="flex:1; padding:20px 15px; text-align:left; overflow-y:auto;">
+                <div class="quiz-card explain-scroll" style="padding:20px 15px; text-align:left;">
                     <div id="explain-card" class="question" style="font-size:1rem;"></div>
                 </div>
-                <div class="spacer" style="min-height:10px;"></div>
-                <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px;">
+                <div style="height:10px;"></div>
+                <div class="explain-footer" style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px;">
                     <button class="btn-pixel" onclick="prevExplain()">◀ 이전</button>
                     <button class="btn-pixel btn-opt" onclick="openExplainMenu()">목록</button>
                     <button class="btn-pixel" onclick="nextExplain()">다음 ▶</button>
