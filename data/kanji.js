@@ -2,7 +2,9 @@
 // 문제 (한자) - masterDB.kanji (100문항)
 // 실생활 밀착 / 루비 100% / 예문+번역 포함
 
-const masterDB = {
+```javascript
+masterDB.kanji = [
+{
   kanji: [
     {
       tag: "(한자)",
@@ -706,5 +708,3 @@ const masterDB = {
     }
   ]
 };
-
-export default masterDB;
