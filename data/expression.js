@@ -3,8 +3,7 @@
 // 분포: 조사18 / 자타14 / ~中12 / あげる12 / 방향12 / 요청10 / 무대어휘12 / 중급뉘앙스10
 // 규칙: 한자 루비 적용, 오답 교정(오답을 맞게 쓰려면) 포함, 완전 오답 기반
 
-const masterDB = {
-  expression: [
+masterDB.expression = [
     {
       tag: "(표현)",
       question: "친구를 만나고 싶어요.",
@@ -707,5 +706,3 @@ const masterDB = {
     }
   ]
 };
-
-export default masterDB;
