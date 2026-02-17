@@ -704,5 +704,4 @@ masterDB.expression = [
       answer: 0,
       explanation: "はず=예상/확신. べき=당위입니다.<br>오답을 맞게 쓰려면: 来るべきです。(와야 한다)"
     }
-  ]
-};
+  ];
