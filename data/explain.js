@@ -1,4 +1,4 @@
-ㅣ(function () {
+(function () {
 
 const masterExplainDB = [
 
