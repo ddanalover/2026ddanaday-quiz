@@ -38,14 +38,14 @@
 
     .content {
       flex: 1; display: flex; flex-direction: column;
-      padding: 20px 20px 10px 20px; box-sizing: border-box; overflow: hidden;
+      padding: 30px 20px 10px 20px; box-sizing: border-box; overflow: hidden;
     }
 
-    /* 개선된 하단 네비게이션 영역 (선 제거 및 배경 통합) */
+    /* 하단 버튼 영역 최적화 (선 제거 / 배경 통합) */
     .nav-footer {
-      padding: 5px 20px 20px 20px; /* 위쪽 여백은 줄이고 아래쪽은 확보 */
-      display: flex; justify-content: center; gap: 12px; flex-shrink: 0; 
-      background: var(--bg-game); /* 배경색 통일 */
+      padding: 10px 20px 20px 20px;
+      display: flex; justify-content: center; gap: 12px; flex-shrink: 0;
+      background: var(--bg-game);
     }
 
     .btn-pixel {
@@ -53,10 +53,10 @@
       font-family: inherit; font-size: 1.1rem; cursor: pointer;
       box-shadow: inset -4px -4px 0px rgba(0,0,0,0.3); border-radius: 10px; outline: none;
     }
-    .btn-opt { background: #fff; color: #000; box-shadow: 4px 4px 0px rgba(0,0,0,0.1); }
     
-    /* 네비게이션 버튼 (사이즈 및 색상 통일) */
+    /* 네비게이션 버튼 사이즈 및 스타일 통일 */
     .btn-nav { flex: 1; max-width: 160px; padding: 12px 0; font-size: 1rem; }
+    .btn-opt { background: #fff; color: #000; box-shadow: 4px 4px 0px rgba(0,0,0,0.1); }
 
     .spacer { flex: 1; min-height: 5px; }
 
@@ -65,16 +65,26 @@
       font-weight: bold; transform: translateY(-1px);
     }
 
+    .home-star {
+      font-size: 8.5rem; margin-bottom: 10px;
+      animation: starFloat 2.5s infinite ease-in-out;
+      filter: drop-shadow(0 0 20px rgba(253, 216, 53, 0.7));
+    }
+    @keyframes starFloat { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(15deg); } }
+
+    .main-title { font-size: 2.8rem; color: var(--primary); margin-bottom: 5px; text-shadow: 3px 3px 0px rgba(0,0,0,0.1); }
+    .sub-title { font-size: 1.1rem; color: #888; margin-bottom: 40px; letter-spacing: 1.5px; }
+
     .quiz-card {
-      background: #fff; border: var(--border); padding: 30px 15px;
+      background: #fff; border: var(--border); padding: 35px 15px;
       text-align: center; position: relative; border-radius: 10px; flex-shrink: 0;
     }
     .q-tag {
       position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
-      background: var(--secondary); border: var(--border); padding: 6px 12px; font-size: 0.9rem;
+      background: var(--secondary); border: var(--border); padding: 6px 12px; font-size: 0.9rem; z-index: 10;
     }
     .question { font-size: 1.4rem; line-height: 1.6; color: #333; word-break: keep-all; }
-    .options { display: grid; gap: 12px; width: 100%; flex-shrink: 0; }
+    .options { display: grid; gap: 15px; width: 100%; flex-shrink: 0; }
 
     #feedback-overlay {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -85,7 +95,7 @@
     .f-scroll { flex: 1; overflow-y: auto; background: #FFF9C4; border: 2px dashed var(--primary); padding: 15px; margin-bottom: 15px; border-radius: 10px; }
 
     .score-box { background: #fff; border: var(--border); padding: 15px; text-align: center; border-radius: 10px; flex-shrink: 0; }
-    .review-list { margin: 15px 0; display: flex; flex-direction: column; gap: 8px; overflow-y: auto; flex: 1; min-height: 0; }
+    .review-list { margin: 15px 0; display: flex; flex-direction: column; gap: 10px; overflow-y: auto; flex: 1; min-height: 0; }
     .review-item { background: #fff; border: 2px solid var(--primary); padding: 12px; font-size: 1rem; border-radius: 8px; cursor: pointer; }
 
     .label{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:0;border-radius:12px;font-weight:900;font-size:0.95rem;margin-top:14px;}
@@ -102,9 +112,10 @@
 <div id="app">
 
   <div id="screen-home" class="content" style="justify-content:center; align-items:center; background: radial-gradient(circle, #FFFDE7 0%, #F5F7FF 100%);">
-    <div style="font-size: 8.5rem; margin-bottom: 10px;">🌟</div>
-    <div style="font-size: 2.8rem; color: var(--primary); text-shadow: 3px 3px 0px rgba(0,0,0,0.1);">별빛노트</div>
-    <button class="btn-pixel" style="width:85%; margin-top:20px;" onclick="showScreen('screen-category')">도전 시작!</button>
+    <div class="home-star">🌟</div>
+    <div class="main-title">별빛노트</div>
+    <div class="sub-title">💥일본어 공부 뽀개기💥</div>
+    <button class="btn-pixel" style="width:85%;" onclick="showScreen('screen-category')">도전 시작!</button>
   </div>
 
   <div id="screen-category" class="hidden">
@@ -121,13 +132,15 @@
 
   <div id="screen-kanji-cat" class="hidden">
     <header>한자 카테고리</header>
-    <div class="content" style="display:grid; grid-template-columns:1fr 1fr; gap:12px; align-content:center;">
+    <div class="content" style="justify-content:center;">
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; align-content:center;">
         <button class="btn-pixel btn-opt" onclick="startKanjiSub('공연·행사')">🎟 공연</button>
         <button class="btn-pixel btn-opt" onclick="startKanjiSub('호텔·숙박')">🏨 호텔</button>
         <button class="btn-pixel btn-opt" onclick="startKanjiSub('식당·카페')">🍜 식당</button>
         <button class="btn-pixel btn-opt" onclick="startKanjiSub('쇼핑')">🛍 쇼핑</button>
         <button class="btn-pixel btn-opt" onclick="startKanjiSub('교통·이동')">🚦 교통</button>
         <button class="btn-pixel btn-opt" onclick="startKanjiSub('계절·날씨')">🌦 날씨</button>
+      </div>
     </div>
     <div class="nav-footer">
       <button class="btn-pixel btn-nav" onclick="showScreen('screen-category')">뒤로 가기</button>
@@ -138,7 +151,10 @@
     <header id="quiz-header">진행 중</header>
     <div class="progress-bar"><div id="progress-fill"></div></div>
     <div class="content">
-      <div class="quiz-card"><div id="q-text" class="question"></div></div>
+      <div class="quiz-card">
+        <span class="q-tag" id="q-label">STEP 01</span>
+        <div id="q-text" class="question"></div>
+      </div>
       <div class="spacer"></div>
       <div class="options">
         <button class="btn-pixel btn-opt" id="opt0"></button>
@@ -176,9 +192,7 @@
           <div id="explain-card-title" class="question" style="font-size:1.1rem;"></div>
           <div id="explain-page-indicator" style="text-align:right; font-size:0.8rem; color:#666;">1/4</div>
         </div>
-        <div id="explain-page-scroll" style="flex:1; overflow-y:auto; -webkit-overflow-scrolling:touch;">
-          <div class="quiz-card" style="padding:15px; text-align:left;"><div id="explain-page-body" style="font-family:'Noto Sans KR',sans-serif; font-size:1rem; line-height:1.7;"></div></div>
-        </div>
+        <div id="explain-page-scroll" style="flex:1; overflow-y:auto;"><div class="quiz-card" style="padding:15px; text-align:left;"><div id="explain-page-body" style="font-family:'Noto Sans KR',sans-serif; font-size:1rem; line-height:1.7;"></div></div></div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:15px;">
           <button class="btn-pixel" onclick="prevExplainPage()">◀ 이전</button>
           <button class="btn-pixel" onclick="nextExplainPage()">다음 ▶</button>
@@ -248,7 +262,7 @@
     if (!db || db.length === 0) { alert("문제가 없습니다."); return; }
     if (!isRetry) qSet = [...db].sort(() => 0.5 - Math.random()).slice(0, 5);
     curIdx = 0; score = 0; history = [];
-    document.getElementById('quiz-header').innerText = '📖 표현 퀴즈';
+    document.getElementById('quiz-header').innerText = cat==='expression' ? '📖 표현 퀴즈' : '🉐 한자 퀴즈';
     showScreen('screen-quiz'); renderQuiz();
   }
 
@@ -275,6 +289,7 @@
       { text: (d.o ? d.o[0] : d.options[0]), isCorrect: ((d.a ?? d.answer) === 0) },
       { text: (d.o ? d.o[1] : d.options[1]), isCorrect: ((d.a ?? d.answer) === 1) }
     ].sort(() => Math.random() - 0.5);
+    document.getElementById('q-label').innerText = `STEP 0${curIdx + 1}`;
     document.getElementById('q-text').innerHTML = (d.q ?? d.question);
     document.getElementById('progress-fill').style.width = `${(curIdx / 5) * 100}%`;
     document.getElementById('opt0').innerHTML = `A. ${opts[0].text}`;
@@ -314,10 +329,10 @@
 
   function openExplainMenu() { showScreen('screen-explain'); backToExplainCat(); }
   function handleExplainBack() {
-    const viewer = !document.getElementById('explain-viewer').classList.contains('hidden');
-    const list = !document.getElementById('explain-list').classList.contains('hidden');
-    if(viewer) { document.getElementById('explain-viewer').classList.add('hidden'); document.getElementById('explain-list').classList.remove('hidden'); }
-    else if(list) { backToExplainCat(); }
+    const viewerVisible = !document.getElementById('explain-viewer').classList.contains('hidden');
+    const listVisible = !document.getElementById('explain-list').classList.contains('hidden');
+    if(viewerVisible) { document.getElementById('explain-viewer').classList.add('hidden'); document.getElementById('explain-list').classList.remove('hidden'); }
+    else if(listVisible) { backToExplainCat(); }
     else showScreen('screen-category');
   }
   function backToExplainCat() { 
