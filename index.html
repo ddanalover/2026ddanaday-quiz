@@ -17,23 +17,34 @@
         }
 
     html, body {
-      margin: 0; padding: 0; height: 100dvh; overflow: hidden;
-      display: flex; justify-content: center; align-items: center;
-      background-color: var(--bg-body);
-      font-family: 'Jua', 'Kosugi Maru', sans-serif;
-      image-rendering: pixelated;
-    }
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: var(--bg-body);
+            font-family: 'Jua', 'Kosugi Maru', sans-serif;
+            image-rendering: pixelated;
+        }
+
+        body{
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+        }
 
     #app {
-      width: min(95vw, 400px);
-      height: min(95vh, 711px);
-      background: var(--bg-game);
-      border: var(--border);
-      border-radius: 12px;
-      box-shadow: 12px 12px 0px rgba(0,0,0,0.12);
-      display: flex; flex-direction: column;
-      position: relative; overflow: hidden;
-    }
+            width: 95vw;
+            max-width: 400px;
+            height: 95vh;
+            max-height: 711px;
+            background: var(--bg-game);
+            border: var(--border);
+            border-radius: 12px;
+            box-shadow: 12px 12px 0px rgba(0,0,0,0.12);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
 
     .hidden { display: none !important; }
 
