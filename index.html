@@ -9,12 +9,12 @@
 
   <style>
     :root {
-      --bg-body: #DDE2FF;
-      --bg-game: #FFFDE7;
-      --primary: #8E44AD;
-      --secondary: #FDD835;
-      --border: 4px solid #000;
-    }
+            --bg-body: #E9ECFF;
+            --bg-game: #FFFDF3;
+            --primary: #A889D6;      /* lavender */
+            --secondary: #FFD54F;    /* brighter yellow */    /* pastel yellow */
+            --border: 4px solid #000;
+        }
 
     html, body {
       margin: 0; padding: 0; height: 100dvh; overflow: hidden;
@@ -30,7 +30,7 @@
       background: var(--bg-game);
       border: var(--border);
       border-radius: 12px;
-      box-shadow: 15px 15px 0px rgba(0,0,0,0.15);
+      box-shadow: 12px 12px 0px rgba(0,0,0,0.12);
       display: flex; flex-direction: column;
       position: relative; overflow: hidden;
     }
@@ -116,7 +116,7 @@
     .explain-scroll-area::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.25); border-radius:10px;}
 
     .label{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:0;border-radius:12px;font-weight:900;font-size:0.95rem;margin-top:14px;}
-    .label.bad{background:rgba(231,76,60,0.10);color:#C0392B;border-left:6px solid #E74C3C;}
+    .label.bad{background:rgba(231,76,60,0.10);color:#C0392B;border-left:0;}
     .label.why{background:rgba(142,68,173,0.10);color:#6C3483;border-left:6px solid #8E44AD;}
     .label.good{background:rgba(39,174,96,0.10);color:#1E8449;border-left:6px solid #27AE60;}
     .label.up{background:rgba(149,165,166,0.14);color:#2c2c2c;border-left:6px solid #7f8c8d;}
@@ -137,7 +137,7 @@
     <div class="home-star">🌟</div>
     <div class="main-title">별빛노트</div>
     <div class="sub-title">💥일본어 공부 뽀개기💥</div>
-    <button class="btn-pixel" style="width:85%; background:#8E44AD;" onclick="showScreen('screen-category')">도전 시작!</button>
+    <button class="btn-pixel" style="width:85%; background:var(--primary);" onclick="showScreen('screen-category')">도전 시작!</button>
   </div>
 
   <!-- CATEGORY -->
@@ -145,13 +145,31 @@
     <header>분야 선택</header>
     <div class="content" style="justify-content:center;">
       <div style="display:grid; gap:20px;">
-        <button class="btn-pixel" style="background:#F39C12" onclick="startQuiz('kanji')">🉐 한자</button>
-        <button class="btn-pixel" style="background:#3498DB" onclick="startQuiz('expression')">📖 표현</button>
-        <button class="btn-pixel" style="background:#95a5a6" onclick="openExplainMenu()">📚 해설집</button>
+        <button class="btn-pixel" style="background:#8E44AD" onclick="showKanjiCats()">🉐&nbsp;한자</button>
+        <button class="btn-pixel" style="background:#8E44AD" onclick="startQuiz('expression')">📖&nbsp;표현</button>
+        <button class="btn-pixel" style="background:#8E44AD" onclick="openExplainMenu()">📚&nbsp;해설집</button>
       </div>
       <button class="btn-pixel btn-opt" style="margin-top:50px;" onclick="showScreen('screen-home')">홈으로</button>
     </div>
   </div>
+
+
+  <!-- KANJI SUBCATEGORY -->
+  <div id="screen-kanji-cat" class="hidden">
+    <header>한자 카테고리</header>
+    <div class="content" style="justify-content:center;">
+      <div style="display:grid; gap:14px;">
+        <button class="btn-pixel" style="background:#FFB74D" onclick="startKanjiSub('공연·행사')">🎟&nbsp;공연·행사</button>
+        <button class="btn-pixel" style="background:#FFD54F" onclick="startKanjiSub('호텔·숙박')">🏨&nbsp;호텔·숙박</button>
+        <button class="btn-pixel" style="background:#A5D6A7" onclick="startKanjiSub('식당·카페')">🍜&nbsp;식당·카페</button>
+        <button class="btn-pixel" style="background:#81D4FA" onclick="startKanjiSub('쇼핑')">🛍&nbsp;쇼핑</button>
+        <button class="btn-pixel" style="background:#FFAB91" onclick="startKanjiSub('교통·이동')">🚦&nbsp;교통·이동</button>
+        <button class="btn-pixel" style="background:#80DEEA" onclick="startKanjiSub('계절·날씨')">🌦&nbsp;계절·날씨</button>
+      </div>
+      <button class="btn-pixel btn-opt" style="width:60%; margin:18px auto 0 auto; display:block;" onclick="showScreen('screen-category')">뒤로가기</button>
+    </div>
+  </div>
+
 
   <!-- EXPLAIN (4 pages) -->
   <div id="screen-explain" class="hidden">
@@ -160,15 +178,13 @@
 
       <!-- 1) 카테고리 선택 -->
       <div id="explain-cat">
-        <div class="quiz-card" style="padding:20px 15px;">
-          <div class="question" style="font-size:1.2rem;">📚 해설집</div>
-          <div style="display:grid; gap:15px; margin-top:18px;">
-            <button class="btn-pixel" style="background:#F39C12" onclick="openExplainList('조사 사용')">📍 조사</button>
-            <button class="btn-pixel" style="background:#3498DB" onclick="openExplainList('경어와 톤')">🙇 경어</button>
-            <button class="btn-pixel" style="background:#27AE60" onclick="openExplainList('단어 선택')">🍎 단어</button>
+  <div style="display:grid; gap:15px; margin-top:18px;">
+            <button class="btn-pixel" style="background:#FFB74D" onclick="openExplainList('조사 사용')">📍&nbsp;조사</button>
+            <button class="btn-pixel" style="background:#81D4FA" onclick="openExplainList('경어와 톤')">🙇&nbsp;경어</button>
+            <button class="btn-pixel" style="background:#A5D6A7" onclick="openExplainList('단어 선택')">🍎&nbsp;단어</button>
           </div>
           <div class="spacer"></div>
-          <button class="btn-pixel btn-opt" onclick="showScreen('screen-category')">뒤로가기</button>
+          <button class="btn-pixel btn-opt" style="width:60%; margin:18px auto 0 auto; display:block;" onclick="showScreen('screen-category')">뒤로가기</button>
         </div>
       </div>
 
@@ -186,7 +202,7 @@
 
         <div class="explain-footer" style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:auto; padding-top:18px; flex-shrink:0;">
           <button class="btn-pixel btn-opt" onclick="backToExplainCat()">카테고리</button>
-          <button class="btn-pixel" style="background:#95a5a6; color:#000;" onclick="showScreen('screen-category')">나가기</button>
+          <button class="btn-pixel" style="background:#8E44AD" onclick="showScreen('screen-category')">나가기</button>
         </div>
       </div>
 
@@ -266,10 +282,10 @@
       <div style="text-align:center; font-size:0.9rem; color:#666; margin-top: 5px;">(클릭하면 해설이 보입니다)</div>
       <div id="review-list" class="review-list"></div>
       <div class="result-footer">
-        <button class="btn-pixel btn-sm" style="background:#95a5a6;" onclick="showScreen('screen-home')">처음으로</button>
-        <button class="btn-pixel btn-sm" style="background:#3498DB;" onclick="showScreen('screen-category')">분야 선택</button>
+        <button class="btn-pixel btn-sm" style="background:#CFD8DC;" onclick="showScreen('screen-home')">처음으로</button>
+        <button class="btn-pixel btn-sm" style="background:#81D4FA;" onclick="showScreen('screen-category')">분야 선택</button>
         <button class="btn-pixel btn-sm" onclick="retryCurrentQuiz()">다시풀기</button>
-        <button class="btn-pixel btn-sm" style="background:#27AE60;" onclick="continuePlay()">계속풀기</button>
+        <button class="btn-pixel btn-sm" style="background:#A5D6A7;" onclick="continuePlay()">계속풀기</button>
       </div>
     </div>
   </div>
@@ -304,7 +320,7 @@
   let curCat = '', qSet = [], history = [], curIdx = 0, score = 0;
 
   function showScreen(id) {
-    ['screen-home','screen-category','screen-quiz','screen-result','screen-explain'].forEach(s => {
+    ['screen-home','screen-category','screen-kanji-cat','screen-quiz','screen-result','screen-explain'].forEach(s => {
       document.getElementById(s).classList.add('hidden');
     });
     document.getElementById(id).classList.remove('hidden');
@@ -313,6 +329,7 @@
 
   function startQuiz(cat, isRetry=false) {
     curCat = cat;
+    if (cat === 'kanji') { showKanjiCats(); return; }
     if (!window.masterDB || !window.masterDB[cat] || window.masterDB[cat].length === 0) {
       alert("문제가 아직 등록되지 않았습니다.");
       return;
@@ -325,17 +342,35 @@
     renderQuiz();
   }
 
+  // 한자: 하위 카테고리 선택 화면
+  function showKanjiCats() {
+    showScreen('screen-kanji-cat');
+  }
+
+  // 한자: 카테고리별 5문항 랜덤
+  function startKanjiSub(catName) {
+    curCat = 'kanji';
+    const all = (window.masterDB && window.masterDB.kanji) ? window.masterDB.kanji : [];
+    const filtered = all.filter(x => (x.cat || '') === catName);
+    if (!filtered.length) { alert("해당 카테고리 문제가 아직 없습니다."); return; }
+    qSet = [...filtered].sort(() => 0.5 - Math.random()).slice(0, 5);
+    curIdx = 0; score = 0; history = [];
+    document.getElementById('quiz-header').innerText = `🉐 한자 · ${catName}`;
+    showScreen('screen-quiz');
+    renderQuiz();
+  }
+
   function renderQuiz() {
     const d = qSet[curIdx];
     if (!d) { showFinalResult(); return; }
 
     let optionsData = [
-      { text: d.o[0], isCorrect: (d.a === 0) },
-      { text: d.o[1], isCorrect: (d.a === 1) }
+      { text: (d.o ? d.o[0] : d.options[0]), isCorrect: ((d.a !== undefined ? d.a : d.answer) === 0) },
+      { text: (d.o ? d.o[1] : d.options[1]), isCorrect: ((d.a !== undefined ? d.a : d.answer) === 1) }
     ].sort(() => Math.random() - 0.5);
 
     document.getElementById('q-label').innerText = `STEP 0${curIdx + 1}`;
-    document.getElementById('q-text').innerHTML = d.q;
+    document.getElementById('q-text').innerHTML = (d.q !== undefined ? d.q : d.question);
     document.getElementById('progress-fill').style.width = `${(curIdx / 5) * 100}%`;
 
     const b0 = document.getElementById('opt0');
@@ -353,7 +388,10 @@
     document.getElementById('f-mark').innerText = isC ? "🌟" : "☁️";
     document.getElementById('f-title').innerText = isC ? "정답입니다!" : "아쉬워요!";
     document.getElementById('f-title').style.color = isC ? "var(--primary)" : "#E74C3C";
-    document.getElementById('f-exp').innerHTML = `<b>정답: ${d.o[d.a]}</b><br><br>${d.e}`;
+    const ansIdx = (d.a !== undefined ? d.a : d.answer);
+    const opts = (d.o !== undefined ? d.o : d.options);
+    const exp = (d.e !== undefined ? d.e : d.explanation);
+    document.getElementById('f-exp').innerHTML = `<b>정답: ${opts[ansIdx]}</b><br><br>${exp}`;
     document.getElementById('feedback-overlay').classList.add('show');
   }
 
@@ -369,10 +407,17 @@
     list.innerHTML = "";
     history.forEach((item, i) => {
       const div = document.createElement('div'); div.className = 'review-item';
-      div.innerHTML = `<b>${i+1}. ${item.q}</b><br><span style="color:${item.isC?'var(--primary)':'#E74C3C'}">✅ 정답: ${item.o[item.a]}</span>`;
+      const qHtml = (item.q !== undefined ? item.q : item.question);
+      const ansIdx2 = (item.a !== undefined ? item.a : item.answer);
+      const opts2 = (item.o !== undefined ? item.o : item.options);
+      div.innerHTML = `<b>${i+1}. ${qHtml}</b><br><span style="color:${item.isC?'var(--primary)':'#E74C3C'}">✅ 정답: ${opts2[ansIdx2]}</span>`;
       div.onclick = () => {
         document.getElementById('f-title').innerText = "해설 복습";
-        document.getElementById('f-exp').innerHTML = `<b>문제: ${item.q}</b><br><br><b>정답: ${item.o[item.a]}</b><br><br>${item.e}`;
+        const qHtml2 = (item.q !== undefined ? item.q : item.question);
+        const ansIdx3 = (item.a !== undefined ? item.a : item.answer);
+        const opts3 = (item.o !== undefined ? item.o : item.options);
+        const exp3 = (item.e !== undefined ? item.e : item.explanation);
+        document.getElementById('f-exp').innerHTML = `<b>문제: ${qHtml2}</b><br><br><b>정답: ${opts3[ansIdx3]}</b><br><br>${exp3}`;
         document.getElementById('feedback-overlay').classList.add('show');
       };
       list.appendChild(div);
