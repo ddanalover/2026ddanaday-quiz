@@ -6,6 +6,7 @@
   <title>별빛노트: 일본어 뽀개기</title>
   <link href="https://fonts.googleapis.com/css2?family=Jua&family=Kosugi+Maru&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -43,7 +44,7 @@
 
     /* 하단 버튼 영역 최적화 (선 제거 / 배경 통합) */
     .nav-footer {
-      padding: 10px 20px 20px 20px;
+      padding: 18px 20px 28px 20px;
       display: flex; justify-content: center; gap: 12px; flex-shrink: 0;
       background: var(--bg-game);
     }
@@ -60,8 +61,11 @@
 
     .spacer { flex: 1; min-height: 5px; }
 
+    ruby {
+      font-family: 'Noto Sans JP', sans-serif;
+    }
     ruby rt {
-      font-size: 0.7rem; color: #6c3483; font-family: 'Kosugi Maru', sans-serif;
+      font-size: 0.7rem; color: #6c3483; font-family: 'Noto Sans JP', 'Kosugi Maru', sans-serif;
       font-weight: bold; transform: translateY(-1px);
     }
 
@@ -79,12 +83,21 @@
       background: #fff; border: var(--border); padding: 35px 15px;
       text-align: center; position: relative; border-radius: 10px; flex-shrink: 0;
     }
+    #screen-quiz .quiz-card {
+      min-height: 136px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     .q-tag {
       position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
       background: var(--secondary); border: var(--border); padding: 6px 12px; font-size: 0.9rem; z-index: 10;
     }
-    .question { font-size: 1.4rem; line-height: 1.6; color: #333; word-break: keep-all; }
-    .options { display: grid; gap: 15px; width: 100%; flex-shrink: 0; }
+    .question { font-size: 1.4rem; line-height: 1.6; color: #333; word-break: keep-all; text-align: center; }
+    #screen-quiz .question { width: 100%; margin: 0; }
+    .options { display: grid; gap: 15px; width: 100%; flex-shrink: 0; margin-top: 18px; }
+    .options .btn-opt { font-size: 1rem; line-height: 1.45; }
+    #screen-kanji-cat .btn-opt { width: 100%; padding: 14px 12px; font-size: 1.05rem; white-space: nowrap; }
 
     #feedback-overlay {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -94,17 +107,115 @@
     .modal { background: #fff; border: var(--border); width: 85%; max-height: 80%; display: flex; flex-direction: column; padding: 20px; border-radius: 15px; }
     .f-scroll { flex: 1; overflow-y: auto; background: #FFF9C4; border: 2px dashed var(--primary); padding: 15px; margin-bottom: 15px; border-radius: 10px; }
 
-    .score-box { background: #fff; border: var(--border); padding: 15px; text-align: center; border-radius: 10px; flex-shrink: 0; }
+    .score-box { background: #fff; border: var(--border); padding: 10px 12px; text-align: center; border-radius: 10px; flex-shrink: 0; }
     .review-list { margin: 15px 0; display: flex; flex-direction: column; gap: 10px; overflow-y: auto; flex: 1; min-height: 0; }
     .review-item { background: #fff; border: 2px solid var(--primary); padding: 12px; font-size: 1rem; border-radius: 8px; cursor: pointer; }
+    #screen-result {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-height: 0;
+      overflow-y: auto;
+    }
+    #screen-result .content { flex: 1; min-height: 0; overflow-y: auto; padding-top: 16px; }
+    #screen-result .nav-footer {
+      padding: 4px 20px 16px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-shrink: 0;
+      margin-bottom: 8px;
+    }
+    #screen-explain {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-height: 0;
+      overflow: hidden;
+    }
+    #screen-explain .content { flex: 1; min-height: 0; overflow: hidden; }
+    #explain-viewer { min-height: 0; overflow: hidden; }
+    #explain-nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin-top: 15px;
+      margin-bottom: 10px;
+      flex-shrink: 0;
+    }
 
-    .label{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:0;border-radius:12px;font-weight:900;font-size:0.95rem;margin-top:14px;}
-    .label.bad{background:rgba(231,76,60,0.10);color:#C0392B;}
-    .label.why{background:rgba(142,68,173,0.10);color:#6C3483;border-left:6px solid #8E44AD;}
-    .label.good{background:rgba(39,174,96,0.10);color:#1E8449;border-left:6px solid #27AE60;}
-    .label.sum{background:rgba(253,216,53,0.16);color:#2c2c2c;border-left:6px solid #FDD835;}
-    .section-block{margin-top:8px; line-height:1.75; text-align:left;}
-    .sum-box{margin-top:10px; padding:12px; border:var(--border); border-radius:14px; background:#fff;}
+    .label{display:inline-flex;align-items:center;gap:6px;padding:0;border:0;background:transparent;font-weight:900;font-size:0.98rem;margin-top:8px;}
+    .label.bad{color:#8E3B2E;}
+    .label.why{color:#5B4B9A;}
+    .label.good{color:#1E7D4D;}
+    .label.sum{color:#8A6A00;}
+    .section-block{margin-top:3px; margin-bottom:12px; line-height:1.72; text-align:left;}
+    .sum-box{margin-top:4px; padding:10px 12px; border:2px dashed #D8B95A; border-radius:12px; background:linear-gradient(180deg,#FFFDF2 0%, #FFF9DE 100%);}
+    .explain-item-title{
+      font-size:1.08rem;
+      font-weight:900;
+      line-height:1.5;
+      margin-bottom:10px;
+      color:#2c2c2c;
+    }
+    .explain-cat-tag{font-weight:900;}
+
+    /* StarNote-like scrollbar */
+    .review-list,
+    .f-scroll,
+    #screen-result .content,
+    #explain-list {
+      scrollbar-width: thin;
+      scrollbar-color: #a889d6 #efe9ff;
+      overflow-x: hidden;
+    }
+    #explain-body-card {
+      height: 100%;
+      padding: 0;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+    }
+    #explain-page-scroll {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      box-sizing: border-box;
+      padding: 12px 10px 12px 10px;
+      scrollbar-width: thin;
+      scrollbar-color: #a889d6 #efe9ff;
+    }
+    .review-list::-webkit-scrollbar,
+    .f-scroll::-webkit-scrollbar,
+    #screen-result .content::-webkit-scrollbar,
+    #explain-list::-webkit-scrollbar,
+    #explain-page-scroll::-webkit-scrollbar {
+      width: 10px;
+      height: 0;
+    }
+    .review-list::-webkit-scrollbar-track,
+    .f-scroll::-webkit-scrollbar-track,
+    #screen-result .content::-webkit-scrollbar-track,
+    #explain-list::-webkit-scrollbar-track,
+    #explain-page-scroll::-webkit-scrollbar-track {
+      background: #efe9ff;
+      border-radius: 999px;
+    }
+    .review-list::-webkit-scrollbar-thumb,
+    .f-scroll::-webkit-scrollbar-thumb,
+    #screen-result .content::-webkit-scrollbar-thumb,
+    #explain-list::-webkit-scrollbar-thumb,
+    #explain-page-scroll::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #a889d6, #8f74c0);
+      border-radius: 999px;
+      border: 2px solid #efe9ff;
+    }
+
+    #f-exp {
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
   </style>
 </head>
 
@@ -133,7 +244,7 @@
   <div id="screen-kanji-cat" class="hidden">
     <header>한자 카테고리</header>
     <div class="content" style="justify-content:center;">
-      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; align-content:center;">
+      <div style="display:grid; grid-template-columns: 1fr; gap:12px; align-content:center;">
         <button class="btn-pixel btn-opt" onclick="startKanjiSub('공연·행사')">🎟 공연</button>
         <button class="btn-pixel btn-opt" onclick="startKanjiSub('호텔·숙박')">🏨 호텔</button>
         <button class="btn-pixel btn-opt" onclick="startKanjiSub('식당·카페')">🍜 식당</button>
@@ -169,12 +280,13 @@
   <div id="screen-result" class="hidden">
     <header>결과 리포트</header>
     <div class="content" style="justify-content: flex-start;">
-      <div class="score-box">별 개수: <span id="res-c" style="color:var(--primary); font-size:2.2rem;">0</span>/5</div>
+      <div class="score-box">🌟별 개수: <span id="res-c" style="color:var(--primary); font-size:1.9rem;">0</span>/5</div>
       <div id="review-list" class="review-list"></div>
     </div>
     <div class="nav-footer">
-        <button class="btn-pixel btn-nav" onclick="retryCurrentQuiz()">다시 하기</button>
         <button class="btn-pixel btn-nav" onclick="handleResultBack()">뒤로 가기</button>
+        <button class="btn-pixel btn-nav" onclick="retryCurrentQuiz()">다시 하기</button>
+        <button class="btn-pixel btn-nav" onclick="continueCurrentQuiz()">계속 풀기</button>
     </div>
   </div>
 
@@ -190,26 +302,33 @@
       <div id="explain-viewer" class="hidden" style="flex:1; display:flex; flex-direction:column;">
         <div class="quiz-card" style="padding:15px; text-align:left; margin-bottom:10px;">
           <div id="explain-card-title" class="question" style="font-size:1.1rem;"></div>
-          <div id="explain-page-indicator" style="text-align:right; font-size:0.8rem; color:#666;">1/4</div>
+          <div id="explain-page-indicator" style="text-align:right; font-size:0.8rem; color:#666;">1/3</div>
         </div>
-        <div id="explain-page-scroll" style="flex:1; overflow-y:auto;"><div class="quiz-card" style="padding:15px; text-align:left;"><div id="explain-page-body" style="font-family:'Noto Sans KR',sans-serif; font-size:1rem; line-height:1.7;"></div></div></div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:15px;">
-          <button class="btn-pixel" onclick="prevExplainPage()">◀ 이전</button>
-          <button class="btn-pixel" onclick="nextExplainPage()">다음 ▶</button>
+        <div style="flex:1; min-height:0;">
+          <div id="explain-body-card" class="quiz-card">
+            <div id="explain-page-scroll">
+              <div id="explain-page-body" style="font-family:'Noto Sans KR',sans-serif; font-size:1rem; line-height:1.7;"></div>
+            </div>
+          </div>
+        </div>
+        <div id="explain-nav">
+          <button class="btn-pixel" onclick="prevExplainPage()">&lt; 이전</button>
+          <button class="btn-pixel" onclick="handleExplainBack()">뒤로</button>
+          <button class="btn-pixel" onclick="nextExplainPage()">다음 &gt;</button>
         </div>
       </div>
     </div>
-    <div class="nav-footer">
+    <div id="explain-footer" class="nav-footer">
       <button class="btn-pixel btn-nav" onclick="handleExplainBack()">뒤로 가기</button>
     </div>
   </div>
 
   <div id="feedback-overlay">
     <div class="modal">
-      <span id="f-mark" style="font-size:3.5rem; text-align:center;">🌟</span>
+      <span id="f-mark" style="display:none; font-size:3.5rem; text-align:center;">🌟</span>
       <div id="f-title" style="font-size: 1.4rem; font-weight: bold; text-align:center; margin:10px 0;"></div>
       <div class="f-scroll"><div id="f-exp" style="font-family:'Noto Sans KR',sans-serif; line-height:1.8;"></div></div>
-      <button class="btn-pixel" onclick="handleContinue()">계속하기 ▶</button>
+      <button class="btn-pixel" onclick="handleContinue()">계속하기 > </button>
     </div>
   </div>
 
@@ -283,6 +402,17 @@
     else startQuiz('expression', true);
   }
 
+  function continueCurrentQuiz() {
+    if (curCat === 'kanji') startKanjiSub(curSubCat, false);
+    else startQuiz('expression', false);
+  }
+
+  function formatQuizText(raw) {
+    return String(raw || "")
+      .replace(/\\n/g, "<br>")
+      .replace(/\n/g, "<br>");
+  }
+
   function renderQuiz() {
     const d = qSet[curIdx];
     let opts = [
@@ -290,19 +420,64 @@
       { text: (d.o ? d.o[1] : d.options[1]), isCorrect: ((d.a ?? d.answer) === 1) }
     ].sort(() => Math.random() - 0.5);
     document.getElementById('q-label').innerText = `STEP 0${curIdx + 1}`;
-    document.getElementById('q-text').innerHTML = (d.q ?? d.question);
+    document.getElementById('q-text').innerHTML = formatQuizText(d.q ?? d.question);
     document.getElementById('progress-fill').style.width = `${(curIdx / 5) * 100}%`;
-    document.getElementById('opt0').innerHTML = `A. ${opts[0].text}`;
-    document.getElementById('opt1').innerHTML = `B. ${opts[1].text}`;
+    document.getElementById('opt0').innerHTML = `A. ${formatQuizText(opts[0].text)}`;
+    document.getElementById('opt1').innerHTML = `B. ${formatQuizText(opts[1].text)}`;
     document.getElementById('opt0').onclick = () => handleCheck(opts[0].isCorrect);
     document.getElementById('opt1').onclick = () => handleCheck(opts[1].isCorrect);
+  }
+
+  function formatFeedbackExplanation(answerText, explanationHtml, questionText = "") {
+    const raw = String(explanationHtml || "");
+    const marker = raw.match(/한\s*줄\s*비교\s*[:：]/);
+    let formattedExp = raw;
+    if (marker) {
+      const parts = raw.split(/한\s*줄\s*비교\s*[:：]/);
+      const before = parts[0].trim();
+      const compareRaw = (parts[1] || "").trim();
+      const compareItems = compareRaw
+        .split(" / ")
+        .map(x => x.trim())
+        .filter(Boolean)
+        .map(x => {
+          if (x.includes("→")) {
+            const seg = x.split("→");
+            const left = (seg[0] || "").trim();
+            const right = (seg.slice(1).join("→") || "").trim();
+            return `・${left}<br>→ ${right}`;
+          }
+          return `・${x}`;
+        })
+        .join("<br>");
+      formattedExp = `${before}<br><b>🔎 표현 비교</b><br>${compareItems}`;
+    } else {
+      const exMatch = raw.match(/([\s\S]*?)<br><br><b>([\s\S]*?)<\/b><br>\s*([\s\S]*)$/);
+      if (exMatch) {
+        const lead = (exMatch[1] || "").trim();
+        const jp = (exMatch[2] || "").trim();
+        const ko = (exMatch[3] || "").trim();
+        formattedExp = `${lead}<br><br>・ ${jp}<br>→ ${ko}`;
+      }
+    }
+    return `<b>정답: ${answerText}</b><br><br>${formattedExp}`;
+  }
+
+  function resetFeedbackScrollTop() {
+    const scrollBox = document.querySelector('.f-scroll');
+    if (scrollBox) scrollBox.scrollTop = 0;
   }
 
   function handleCheck(isC) {
     const d = qSet[curIdx]; if(isC) { score++; playSnd('c'); } else { playSnd('w'); }
     history.push({...d, isC: isC});
-    document.getElementById('f-title').innerText = isC ? "정답입니다!" : "아쉬워요!";
-    document.getElementById('f-exp').innerHTML = `<b>정답: ${(d.o ?? d.options)[d.a ?? d.answer]}</b><br><br>${d.e ?? d.explanation}`;
+    document.getElementById('f-title').innerText = isC ? "🌟 정답입니다!" : "☁️ 아쉬워요!";
+    document.getElementById('f-exp').innerHTML = formatFeedbackExplanation(
+      (d.o ?? d.options)[d.a ?? d.answer],
+      (d.e ?? d.explanation),
+      (d.q ?? d.question ?? "")
+    );
+    resetFeedbackScrollTop();
     document.getElementById('feedback-overlay').classList.add('show');
   }
 
@@ -315,25 +490,64 @@
     showScreen('screen-result');
     document.getElementById('res-c').innerText = score;
     const list = document.getElementById('review-list'); list.innerHTML = "";
+    list.scrollTop = 0;
     history.forEach((item, i) => {
       const div = document.createElement('div'); div.className = 'review-item';
       div.innerHTML = `<b>${i+1}. ${item.q ?? item.question}</b><br><span style="color:${item.isC?'var(--primary)':'#E74C3C'}">정답: ${(item.o ?? item.options)[item.a ?? item.answer]}</span>`;
       div.onclick = () => {
-        document.getElementById('f-title').innerText = "해설 복습";
-        document.getElementById('f-exp').innerHTML = `<b>정답: ${(item.o ?? item.options)[item.a ?? item.answer]}</b><br><br>${item.e ?? item.explanation}`;
+        document.getElementById('f-title').innerText = item.isC ? "🌟 해설 복습" : "☁️ 해설 복습";
+        document.getElementById('f-exp').innerHTML = formatFeedbackExplanation(
+          (item.o ?? item.options)[item.a ?? item.answer],
+          (item.e ?? item.explanation),
+          (item.q ?? item.question ?? "")
+        );
+        resetFeedbackScrollTop();
         document.getElementById('feedback-overlay').classList.add('show');
       };
       list.appendChild(div);
     });
   }
 
-  function openExplainMenu() { showScreen('screen-explain'); backToExplainCat(); }
+  function openExplainMenu() {
+    showScreen('screen-explain');
+    document.getElementById('explain-header').innerText = '해설집';
+    document.getElementById('explain-cat').classList.add('hidden');
+    document.getElementById('explain-viewer').classList.add('hidden');
+    document.getElementById('explain-list').classList.remove('hidden');
+    document.getElementById('explain-footer').classList.remove('hidden');
+    renderExplainAll();
+  }
   function handleExplainBack() {
-    const viewerVisible = !document.getElementById('explain-viewer').classList.contains('hidden');
-    const listVisible = !document.getElementById('explain-list').classList.contains('hidden');
-    if(viewerVisible) { document.getElementById('explain-viewer').classList.add('hidden'); document.getElementById('explain-list').classList.remove('hidden'); }
-    else if(listVisible) { backToExplainCat(); }
-    else showScreen('screen-category');
+    if (!document.getElementById('explain-viewer').classList.contains('hidden')) {
+      document.getElementById('explain-viewer').classList.add('hidden');
+      document.getElementById('explain-list').classList.remove('hidden');
+      document.getElementById('explain-header').innerText = '해설집';
+      document.getElementById('explain-footer').classList.remove('hidden');
+      return;
+    }
+    showScreen('screen-category');
+  }
+  function renderExplainAll() {
+    const box = document.getElementById('explain-list-scroll');
+    box.innerHTML = "";
+    const catMeta = (cat) => {
+      if (cat === '경어와 톤') return { label: '경어', color: '#2D7AA8' };
+      if (cat === '조사 사용') return { label: '조사', color: '#C77700' };
+      if (cat === '단어 선택') return { label: '단어', color: '#2C8A4B' };
+      return { label: cat, color: '#444' };
+    };
+    explainList = (window.masterExplainDB || []);
+    explainList.forEach((card, idx) => {
+      const meta = catMeta(card.category);
+      const b = document.createElement('button');
+      b.className = 'btn-pixel btn-opt';
+      b.style.width = "100%";
+      b.style.marginBottom = "12px";
+      b.innerHTML = `<span class="explain-cat-tag" style="color:${meta.color};">[${meta.label}]</span> ${card.title}`;
+      b.onclick = () => openExplainViewer(idx);
+      box.appendChild(b);
+    });
+    box.scrollTop = 0;
   }
   function backToExplainCat() { 
     explainCatName = ''; document.getElementById('explain-cat').classList.remove('hidden');
@@ -352,24 +566,37 @@
   }
   function openExplainViewer(idx) {
     explainCardIndex = idx; explainPageIndex = 0;
+    document.getElementById('explain-footer').classList.add('hidden');
     document.getElementById('explain-list').classList.add('hidden'); document.getElementById('explain-viewer').classList.remove('hidden');
     renderExplainPage();
   }
   function renderExplainPage() {
     const card = explainList[explainCardIndex];
-    document.getElementById('explain-card-title').innerHTML = card.title;
-    document.getElementById('explain-page-indicator').innerText = `${explainPageIndex + 1}/4`;
+    const fmt = (html) => {
+      const text = (html || "").replace(/<br>\s*→/g, "→");
+      return text.replace(/→/g, "<br>→");
+    };
+    const catMeta = (cat) => {
+      if (cat === '경어와 톤') return { label: '경어', color: '#2D7AA8' };
+      if (cat === '조사 사용') return { label: '조사', color: '#C77700' };
+      if (cat === '단어 선택') return { label: '단어', color: '#2C8A4B' };
+      return { label: cat, color: '#444' };
+    };
+    const meta = catMeta(card.category);
+    document.getElementById('explain-card-title').innerHTML = `<span class="explain-cat-tag" style="color:${meta.color};">[${meta.label}]</span> ${card.title}`;
     const pages = [
-      `<div class="label bad">❌ 실수</div><div class="section-block">${card.wrong}</div>`,
-      `<div class="label why">🔍 이유</div><div class="section-block">${card.why}</div>`,
-      `<div class="label good">✅ 교정</div><div class="section-block"><ul>${(card.fix || []).map(x => `<li>${x}</li>`).join("")}</ul></div>`,
-      `<div class="label sum">🧷 핵심</div><div class="sum-box">${card.summary || ""}</div>`
+      `<div class="label bad">📝 문장 예시</div><div class="section-block">${fmt(card.wrong)}</div><br>` +
+      `<div class="label why">🔎 왜 어색할까</div><div class="section-block">${fmt(card.why)}</div>`,
+      `<div class="label good">✅ 이렇게 말해요</div><div class="section-block"><ul style="list-style:none; padding-left:0; margin:0;">${(card.fix || []).map(x => `<li>・ ${fmt(x)}</li>`).join("")}</ul></div><br>` +
+      `<div class="label sum">⭐ 한 줄 정리</div><div class="sum-box">${fmt(card.summary || "")}</div>`,
+      `<div class="label sum">🚀 스텝업</div><div class="section-block">${fmt(card.stepup || "추가 표현을 준비 중입니다.")}</div>`
     ];
+    document.getElementById('explain-page-indicator').innerText = `${explainPageIndex + 1}/${pages.length}`;
     document.getElementById('explain-page-body').innerHTML = pages[explainPageIndex];
     document.getElementById('explain-page-scroll').scrollTop = 0;
   }
   function prevExplainPage() { if (explainPageIndex > 0) { explainPageIndex--; renderExplainPage(); } }
-  function nextExplainPage() { if (explainPageIndex < 3) { explainPageIndex++; renderExplainPage(); } }
+  function nextExplainPage() { if (explainPageIndex < 2) { explainPageIndex++; renderExplainPage(); } }
 </script>
 </body>
 </html>
