@@ -60,7 +60,7 @@
       "연습"
     ],
     "answer": 0,
-    "explanation": "「<ruby>本番<rt>ほんばん</rt></ruby>」는 '본공연(본방)'이라는 뜻입니다.<br><br><b><ruby>本番<rt>ほんばん</rt></ruby>はきょうです。</b><br>본공연은 오늘입니다."
+    "explanation": "「<ruby>本番<rt>ほんばん</rt></ruby>」는 '본공연(본방)'이라는 뜻입니다.<br><br><b><ruby>本番<rt>ほんばん</rt></ruby>は<ruby>今日<rt>きょう</rt></ruby>の19<ruby>時<rt>じ</rt></ruby>です。</b><br>본공연은 오늘 19시입니다."
   },
   {
     "tag": "(한자)",
@@ -263,13 +263,13 @@
   {
     "tag": "(한자)",
     "cat": "호텔·숙박",
-    "question": "<ruby>取消<rt>とりけし</rt></ruby>의 뜻은?",
+    "question": "<ruby>取り消し<rt>とりけし</rt></ruby>의 뜻은?",
     "options": [
       "취소",
       "연장"
     ],
     "answer": 0,
-    "explanation": "「<ruby>取消<rt>とりけし</rt></ruby>」는 '취소'이라는 뜻입니다.<br><br><b><ruby>予約<rt>よやく</rt></ruby>を<ruby>取消<rt>とりけし</rt></ruby>できますか。</b><br>예약을 취소할 수 있나요?"
+    "explanation": "「<ruby>取り消し<rt>とりけし</rt></ruby>」는 '취소'이라는 뜻입니다.<br><br><b><ruby>予約<rt>よやく</rt></ruby>を<ruby>取り消し<rt>とりけし</rt></ruby>できますか。</b><br>예약을 취소할 수 있나요?"
   },
   {
     "tag": "(한자)",
@@ -291,7 +291,7 @@
       "편도"
     ],
     "answer": 0,
-    "explanation": "「<ruby>連泊<rt>れんぱく</rt></ruby>」는 '연박'이라는 뜻입니다.<br><br><b><ruby>連泊<rt>れんぱく</rt></ruby>です。</b><br>연박입니다."
+    "explanation": "「<ruby>連泊<rt>れんぱく</rt></ruby>」는 '연박'이라는 뜻입니다.<br><br><b>2<ruby>連泊<rt>れんぱく</rt></ruby>でお<ruby>願<rt>ねが</rt></ruby>いします。</b><br>2박 연박으로 부탁드립니다."
   },
   {
     "tag": "(한자)",
@@ -307,13 +307,13 @@
   {
     "tag": "(한자)",
     "cat": "호텔·숙박",
-    "question": "<ruby>素泊<rt>すど</rt></ruby>의 뜻은?",
+    "question": "<ruby>素泊まり<rt>すどまり</rt></ruby>의 뜻은?",
     "options": [
       "숙박만(식사 없음)",
       "조식 포함"
     ],
     "answer": 0,
-    "explanation": "「<ruby>素泊<rt>すど</rt></ruby>」는 '숙박만(식사 없음)'이라는 뜻입니다.<br><br><b><ruby>素泊<rt>すど</rt></ruby>まりで<ruby>予約<rt>よやく</rt></ruby>しました。</b><br>숙박만으로 예약했습니다."
+    "explanation": "「<ruby>素泊まり<rt>すどまり</rt></ruby>」는 '숙박만(식사 없음)'이라는 뜻입니다.<br><br><b><ruby>素泊まり<rt>すどまり</rt></ruby>で<ruby>予約<rt>よやく</rt></ruby>しました。</b><br>숙박만으로 예약했습니다."
   },
   {
     "tag": "(한자)",
@@ -368,7 +368,7 @@
       "좌석"
     ],
     "answer": 0,
-    "explanation": "「<ruby>部屋<rt>へや</rt></ruby>」는 '방'이라는 뜻입니다.<br><br><b><ruby>部屋<rt>へや</rt></ruby>です。</b><br>방입니다."
+    "explanation": "「<ruby>部屋<rt>へや</rt></ruby>」는 '방'이라는 뜻입니다.<br><br><b>この<ruby>部屋<rt>へや</rt></ruby>をお<ruby>願<rt>ねが</rt></ruby>いします。</b><br>이 방으로 부탁드립니다."
   },
   {
     "tag": "(한자)",
@@ -412,7 +412,7 @@
       "찾다"
     ],
     "answer": 0,
-    "explanation": "「<ruby>預<rt>あず</rt></ruby>ける」는 '맡기다'이라는 뜻입니다.<br><br><b><ruby>荷物<rt>にもつ</rt></ruby>を<ruby>預<rt>あず</rt></ruby>けるけます。</b><br>짐을 맡깁니다."
+    "explanation": "「<ruby>預<rt>あず</rt></ruby>ける」는 '맡기다'이라는 뜻입니다.<br><br><b><ruby>荷物<rt>にもつ</rt></ruby>を<ruby>預<rt>あず</rt></ruby>けます。</b><br>짐을 맡깁니다."
   },
   {
     "tag": "(한자)",
@@ -423,7 +423,7 @@
       "버리다"
     ],
     "answer": 0,
-    "explanation": "「<ruby>運<rt>はこ</rt></ruby>ぶ」는 '옮기다'이라는 뜻입니다.<br><br><b><ruby>荷物<rt>にもつ</rt></ruby>を<ruby>部屋<rt>へや</rt></ruby>に<ruby>運<rt>はこ</rt></ruby>ぶびます。</b><br>짐을 방으로 옮깁니다."
+    "explanation": "「<ruby>運<rt>はこ</rt></ruby>ぶ」는 '옮기다'이라는 뜻입니다.<br><br><b><ruby>荷物<rt>にもつ</rt></ruby>を<ruby>部屋<rt>へや</rt></ruby>に<ruby>運<rt>はこ</rt></ruby>びます。</b><br>짐을 방으로 옮깁니다."
   },
   {
     "tag": "(한자)",
@@ -434,7 +434,7 @@
       "수리하다"
     ],
     "answer": 0,
-    "explanation": "「<ruby>壊<rt>こわ</rt></ruby>れる」는 '고장 나다'이라는 뜻입니다.<br><br><b>エアコンが<ruby>壊<rt>こわ</rt></ruby>れるれました。</b><br>에어컨이 고장 났습니다."
+    "explanation": "「<ruby>壊<rt>こわ</rt></ruby>れる」는 '고장 나다'이라는 뜻입니다.<br><br><b>エアコンが<ruby>壊<rt>こわ</rt></ruby>れました。</b><br>에어컨이 고장 났습니다."
   },
   {
     "tag": "(한자)",
@@ -445,7 +445,7 @@
       "멈추다"
     ],
     "answer": 0,
-    "explanation": "「<ruby>効<rt>き</rt></ruby>く」는 '작동하다/효과가 있다'이라는 뜻입니다.<br><br><b>エアコンが<ruby>効<rt>き</rt></ruby>くきません。</b><br>에어컨이 잘 작동하지 않습니다."
+    "explanation": "「<ruby>効<rt>き</rt></ruby>く」는 '작동하다/효과가 있다'이라는 뜻입니다.<br><br><b>エアコンが<ruby>効<rt>き</rt></ruby>きません。</b><br>에어컨이 잘 작동하지 않습니다."
   },
   {
     "tag": "(한자)",
@@ -467,7 +467,7 @@
       "덥다"
     ],
     "answer": 0,
-    "explanation": "「<ruby>寒<rt>さむ</rt></ruby>い」는 '춥다'이라는 뜻입니다.<br><br><b><ruby>部屋<rt>へや</rt></ruby>が<ruby>寒<rt>さむ</rt></ruby>いいです。</b><br>방이 춥습니다."
+    "explanation": "「<ruby>寒<rt>さむ</rt></ruby>い」는 '춥다'이라는 뜻입니다.<br><br><b><ruby>部屋<rt>へや</rt></ruby>が<ruby>寒<rt>さむ</rt></ruby>いです。</b><br>방이 춥습니다."
   },
   {
     "tag": "(한자)",
@@ -478,7 +478,7 @@
       "춥다"
     ],
     "answer": 0,
-    "explanation": "「<ruby>暑<rt>あつ</rt></ruby>い」는 '덥다'이라는 뜻입니다.<br><br><b><ruby>部屋<rt>へや</rt></ruby>が<ruby>暑<rt>あつ</rt></ruby>いいです。</b><br>방이 덥습니다."
+    "explanation": "「<ruby>暑<rt>あつ</rt></ruby>い」는 '덥다'이라는 뜻입니다.<br><br><b><ruby>部屋<rt>へや</rt></ruby>が<ruby>暑<rt>あつ</rt></ruby>いです。</b><br>방이 덥습니다."
   },
   {
     "tag": "(한자)",
@@ -489,7 +489,7 @@
       "깨끗해지다"
     ],
     "answer": 0,
-    "explanation": "「<ruby>汚<rt>よご</rt></ruby>れる」는 '더러워지다'이라는 뜻입니다.<br><br><b><ruby>部屋<rt>へや</rt></ruby>が<ruby>汚<rt>よご</rt></ruby>れるれています。</b><br>방이 더러워요."
+    "explanation": "「<ruby>汚<rt>よご</rt></ruby>れる」는 '더러워지다'이라는 뜻입니다.<br><br><b><ruby>部屋<rt>へや</rt></ruby>が<ruby>汚<rt>よご</rt></ruby>れています。</b><br>방이 더러워요."
   },
   {
     "tag": "(한자)",
@@ -555,7 +555,7 @@
       "환불하다"
     ],
     "answer": 0,
-    "explanation": "「<ruby>払<rt>はら</rt></ruby>う」는 '지불하다'이라는 뜻입니다.<br><br><b>カードで<ruby>払<rt>はら</rt></ruby>ういます。</b><br>카드로 지불합니다."
+    "explanation": "「<ruby>払<rt>はら</rt></ruby>う」는 '지불하다'이라는 뜻입니다.<br><br><b>カードで<ruby>払<rt>はら</rt></ruby>います。</b><br>카드로 지불합니다."
   },
   {
     "tag": "(한자)",
@@ -566,7 +566,7 @@
       "환불"
     ],
     "answer": 0,
-    "explanation": "「<ruby>予約<rt>よやく</rt></ruby>」는 '예약'이라는 뜻입니다.<br><br><b><ruby>予約<rt>よやく</rt></ruby>しています。</b><br>예약했습니다."
+    "explanation": "「<ruby>予約<rt>よやく</rt></ruby>」는 '예약'이라는 뜻입니다.<br><br><b><ruby>予約<rt>よやく</rt></ruby>をお<ruby>願<rt>ねが</rt></ruby>いします。</b><br>예약 부탁드립니다."
   },
   {
     "tag": "(한자)",
@@ -632,7 +632,7 @@
       "돼지"
     ],
     "answer": 0,
-    "explanation": "「<ruby>鶏<rt>とり</rt></ruby>」는 '닭'이라는 뜻입니다.<br><br><b><ruby>鶏<rt>とり</rt></ruby><ruby>肉<rt>にく</rt></ruby>です。</b><br>닭고기입니다."
+    "explanation": "「<ruby>鶏<rt>とり</rt></ruby>」는 '닭'이라는 뜻입니다.<br><br><b><ruby>鶏<rt>とり</rt></ruby><ruby>肉<rt>にく</rt></ruby>に<ruby>変更<rt>へんこう</rt></ruby>できますか。</b><br>닭고기로 변경할 수 있을까요?"
   },
   {
     "tag": "(한자)",
@@ -643,7 +643,7 @@
       "소"
     ],
     "answer": 0,
-    "explanation": "「<ruby>豚<rt>ぶた</rt></ruby>」는 '돼지'이라는 뜻입니다.<br><br><b><ruby>豚<rt>ぶた</rt></ruby><ruby>肉<rt>にく</rt></ruby>です。</b><br>돼지고기입니다."
+    "explanation": "「<ruby>豚<rt>ぶた</rt></ruby>」는 '돼지'이라는 뜻입니다.<br><br><b><ruby>豚<rt>ぶた</rt></ruby><ruby>肉<rt>にく</rt></ruby>は<ruby>食<rt>た</rt></ruby>べられません。</b><br>돼지고기는 먹을 수 없습니다."
   },
   {
     "tag": "(한자)",
@@ -654,7 +654,7 @@
       "닭"
     ],
     "answer": 0,
-    "explanation": "「<ruby>牛<rt>ぎゅう</rt></ruby>」는 '소'이라는 뜻입니다.<br><br><b><ruby>牛<rt>ぎゅう</rt></ruby><ruby>肉<rt>にく</rt></ruby>です。</b><br>소고기입니다."
+    "explanation": "「<ruby>牛<rt>ぎゅう</rt></ruby>」는 '소'이라는 뜻입니다.<br><br><b><ruby>牛<rt>ぎゅう</rt></ruby><ruby>肉<rt>にく</rt></ruby>はよく<ruby>焼<rt>や</rt></ruby>いてください。</b><br>소고기는 잘 익혀 주세요."
   },
   {
     "tag": "(한자)",
@@ -665,7 +665,7 @@
       "채소"
     ],
     "answer": 0,
-    "explanation": "「<ruby>海鮮<rt>かいせん</rt></ruby>」는 '해산물'이라는 뜻입니다.<br><br><b><ruby>海鮮<rt>かいせん</rt></ruby><ruby>丼<rt>どん</rt></ruby>です。</b><br>해산물 덮밥입니다."
+    "explanation": "「<ruby>海鮮<rt>かいせん</rt></ruby>」는 '해산물'이라는 뜻입니다.<br><br><b>おすすめは<ruby>海鮮<rt>かいせん</rt></ruby><ruby>丼<rt>どん</rt></ruby>です。</b><br>추천은 해산물 덮밥입니다."
   },
   {
     "tag": "(한자)",
@@ -676,7 +676,7 @@
       "국"
     ],
     "answer": 0,
-    "explanation": "「<ruby>刺身<rt>さしみ</rt></ruby>」는 '회'이라는 뜻입니다.<br><br><b><ruby>刺身<rt>さしみ</rt></ruby>です。</b><br>회입니다."
+    "explanation": "「<ruby>刺身<rt>さしみ</rt></ruby>」는 '회'이라는 뜻입니다.<br><br><b><ruby>刺身<rt>さしみ</rt></ruby>をください。</b><br>회 주세요."
   },
   {
     "tag": "(한자)",
@@ -687,7 +687,7 @@
       "빵"
     ],
     "answer": 0,
-    "explanation": "「<ruby>寿司<rt>すし</rt></ruby>」는 '스시'이라는 뜻입니다.<br><br><b><ruby>寿司<rt>すし</rt></ruby>です。</b><br>스시입니다."
+    "explanation": "「<ruby>寿司<rt>すし</rt></ruby>」는 '스시'이라는 뜻입니다.<br><br><b><ruby>寿司<rt>すし</rt></ruby>を<ruby>二人前<rt>ににんまえ</rt></ruby>お<ruby>願<rt>ねが</rt></ruby>いします。</b><br>스시 2인분 부탁드립니다."
   },
   {
     "tag": "(한자)",
@@ -720,7 +720,7 @@
       "달다"
     ],
     "answer": 0,
-    "explanation": "「<ruby>辛<rt>から</rt></ruby>い」는 '맵다'이라는 뜻입니다.<br><br><b><ruby>辛<rt>から</rt></ruby>いです。</b><br>맵습니다."
+    "explanation": "「<ruby>辛<rt>から</rt></ruby>い」는 '맵다'이라는 뜻입니다.<br><br><b>このカレーは<ruby>辛<rt>から</rt></ruby>いです。</b><br>이 카레는 맵습니다."
   },
   {
     "tag": "(한자)",
@@ -731,7 +731,7 @@
       "짜다"
     ],
     "answer": 0,
-    "explanation": "「<ruby>甘<rt>あま</rt></ruby>い」는 '달다'이라는 뜻입니다.<br><br><b><ruby>甘<rt>あま</rt></ruby>いです。</b><br>달아요."
+    "explanation": "「<ruby>甘<rt>あま</rt></ruby>い」는 '달다'이라는 뜻입니다.<br><br><b>このケーキは<ruby>甘<rt>あま</rt></ruby>いです。</b><br>이 케이크는 달아요."
   },
   {
     "tag": "(한자)",
@@ -742,7 +742,7 @@
       "맵다"
     ],
     "answer": 0,
-    "explanation": "「<ruby>酸<rt>す</rt></ruby>っぱい」는 '시다'이라는 뜻입니다.<br><br><b><ruby>酸<rt>す</rt></ruby>っぱいです。</b><br>셔요."
+    "explanation": "「<ruby>酸<rt>す</rt></ruby>っぱい」는 '시다'이라는 뜻입니다.<br><br><b>このレモンは<ruby>酸<rt>す</rt></ruby>っぱいです。</b><br>이 레몬은 셔요."
   },
   {
     "tag": "(한자)",
@@ -753,7 +753,7 @@
       "쓰다"
     ],
     "answer": 0,
-    "explanation": "「<ruby>塩辛<rt>しおから</rt></ruby>」는 '짜다'이라는 뜻입니다.<br><br><b><ruby>塩辛<rt>しおから</rt></ruby>いです。</b><br>짜요."
+    "explanation": "「<ruby>塩辛<rt>しおから</rt></ruby>」는 '짜다'이라는 뜻입니다.<br><br><b>このスープは<ruby>塩辛<rt>しおから</rt></ruby>いです。</b><br>이 수프는 짜요."
   },
   {
     "tag": "(한자)",
@@ -764,7 +764,7 @@
       "차갑다"
     ],
     "answer": 0,
-    "explanation": "「<ruby>熱<rt>あつ</rt></ruby>い」는 '뜨겁다'이라는 뜻입니다.<br><br><b><ruby>熱<rt>あつ</rt></ruby>いいです。</b><br>뜨거워요."
+    "explanation": "「<ruby>熱<rt>あつ</rt></ruby>い」는 '뜨겁다'이라는 뜻입니다.<br><br><b>このお茶は<ruby>熱<rt>あつ</rt></ruby>いです。</b><br>이 차는 뜨거워요."
   },
   {
     "tag": "(한자)",
@@ -775,7 +775,7 @@
       "뜨겁다"
     ],
     "answer": 0,
-    "explanation": "「<ruby>冷<rt>つめ</rt></ruby>たい」는 '차갑다'이라는 뜻입니다.<br><br><b><ruby>冷<rt>つめ</rt></ruby>たいたいです。</b><br>차가워요."
+    "explanation": "「<ruby>冷<rt>つめ</rt></ruby>たい」는 '차갑다'이라는 뜻입니다.<br><br><b>この水は<ruby>冷<rt>つめ</rt></ruby>たいです。</b><br>이 물은 차가워요."
   },
   {
     "tag": "(한자)",
@@ -797,51 +797,51 @@
       "정가"
     ],
     "answer": 0,
-    "explanation": "「<ruby>割引<rt>わりびき</rt></ruby>」는 '할인'이라는 뜻입니다.<br><br><b><ruby>割引<rt>わりびき</rt></ruby>です。</b><br>할인입니다."
+    "explanation": "「<ruby>割引<rt>わりびき</rt></ruby>」는 '할인'이라는 뜻입니다.<br><br><b>アプリ<ruby>会員<rt>かいいん</rt></ruby>は10%<ruby>割引<rt>わりびき</rt></ruby>になります。</b><br>앱 회원은 10% 할인이 됩니다."
   },
   {
     "tag": "(한자)",
     "cat": "쇼핑",
-    "question": "<ruby>税込<rt>ぜいこみ</rt></ruby>의 뜻은?",
+    "question": "<ruby>税込<rt>ぜいこ</rt></ruby>み의 뜻은?",
     "options": [
       "세금 포함",
       "세금 별도"
     ],
     "answer": 0,
-    "explanation": "「<ruby>税込<rt>ぜいこみ</rt></ruby>」는 '세금 포함'이라는 뜻입니다.<br><br><b><ruby>税込<rt>ぜいこみ</rt></ruby>です。</b><br>세금 포함입니다."
+    "explanation": "「<ruby>税込<rt>ぜいこ</rt></ruby>み」는 '세금 포함'이라는 뜻입니다.<br><br><b><ruby>表示価格<rt>ひょうじかかく</rt></ruby>は<ruby>税込<rt>ぜいこ</rt></ruby>みです。</b><br>표시 가격은 세금 포함입니다."
   },
   {
     "tag": "(한자)",
     "cat": "쇼핑",
-    "question": "<ruby>税抜<rt>ぜいぬき</rt></ruby>의 뜻은?",
+    "question": "<ruby>税抜<rt>ぜいぬ</rt></ruby>き의 뜻은?",
     "options": [
       "세금 별도",
       "세금 포함"
     ],
     "answer": 0,
-    "explanation": "「<ruby>税抜<rt>ぜいぬき</rt></ruby>」는 '세금 별도'이라는 뜻입니다.<br><br><b><ruby>税抜<rt>ぜいぬき</rt></ruby>です。</b><br>세금 별도입니다."
+    "explanation": "「<ruby>税抜<rt>ぜいぬ</rt></ruby>き」는 '세금 별도'이라는 뜻입니다.<br><br><b>こちらは<ruby>税抜<rt>ぜいぬ</rt></ruby>き<ruby>価格<rt>かかく</rt></ruby>です。</b><br>이쪽은 세금 별도 가격입니다."
   },
   {
     "tag": "(한자)",
     "cat": "쇼핑",
-    "question": "<ruby>数量限定<rt>すうりょうげんてい</rt></ruby>의 뜻은?",
+    "question": "<ruby>限定<rt>げんてい</rt></ruby>의 뜻은?",
     "options": [
-      "수량 한정",
+      "한정",
       "무제한"
     ],
     "answer": 0,
-    "explanation": "「<ruby>数量限定<rt>すうりょうげんてい</rt></ruby>」는 '수량 한정'이라는 뜻입니다.<br><br><b><ruby>数量限定<rt>すうりょうげんてい</rt></ruby>です。</b><br>수량 한정입니다."
+    "explanation": "「<ruby>限定<rt>げんてい</rt></ruby>」는 '한정'이라는 뜻입니다.<br><br><b>この<ruby>商品<rt>しょうひん</rt></ruby>は<ruby>期間限定<rt>きかんげんてい</rt></ruby>です。</b><br>이 상품은 기간 한정입니다."
   },
   {
     "tag": "(한자)",
     "cat": "쇼핑",
-    "question": "<ruby>残<rt>のこ</rt></ruby>의 뜻은?",
+    "question": "<ruby>残り<rt>のこり</rt></ruby>의 뜻은?",
     "options": [
       "남은 것",
       "재고 많음"
     ],
     "answer": 0,
-    "explanation": "「<ruby>残<rt>のこ</rt></ruby>」는 '남은 것'이라는 뜻입니다.<br><br><b><ruby>残<rt>のこ</rt></ruby>りわずかです。</b><br>얼마 남지 않았습니다."
+    "explanation": "「<ruby>残り<rt>のこり</rt></ruby>」는 '남은 것, 남은 수량'이라는 뜻입니다.<br><br><b><ruby>残り<rt>のこり</rt></ruby>わずかです。</b><br>(수량이) 얼마 남지 않았습니다."
   },
   {
     "tag": "(한자)",
@@ -852,7 +852,7 @@
       "정상"
     ],
     "answer": 0,
-    "explanation": "「<ruby>訳<rt>わけ</rt></ruby>」는 '이유 있음'이라는 뜻입니다.<br><br><b><ruby>訳<rt>わけ</rt></ruby>ありです。</b><br>이유 있는(하자/사연 있는) 상품입니다."
+    "explanation": "「<ruby>訳<rt>わけ</rt></ruby>あり」는 '이유 있음'이라는 뜻입니다. 보통 하자 등이 있어 저렴하게 판매하는 상품을 나타낼 때 사용합니다.<br><br><b><ruby>訳<rt>わけ</rt></ruby>あり<ruby>商品<rt>しょうひん</rt></ruby>です。</b><br>이유 있는(=하자 있는) 상품입니다."
   },
   {
     "tag": "(한자)",
@@ -868,13 +868,13 @@
   {
     "tag": "(한자)",
     "cat": "쇼핑",
-    "question": "<ruby>売<rt>う</rt></ruby>의 뜻은?",
+    "question": "<ruby>売り切れ<rt>うりきれ</rt></ruby>의 뜻은?",
     "options": [
       "품절",
       "재고 있음"
     ],
     "answer": 0,
-    "explanation": "「<ruby>売<rt>う</rt></ruby>」는 '품절'이라는 뜻입니다.<br><br><b><ruby>売<rt>う</rt></ruby>り<ruby>切<rt>き</rt></ruby>れです。</b><br>품절입니다."
+    "explanation": "「<ruby>売り切れ<rt>うりきれ</rt></ruby>」는 '품절'이라는 뜻입니다.<br><br><b><ruby>売り切れ<rt>うりきれ</rt></ruby>です。</b><br>품절입니다."
   },
   {
     "tag": "(한자)",
@@ -918,7 +918,7 @@
       "환불하다"
     ],
     "answer": 0,
-    "explanation": "「<ruby>払<rt>はら</rt></ruby>う」는 '지불하다'이라는 뜻입니다.<br><br><b>カードで<ruby>払<rt>はら</rt></ruby>ういます。</b><br>카드로 지불합니다."
+    "explanation": "「<ruby>払<rt>はら</rt></ruby>う」는 '지불하다'이라는 뜻입니다.<br><br><b>カードで<ruby>払<rt>はら</rt></ruby>います。</b><br>카드로 지불합니다."
   },
   {
     "tag": "(한자)",
@@ -929,7 +929,7 @@
       "카드"
     ],
     "answer": 0,
-    "explanation": "「<ruby>現金<rt>げんきん</rt></ruby>」는 '현금'이라는 뜻입니다.<br><br><b><ruby>現金<rt>げんきん</rt></ruby>です。</b><br>현금입니다."
+    "explanation": "「<ruby>現金<rt>げんきん</rt></ruby>」는 '현금'이라는 뜻입니다.<br><br><b><ruby>現金<rt>げんきん</rt></ruby>で<ruby>払<rt>はら</rt></ruby>います。</b><br>현금으로 지불합니다."
   },
   {
     "tag": "(한자)",
@@ -940,7 +940,7 @@
       "무료"
     ],
     "answer": 0,
-    "explanation": "「<ruby>有料<rt>ゆうりょう</rt></ruby>」는 '유료'이라는 뜻입니다.<br><br><b><ruby>袋<rt>ふくろ</rt></ruby>は<ruby>有料<rt>ゆうりょう</rt></ruby>です。</b><br>봉투는 유료입니다."
+    "explanation": "「<ruby>有料<rt>ゆうりょう</rt></ruby>」는 '유료'이라는 뜻입니다.<br><br><b>レジ<ruby>袋<rt>ぶくろ</rt></ruby>は1<ruby>枚<rt>まい</rt></ruby>3<ruby>円<rt>えん</rt></ruby>で<ruby>有料<rt>ゆうりょう</rt></ruby>です。</b><br>비닐봉투는 1장 3엔 유료입니다."
   },
   {
     "tag": "(한자)",
@@ -951,7 +951,7 @@
       "유료"
     ],
     "answer": 0,
-    "explanation": "「<ruby>無料<rt>むりょう</rt></ruby>」는 '무료'이라는 뜻입니다.<br><br><b><ruby>無料<rt>むりょう</rt></ruby>です。</b><br>무료입니다."
+    "explanation": "「<ruby>無料<rt>むりょう</rt></ruby>」는 '무료'이라는 뜻입니다.<br><br><b><ruby>会員登録<rt>かいいんとうろく</rt></ruby>すると<ruby>送料<rt>そうりょう</rt></ruby>が<ruby>無料<rt>むりょう</rt></ruby>になります。</b><br>회원가입하면 배송비가 무료가 됩니다."
   },
   {
     "tag": "(한자)",
@@ -962,7 +962,7 @@
       "불필요"
     ],
     "answer": 0,
-    "explanation": "「<ruby>必要<rt>ひつよう</rt></ruby>」는 '필요'이라는 뜻입니다.<br><br><b><ruby>必要<rt>ひつよう</rt></ruby>です。</b><br>필요합니다."
+    "explanation": "「<ruby>必要<rt>ひつよう</rt></ruby>」는 '필요'이라는 뜻입니다.<br><br><b>チェックインには<ruby>身分証<rt>みぶんしょう</rt></ruby>が<ruby>必要<rt>ひつよう</rt></ruby>です。</b><br>체크인에는 신분증이 필요합니다."
   },
   {
     "tag": "(한자)",
@@ -973,7 +973,7 @@
       "필요"
     ],
     "answer": 0,
-    "explanation": "「<ruby>不要<rt>ふよう</rt></ruby>」는 '불필요'이라는 뜻입니다.<br><br><b><ruby>不要<rt>ふよう</rt></ruby>です。</b><br>불필요합니다."
+    "explanation": "「<ruby>不要<rt>ふよう</rt></ruby>」는 '불필요'이라는 뜻입니다.<br><br><b>レシートは<ruby>不要<rt>ふよう</rt></ruby>です。</b><br>영수증은 필요 없습니다."
   },
   {
     "tag": "(한자)",
@@ -984,7 +984,7 @@
       "과자"
     ],
     "answer": 0,
-    "explanation": "「<ruby>化粧品<rt>けしょうひん</rt></ruby>」는 '화장품'이라는 뜻입니다.<br><br><b><ruby>化粧品<rt>けしょうひん</rt></ruby>です。</b><br>화장품입니다."
+    "explanation": "「<ruby>化粧品<rt>けしょうひん</rt></ruby>」는 '화장품'이라는 뜻입니다.<br><br><b><ruby>化粧品<rt>けしょうひん</rt></ruby>（コスメ）<ruby>売<rt>う</rt></ruby>り<ruby>場<rt>ば</rt></ruby>はどこですか。</b><br>화장품(코스메) 매장은 어디인가요?"
   },
   {
     "tag": "(한자)",
@@ -1105,7 +1105,7 @@
       "정상 운행"
     ],
     "answer": 0,
-    "explanation": "「<ruby>運休<rt>うんきゅう</rt></ruby>」는 '운행 중지'이라는 뜻입니다.<br><br><b><ruby>運休<rt>うんきゅう</rt></ruby>です。</b><br>운행이 중지되었습니다."
+    "explanation": "「<ruby>運休<rt>うんきゅう</rt></ruby>」는 '운행 중지'이라는 뜻입니다.<br><br><b><ruby>本日<rt>ほんじつ</rt></ruby>は<ruby>終日<rt>しゅうじつ</rt></ruby><ruby>運休<rt>うんきゅう</rt></ruby>です。</b><br>오늘은 종일 운행이 중지됩니다."
   },
   {
     "tag": "(한자)",
@@ -1149,7 +1149,7 @@
       "도착"
     ],
     "answer": 0,
-    "explanation": "「<ruby>発車<rt>はっしゃ</rt></ruby>」는 '출발'이라는 뜻입니다.<br><br><b><ruby>発車<rt>はっしゃ</rt></ruby>します。</b><br>출발합니다."
+    "explanation": "「<ruby>発車<rt>はっしゃ</rt></ruby>」는 '출발'이라는 뜻입니다.<br><br><b>まもなく<ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>発車<rt>はっしゃ</rt></ruby>します。</b><br>곧 전철이 출발합니다."
   },
   {
     "tag": "(한자)",
@@ -1160,7 +1160,7 @@
       "출발"
     ],
     "answer": 0,
-    "explanation": "「<ruby>到着<rt>とうちゃく</rt></ruby>」는 '도착'이라는 뜻입니다.<br><br><b><ruby>到着<rt>とうちゃく</rt></ruby>しました。</b><br>도착했습니다."
+    "explanation": "「<ruby>到着<rt>とうちゃく</rt></ruby>」는 '도착'이라는 뜻입니다.<br><br><b>まもなく<ruby>新宿<rt>しんじゅく</rt></ruby>に<ruby>到着<rt>とうちゃく</rt></ruby>します。</b><br>곧 신주쿠에 도착합니다."
   },
   {
     "tag": "(한자)",
@@ -1182,7 +1182,7 @@
       "표지판"
     ],
     "answer": 0,
-    "explanation": "「<ruby>信号<rt>しんごう</rt></ruby>」는 '신호'이라는 뜻입니다.<br><br><b><ruby>赤<rt>あか</rt></ruby><ruby>信号<rt>しんごう</rt></ruby>です。</b><br>빨간 신호입니다."
+    "explanation": "「<ruby>信号<rt>しんごう</rt></ruby>」는 '신호'이라는 뜻입니다.<br><br><b><ruby>信号<rt>しんごう</rt></ruby>が<ruby>赤<rt>あか</rt></ruby>に<ruby>変<rt>か</rt></ruby>わりました。</b><br>신호가 빨간색으로 바뀌었습니다."
   },
   {
     "tag": "(한자)",
@@ -1198,13 +1198,13 @@
   {
     "tag": "(한자)",
     "cat": "교통·이동",
-    "question": "<ruby>行<rt>い</rt></ruby>의 뜻은?",
+    "question": "<ruby>行き<rt>いき</rt></ruby>의 뜻은?",
     "options": [
       "~행(행선지)",
       "출구"
     ],
     "answer": 0,
-    "explanation": "「<ruby>行<rt>い</rt></ruby>」는 '~행(행선지)'이라는 뜻입니다.<br><br><b><ruby>東京<rt>とうきょう</rt></ruby><ruby>行<rt>い</rt></ruby>きです。</b><br>도쿄행입니다."
+    "explanation": "「<ruby>行き<rt>いき</rt></ruby>」는 '~행(행선지)'이라는 뜻입니다.<br><br><b>こちらは<ruby>東京<rt>とうきょう</rt></ruby><ruby>行き<rt>いき</rt></ruby>です。</b><br>이쪽은 도쿄행입니다."
   },
   {
     "tag": "(한자)",
@@ -1215,7 +1215,7 @@
       "한산"
     ],
     "answer": 0,
-    "explanation": "「<ruby>混雑<rt>こんざつ</rt></ruby>」는 '혼잡'이라는 뜻입니다.<br><br><b><ruby>混雑<rt>こんざつ</rt></ruby>しています。</b><br>혼잡합니다."
+    "explanation": "「<ruby>混雑<rt>こんざつ</rt></ruby>」는 '혼잡'이라는 뜻입니다.<br><br><b>この<ruby>時間<rt>じかん</rt></ruby>は<ruby>駅<rt>えき</rt></ruby>が<ruby>混雑<rt>こんざつ</rt></ruby>しています。</b><br>이 시간에는 역이 혼잡합니다."
   },
   {
     "tag": "(한자)",
@@ -1226,7 +1226,7 @@
       "여름"
     ],
     "answer": 0,
-    "explanation": "「<ruby>春<rt>はる</rt></ruby>」는 '봄'이라는 뜻입니다.<br><br><b><ruby>春<rt>はる</rt></ruby>です。</b><br>봄입니다."
+    "explanation": "「<ruby>春<rt>はる</rt></ruby>」는 '봄'이라는 뜻입니다.<br><br><b><ruby>春<rt>はる</rt></ruby>になって、<ruby>暖<rt>あたた</rt></ruby>かくなりました。</b><br>봄이 되어 따뜻해졌습니다."
   },
   {
     "tag": "(한자)",
@@ -1237,7 +1237,7 @@
       "겨울"
     ],
     "answer": 0,
-    "explanation": "「<ruby>夏<rt>なつ</rt></ruby>」는 '여름'이라는 뜻입니다.<br><br><b><ruby>夏<rt>なつ</rt></ruby>です。</b><br>여름입니다."
+    "explanation": "「<ruby>夏<rt>なつ</rt></ruby>」는 '여름'이라는 뜻입니다.<br><br><b><ruby>夏<rt>なつ</rt></ruby>は<ruby>熱中症<rt>ねっちゅうしょう</rt></ruby>に<ruby>注意<rt>ちゅうい</rt></ruby>してください。</b><br>여름에는 열사병에 주의해 주세요."
   },
   {
     "tag": "(한자)",
@@ -1248,7 +1248,7 @@
       "봄"
     ],
     "answer": 0,
-    "explanation": "「<ruby>秋<rt>あき</rt></ruby>」는 '가을'이라는 뜻입니다.<br><br><b><ruby>秋<rt>あき</rt></ruby>です。</b><br>가을입니다."
+    "explanation": "「<ruby>秋<rt>あき</rt></ruby>」는 '가을'이라는 뜻입니다.<br><br><b><ruby>秋<rt>あき</rt></ruby>は<ruby>紅葉<rt>こうよう</rt></ruby>がきれいです。</b><br>가을은 단풍이 아름답습니다."
   },
   {
     "tag": "(한자)",
@@ -1259,29 +1259,29 @@
       "가을"
     ],
     "answer": 0,
-    "explanation": "「<ruby>冬<rt>ふゆ</rt></ruby>」는 '겨울'이라는 뜻입니다.<br><br><b><ruby>冬<rt>ふゆ</rt></ruby>です。</b><br>겨울입니다."
+    "explanation": "「<ruby>冬<rt>ふゆ</rt></ruby>」는 '겨울'이라는 뜻입니다.<br><br><b><ruby>冬<rt>ふゆ</rt></ruby>は<ruby>朝<rt>あさ</rt></ruby>がとても<ruby>寒<rt>さむ</rt></ruby>いです。</b><br>겨울은 아침이 매우 춥습니다."
   },
   {
     "tag": "(한자)",
     "cat": "계절·날씨",
-    "question": "<ruby>晴<rt>は</rt></ruby>의 뜻은?",
+    "question": "<ruby>晴れ<rt>はれ</rt></ruby>의 뜻은?",
     "options": [
       "맑음",
       "흐림"
     ],
     "answer": 0,
-    "explanation": "「<ruby>晴<rt>は</rt></ruby>」는 '맑음'이라는 뜻입니다.<br><br><b><ruby>晴<rt>は</rt></ruby>れです。</b><br>맑습니다."
+    "explanation": "「<ruby>晴れ<rt>はれ</rt></ruby>」는 '맑음'이라는 뜻입니다.<br><br><b><ruby>今日<rt>きょう</rt></ruby>は<ruby>晴れ<rt>はれ</rt></ruby>の<ruby>予報<rt>よほう</rt></ruby>です。</b><br>오늘은 맑음 예보입니다."
   },
   {
     "tag": "(한자)",
     "cat": "계절·날씨",
-    "question": "<ruby>曇<rt>くも</rt></ruby>의 뜻은?",
+    "question": "<ruby>曇り<rt>くもり</rt></ruby>의 뜻은?",
     "options": [
       "흐림",
       "맑음"
     ],
     "answer": 0,
-    "explanation": "「<ruby>曇<rt>くも</rt></ruby>」는 '흐림'이라는 뜻입니다.<br><br><b><ruby>曇<rt>くも</rt></ruby>りです。</b><br>흐립니다."
+    "explanation": "「<ruby>曇り<rt>くもり</rt></ruby>」는 '흐림'이라는 뜻입니다.<br><br><b><ruby>午後<rt>ごご</rt></ruby>は<ruby>曇り<rt>くもり</rt></ruby>の<ruby>予報<rt>よほう</rt></ruby>です。</b><br>오후는 흐림 예보입니다."
   },
   {
     "tag": "(한자)",
@@ -1292,7 +1292,7 @@
       "눈"
     ],
     "answer": 0,
-    "explanation": "「<ruby>雨<rt>あめ</rt></ruby>」는 '비'이라는 뜻입니다.<br><br><b><ruby>雨<rt>あめ</rt></ruby>です。</b><br>비입니다."
+    "explanation": "「<ruby>雨<rt>あめ</rt></ruby>」는 '비'이라는 뜻입니다.<br><br><b><ruby>今日<rt>きょう</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>の<ruby>予報<rt>よほう</rt></ruby>です。</b><br>오늘은 비 예보입니다."
   },
   {
     "tag": "(한자)",
@@ -1303,7 +1303,7 @@
       "약한 비"
     ],
     "answer": 0,
-    "explanation": "「<ruby>大雨<rt>おおあめ</rt></ruby>」는 '폭우'이라는 뜻입니다.<br><br><b><ruby>大雨<rt>おおあめ</rt></ruby>です。</b><br>폭우입니다."
+    "explanation": "「<ruby>大雨<rt>おおあめ</rt></ruby>」는 '폭우'이라는 뜻입니다.<br><br><b>この<ruby>地域<rt>ちいき</rt></ruby>には<ruby>大雨<rt>おおあめ</rt></ruby><ruby>警報<rt>けいほう</rt></ruby>が<ruby>出<rt>で</rt></ruby>ています。</b><br>이 지역에는 폭우 경보가 내려져 있습니다."
   },
   {
     "tag": "(한자)",
@@ -1314,7 +1314,7 @@
       "비"
     ],
     "answer": 0,
-    "explanation": "「<ruby>雪<rt>ゆき</rt></ruby>」는 '눈'이라는 뜻입니다.<br><br><b><ruby>雪<rt>ゆき</rt></ruby>です。</b><br>눈입니다."
+    "explanation": "「<ruby>雪<rt>ゆき</rt></ruby>」는 '눈'이라는 뜻입니다.<br><br><b><ruby>今夜<rt>こんや</rt></ruby>は<ruby>雪<rt>ゆき</rt></ruby>の<ruby>予報<rt>よほう</rt></ruby>です。</b><br>오늘 밤은 눈 예보입니다."
   },
   {
     "tag": "(한자)",
@@ -1336,7 +1336,7 @@
       "습도"
     ],
     "answer": 0,
-    "explanation": "「<ruby>気温<rt>きおん</rt></ruby>」는 '기온'이라는 뜻입니다.<br><br><b><ruby>気温<rt>きおん</rt></ruby>が<ruby>高<rt>たか</rt></ruby>いです。</b><br>기온이 높습니다."
+    "explanation": "「<ruby>気温<rt>きおん</rt></ruby>」는 '기온'이라는 뜻입니다.<br><br><b><ruby>今日<rt>きょう</rt></ruby>は<ruby>気温<rt>きおん</rt></ruby>が30<ruby>度<rt>ど</rt></ruby>まで<ruby>上<rt>あ</rt></ruby>がります。</b><br>오늘은 기온이 30도까지 오릅니다."
   },
   {
     "tag": "(한자)",
@@ -1347,7 +1347,7 @@
       "기온"
     ],
     "answer": 0,
-    "explanation": "「<ruby>湿度<rt>しつど</rt></ruby>」는 '습도'이라는 뜻입니다.<br><br><b><ruby>湿度<rt>しつど</rt></ruby>が<ruby>高<rt>たか</rt></ruby>いです。</b><br>습도가 높습니다."
+    "explanation": "「<ruby>湿度<rt>しつど</rt></ruby>」는 '습도'이라는 뜻입니다.<br><br><b><ruby>梅雨<rt>つゆ</rt></ruby>の<ruby>時期<rt>じき</rt></ruby>は<ruby>湿度<rt>しつど</rt></ruby>が<ruby>高<rt>たか</rt></ruby>いです。</b><br>장마철은 습도가 높습니다."
   },
   {
     "tag": "(한자)",
@@ -1358,7 +1358,7 @@
       "폭우"
     ],
     "answer": 0,
-    "explanation": "「<ruby>乾燥<rt>かんそう</rt></ruby>」는 '건조'이라는 뜻입니다.<br><br><b><ruby>乾燥<rt>かんそう</rt></ruby>しています。</b><br>건조합니다."
+    "explanation": "「<ruby>乾燥<rt>かんそう</rt></ruby>」는 '건조'이라는 뜻입니다.<br><br><b><ruby>冬<rt>ふゆ</rt></ruby>は<ruby>空気<rt>くうき</rt></ruby>が<ruby>乾燥<rt>かんそう</rt></ruby>しています。</b><br>겨울에는 공기가 건조합니다."
   },
   {
     "tag": "(한자)",
@@ -1369,7 +1369,7 @@
       "춥다"
     ],
     "answer": 0,
-    "explanation": "「<ruby>暑<rt>あつ</rt></ruby>い」는 '덥다(날씨)'이라는 뜻입니다.<br><br><b><ruby>今日<rt>きょう</rt></ruby>は<ruby>暑<rt>あつ</rt></ruby>いいです。</b><br>오늘은 덥습니다."
+    "explanation": "「<ruby>暑<rt>あつ</rt></ruby>い」는 '덥다(날씨)'이라는 뜻입니다.<br><br><b><ruby>今日<rt>きょう</rt></ruby>は<ruby>暑<rt>あつ</rt></ruby>いので、<ruby>水<rt>みず</rt></ruby>を<ruby>持<rt>も</rt></ruby>って<ruby>行<rt>い</rt></ruby>ってください。</b><br>오늘은 더우니 물을 챙겨 가세요."
   },
   {
     "tag": "(한자)",
@@ -1380,7 +1380,7 @@
       "덥다"
     ],
     "answer": 0,
-    "explanation": "「<ruby>熱<rt>あつ</rt></ruby>い」는 '뜨겁다(물건/온도)'이라는 뜻입니다.<br><br><b>お<ruby>湯<rt>ゆ</rt></ruby>が<ruby>熱<rt>あつ</rt></ruby>いいです。</b><br>뜨거운 물이 뜨거워요."
+    "explanation": "「<ruby>熱<rt>あつ</rt></ruby>い」는 '뜨겁다(물건/온도)'이라는 뜻입니다.<br><br><b>お<ruby>湯<rt>ゆ</rt></ruby>が<ruby>熱<rt>あつ</rt></ruby>いので、<ruby>気<rt>き</rt></ruby>をつけてください。</b><br>물이 뜨거우니 조심해 주세요."
   },
   {
     "tag": "(한자)",
@@ -1391,7 +1391,7 @@
       "덥다"
     ],
     "answer": 0,
-    "explanation": "「<ruby>寒<rt>さむ</rt></ruby>い」는 '춥다'이라는 뜻입니다.<br><br><b><ruby>今日<rt>きょう</rt></ruby>は<ruby>寒<rt>さむ</rt></ruby>いいです。</b><br>오늘은 춥습니다."
+    "explanation": "「<ruby>寒<rt>さむ</rt></ruby>い」는 '춥다'이라는 뜻입니다.<br><br><b><ruby>今日<rt>きょう</rt></ruby>は<ruby>寒<rt>さむ</rt></ruby>いので、コートが<ruby>必要<rt>ひつよう</rt></ruby>です。</b><br>오늘은 추워서 코트가 필요합니다."
   },
   {
     "tag": "(한자)",
@@ -1424,7 +1424,7 @@
       "정상 운행"
     ],
     "answer": 0,
-    "explanation": "「<ruby>運休<rt>うんきゅう</rt></ruby>」는 '운행 중지'이라는 뜻입니다.<br><br><b><ruby>運休<rt>うんきゅう</rt></ruby>です。</b><br>운행이 중지되었습니다."
+    "explanation": "「<ruby>運休<rt>うんきゅう</rt></ruby>」는 '운행 중지'이라는 뜻입니다.<br><br><b><ruby>強風<rt>きょうふう</rt></ruby>のため、<ruby>電車<rt>でんしゃ</rt></ruby>は<ruby>運休<rt>うんきゅう</rt></ruby>です。</b><br>강풍으로 전철이 운행 중지입니다."
   },
   {
     "tag": "(한자)",
