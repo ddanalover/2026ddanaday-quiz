@@ -356,10 +356,42 @@
     const o = audioCtx.createOscillator(), g = audioCtx.createGain();
     o.connect(g); g.connect(audioCtx.destination);
     const n = audioCtx.currentTime;
-    if(t==='c'){ o.type='square'; o.frequency.setValueAtTime(659,n); o.frequency.setValueAtTime(987,n+0.1); g.gain.setValueAtTime(0.1,n); }
-    else { o.type='sawtooth'; o.frequency.setValueAtTime(150,n); o.frequency.exponentialRampToValueAtTime(50, n+0.4); g.gain.setValueAtTime(0.1,n); }
-    o.start(n); o.stop(n+0.4);
+    if(t==='c'){
+      o.type='square';
+      o.frequency.setValueAtTime(659,n);
+      o.frequency.setValueAtTime(987,n+0.1);
+      g.gain.setValueAtTime(0.055,n);
+      g.gain.exponentialRampToValueAtTime(0.0001, n+0.26);
+      o.start(n); o.stop(n+0.26);
+      return;
+    }
+    if(t==='b'){
+      o.type='triangle';
+      o.frequency.setValueAtTime(820,n);
+      o.frequency.exponentialRampToValueAtTime(1180,n+0.04);
+      g.gain.setValueAtTime(0.042,n);
+      g.gain.exponentialRampToValueAtTime(0.0001, n+0.09);
+      o.start(n); o.stop(n+0.09);
+      return;
+    }
+    o.type='sawtooth';
+    o.frequency.setValueAtTime(150,n);
+    o.frequency.exponentialRampToValueAtTime(55, n+0.28);
+    g.gain.setValueAtTime(0.05,n);
+    g.gain.exponentialRampToValueAtTime(0.0001, n+0.28);
+    o.start(n); o.stop(n+0.28);
   }
+
+  document.addEventListener('click', (ev) => {
+    const btn = ev.target.closest('.btn-pixel');
+    if (!btn) return;
+    if (btn.id === 'opt0' || btn.id === 'opt1') return;
+    const isNavButton =
+      btn.classList.contains('btn-nav') ||
+      !!btn.closest('#explain-nav') ||
+      !!btn.closest('#screen-home');
+    if (isNavButton) playSnd('b');
+  });
 
   let curCat = '', curSubCat = '', qSet = [], history = [], curIdx = 0, score = 0;
   let explainCatName = '', explainList = [], explainCardIndex = 0, explainPageIndex = 0;
