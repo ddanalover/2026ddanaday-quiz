@@ -151,13 +151,33 @@
       flex-shrink: 0;
     }
 
-    .label{display:inline-flex;align-items:center;gap:6px;padding:0;border:0;background:transparent;font-weight:900;font-size:0.98rem;margin-top:8px;}
+    .label{display:inline-flex;align-items:center;gap:6px;padding:0;border:0;background:transparent;font-weight:900;font-size:0.98rem;margin-top:2px;margin-bottom:8px;}
     .label.bad{color:#8E3B2E;}
     .label.why{color:#5B4B9A;}
     .label.good{color:#1E7D4D;}
     .label.sum{color:#8A6A00;}
-    .section-block{margin-top:3px; margin-bottom:12px; line-height:1.72; text-align:left;}
-    .sum-box{margin-top:4px; padding:10px 12px; border:2px dashed #D8B95A; border-radius:12px; background:linear-gradient(180deg,#FFFDF2 0%, #FFF9DE 100%);}
+    .explain-section{margin-top:0;}
+    .explain-section + .explain-section{margin-top:18px;}
+    .section-block{margin-top:0; margin-bottom:0; line-height:1.72; text-align:left;}
+    .wrong-set{padding-left:12px; border-left:2px solid rgba(142,59,46,0.22);}
+    .wrong-lead{margin-bottom:8px;}
+    .wrong-choice{padding:6px 8px; border-radius:10px;}
+    .wrong-choice + .wrong-choice{margin-top:6px;}
+    .wrong-choice.bad{background:rgba(142,59,46,0.08);}
+    .wrong-choice.good{background:rgba(30,125,77,0.08);}
+    .mark-bad{color:#B23A2E; font-weight:900;}
+    .mark-good{color:#1E7D4D; font-weight:900;}
+    .line-pair{margin:0 0 12px 0;}
+    .line-pair:last-child{margin-bottom:0;}
+    .jp-line,.ko-line{display:block;}
+    .ko-line{margin-top:2px;}
+    .section-block ul{list-style:none; padding-left:0; margin:0;}
+    .section-block li{margin:0 0 10px 0; line-height:1.72;}
+    .section-block li:last-child{margin-bottom:0;}
+    .fix-item{padding-left:12px; border-left:2px solid rgba(44,138,75,0.22);}
+    .step-item{padding-left:12px; border-left:2px solid rgba(138,106,0,0.28); margin:0 0 10px 0;}
+    .step-item:last-child{margin-bottom:0;}
+    .sum-box{margin-top:0; padding:10px 12px; border:2px dashed #D8B95A; border-radius:12px; background:linear-gradient(180deg,#FFFDF2 0%, #FFF9DE 100%); line-height:1.72;}
     .explain-item-title{
       font-size:1.08rem;
       font-weight:900;
@@ -343,6 +363,7 @@
 
 <script>
   var masterDB = { kanji: [], expression: [] };
+  var recentQuestionHistory = { expression: [], kanji: {} };
   var masterExplainDB = [];
 </script>
 <script src="data/kanji.js"></script>
@@ -418,7 +439,11 @@
     curCat = cat; curSubCat = '';
     const db = window.masterDB[cat];
     if (!db || db.length === 0) { alert("문제가 없습니다."); return; }
-    if (!isRetry) qSet = [...db].sort(() => 0.5 - Math.random()).slice(0, 5);
+    if (!isRetry) {
+      const recent = recentQuestionHistory[cat] || [];
+      qSet = pickQuestions(db, 5, recent);
+      recentQuestionHistory[cat] = [...recent, ...qSet].slice(-10);
+    }
     curIdx = 0; score = 0; history = [];
     document.getElementById('quiz-header').innerText = cat==='expression' ? '📖 표현 퀴즈' : '🉐 한자 퀴즈';
     showScreen('screen-quiz'); renderQuiz();
@@ -430,10 +455,23 @@
     curCat = 'kanji'; curSubCat = catName;
     const filtered = (window.masterDB.kanji || []).filter(x => (x.cat || '') === catName);
     if (!filtered.length) { alert("문제가 아직 없습니다."); return; }
-    if (!isRetry) qSet = [...filtered].sort(() => 0.5 - Math.random()).slice(0, 5);
+    if (!isRetry) {
+      const recent = recentQuestionHistory.kanji[catName] || [];
+      qSet = pickQuestions(filtered, 5, recent);
+      recentQuestionHistory.kanji[catName] = [...recent, ...qSet].slice(-10);
+    }
     curIdx = 0; score = 0; history = [];
     document.getElementById('quiz-header').innerText = `🉐 한자 · ${catName}`;
     showScreen('screen-quiz'); renderQuiz();
+  }
+
+  function pickQuestions(pool, count, avoidSet = []) {
+    const shuffled = [...pool].sort(() => 0.5 - Math.random());
+    if (!avoidSet.length || pool.length <= count) return shuffled.slice(0, count);
+    const excluded = new Set(avoidSet);
+    const filtered = shuffled.filter(item => !excluded.has(item));
+    if (filtered.length >= count) return filtered.slice(0, count);
+    return shuffled.slice(0, count);
   }
 
   function retryCurrentQuiz() {
@@ -612,8 +650,68 @@
   function renderExplainPage() {
     const card = explainList[explainCardIndex];
     const fmt = (html) => {
-      const text = (html || "").replace(/<br>\s*→/g, "→");
-      return text.replace(/→/g, "<br>→");
+      const text = (html || "").trim();
+      return text
+        .split(/<br>\s*<br>/)
+        .map(block => {
+          const lines = block.split(/<br>/).map(x => x.trim()).filter(Boolean);
+          if (!lines.length) return '';
+          if (lines.some(x => x.startsWith('→'))) {
+            const parts = [];
+            for (let i = 0; i < lines.length; i++) {
+              const line = lines[i];
+              if (line.startsWith('→')) continue;
+              const next = lines[i + 1] && lines[i + 1].startsWith('→') ? lines[i + 1] : '';
+              parts.push(
+                `<div class="line-pair"><span class="jp-line">${line}</span>${next ? `<span class="ko-line">${next}</span>` : ''}</div>`
+              );
+            }
+            return parts.join('');
+          }
+          if (lines.some(x => x.includes('→'))) {
+            return lines.map(line => {
+              const [jp, ko] = line.split('→');
+              return `<div class="line-pair"><span class="jp-line">${jp.trim()}</span>${ko ? `<span class="ko-line">→ ${ko.trim()}</span>` : ''}</div>`;
+            }).join('');
+          }
+          return lines.map(line => `<div>${line}</div>`).join('');
+        })
+        .join('');
+    };
+    const fmtWrong = (html) => {
+      const lines = (html || "").trim().split(/<br>/).map(x => x.trim()).filter(Boolean);
+      if (!lines.length) return '';
+      const lead = lines[0];
+      const rest = lines.slice(1).map(line => {
+        if (line.startsWith('✖')) {
+          return `<div class="wrong-choice bad"><span class="mark-bad">✖</span> ${line.slice(1).trim()}</div>`;
+        }
+        if (line.startsWith('〇')) {
+          return `<div class="wrong-choice good"><span class="mark-good">〇</span> ${line.slice(1).trim()}</div>`;
+        }
+        return `<div>${line}</div>`;
+      }).join('');
+      return `<div class="wrong-set"><div class="wrong-lead">${lead}</div>${rest}</div>`;
+    };
+    const fmtPairList = (html, cls) => {
+      const text = (html || "").trim();
+      const lines = text.split(/<br>/).map(x => x.trim()).filter(Boolean);
+      const parts = [];
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        if (line.startsWith('→')) continue;
+        let jp = line.replace(/^・\s*/, '');
+        let next = lines[i + 1] && lines[i + 1].startsWith('→') ? lines[i + 1] : '';
+        if (!next && jp.includes('→')) {
+          const split = jp.split('→');
+          jp = split[0].trim();
+          next = `→ ${split.slice(1).join('→').trim()}`;
+        }
+        parts.push(
+          `<div class="${cls}"><span class="jp-line">${jp}</span>${next ? `<span class="ko-line">${next}</span>` : ''}</div>`
+        );
+      }
+      return parts.join('');
     };
     const catMeta = (cat) => {
       if (cat === '경어와 톤') return { label: '경어', color: '#2D7AA8' };
@@ -624,11 +722,11 @@
     const meta = catMeta(card.category);
     document.getElementById('explain-card-title').innerHTML = `<span class="explain-cat-tag" style="color:${meta.color};">[${meta.label}]</span> ${card.title}`;
     const pages = [
-      `<div class="label bad">📝 문장 예시</div><div class="section-block">${fmt(card.wrong)}</div><br>` +
-      `<div class="label why">🔎 왜 어색할까</div><div class="section-block">${fmt(card.why)}</div>`,
-      `<div class="label good">✅ 이렇게 말해요</div><div class="section-block"><ul style="list-style:none; padding-left:0; margin:0;">${(card.fix || []).map(x => `<li>・ ${fmt(x)}</li>`).join("")}</ul></div><br>` +
-      `<div class="label sum">⭐ 한 줄 정리</div><div class="sum-box">${fmt(card.summary || "")}</div>`,
-      `<div class="label sum">🚀 스텝업</div><div class="section-block">${fmt(card.stepup || "추가 표현을 준비 중입니다.")}</div>`
+      `<div class="explain-section"><div class="label bad">📝 문장 예시</div><div class="section-block">${fmtWrong(card.wrong)}</div></div>` +
+      `<div class="explain-section"><div class="label why">🔎 왜 어색할까</div><div class="section-block">${fmt(card.why)}</div></div>`,
+      `<div class="explain-section"><div class="label good">✅ 이렇게 말해요</div><div class="section-block"><ul>${(card.fix || []).map(x => `<li><div class="fix-item">${fmt(x)}</div></li>`).join("")}</ul></div></div>` +
+      `<div class="explain-section"><div class="label sum">⭐ 한 줄 정리</div><div class="sum-box">${fmt(card.summary || "")}</div></div>`,
+      `<div class="explain-section"><div class="label sum">🚀 스텝업</div><div class="section-block">${fmtPairList(card.stepup || "추가 표현을 준비 중입니다.", "step-item")}</div></div>`
     ];
     document.getElementById('explain-page-indicator').innerText = `${explainPageIndex + 1}/${pages.length}`;
     document.getElementById('explain-page-body').innerHTML = pages[explainPageIndex];
