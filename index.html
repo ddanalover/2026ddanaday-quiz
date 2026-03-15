@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>별빛노트: 일본어 뽀개기</title>
+  <title>LEVEL UP! 따나 맞춤 비법노트</title>
   <link href="https://fonts.googleapis.com/css2?family=Jua&family=Kosugi+Maru&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&display=swap" rel="stylesheet">
@@ -59,7 +59,7 @@
     .btn-pixel {
       padding: 15px; background: var(--primary); color: #fff; border: var(--border);
       font-family: inherit; font-size: 1.1rem; cursor: pointer;
-      box-shadow: inset -4px -4px 0px rgba(0,0,0,0.3); border-radius: 10px; outline: none;
+       border-radius: 10px; outline: none;
     }
     
     /* 네비게이션 버튼 사이즈 및 스타일 통일 */
@@ -76,15 +76,48 @@
       font-weight: bold; transform: translateY(-1px);
     }
 
+    /* 🌟 별 애니메이션 (기존 로직 유지) */
     .home-star {
-      font-size: 8.5rem; margin-bottom: 10px;
+      font-size: 7.5rem; margin-bottom: 5px;
       animation: starFloat 2.5s infinite ease-in-out;
       filter: drop-shadow(0 0 20px rgba(253, 216, 53, 0.7));
     }
-    @keyframes starFloat { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(15deg); } }
+    @keyframes starFloat { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-12px) rotate(15deg); } }
 
-    .main-title { font-size: 2.8rem; color: var(--primary); margin-bottom: 5px; text-shadow: 3px 3px 0px rgba(0,0,0,0.1); }
-    .sub-title { font-size: 1.1rem; color: #888; margin-bottom: 40px; letter-spacing: 1.5px; }
+    /* 🏷️ LEVEL UP! 뱃지 */
+    .lvl-tag { 
+      font-size: 1rem; background: var(--primary); color: #fff; 
+      padding: 4px 14px; border-radius: 20px; margin-bottom: 8px; 
+      letter-spacing: 1px; box-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+    }
+
+    /* 👑 메인 타이틀: '따나 맞춤 비법노트' (두터운 섀도우 적용) */
+    .main-title { 
+      font-size: 2.8rem; 
+      color: var(--secondary); 
+      text-shadow: 
+        -2px -2px 0 #5B4B9A,  
+         2px -2px 0 #5B4B9A,
+        -2px  2px 0 #5B4B9A,
+         2px  2px 0 #5B4B9A,
+         3px  3px 0 #5B4B9A, 
+         4px  4px 0 #5B4B9A, 
+         5px  5px 0 #5B4B9A,
+         7px  7px 0 rgba(0,0,0,0.15); 
+      margin-top: 5px;
+      margin-bottom: 12px; 
+      line-height: 1.1;
+      text-align: center;
+      word-break: keep-all;
+    }
+
+    /* ✨ 부제목: 일본어 뉘앙스 완벽 정복 */
+    .sub-title { 
+      font-size: 1.1rem; color: #7D5BA6; 
+      margin-bottom: 30px; letter-spacing: 0.5px; 
+      text-align: center; font-weight: bold;
+      text-shadow: 1px 1px 0px #fff;
+    }
 
     .quiz-card {
       background: #fff; border: var(--border); padding: 35px 15px;
@@ -251,17 +284,19 @@
 
   <div id="screen-home" class="content" style="justify-content:center; align-items:center; background: radial-gradient(circle, #FFFDE7 0%, #F5F7FF 100%);">
     <div class="home-star">🌟</div>
-    <div class="main-title">별빛노트</div>
-    <div class="sub-title">💥일본어 공부 뽀개기💥</div>
+    <div class="lvl-tag">LEVEL UP!</div>
+    <h1 class="main-title">따나 맞춤<br>비법노트</h1>
+    <div class="sub-title">✨일본어 뉘앙스 완벽 정복✨</div>
+    <div style="height: 15px;"></div> 
     <button class="btn-pixel" style="width:85%;" onclick="showScreen('screen-category')">도전 시작!</button>
   </div>
 
   <div id="screen-category" class="hidden">
     <header>분야 선택</header>
     <div class="content" style="justify-content:center; gap:20px;">
-        <button class="btn-pixel" style="background:#F39C12" onclick="showKanjiCats()">🉐 한자 퀴즈</button>
-        <button class="btn-pixel" style="background:#3498DB" onclick="startQuiz('expression')">📖 표현 퀴즈</button>
-        <button class="btn-pixel" style="background:#8E44AD" onclick="openExplainMenu()">📚 해설집</button>
+        <button class="btn-pixel" style="background:#FF8A80; box-shadow: 5px 5px 0 #5B4B9A, 7px 7px 0 rgba(0,0,0,0.15), inset -4px -4px 0 rgba(0,0,0,0.15);" onclick="showKanjiCats()">🉐 한자 퀴즈 </button>
+        <button class="btn-pixel" style="background:#4FC3F7; box-shadow: 5px 5px 0 #5B4B9A, 7px 7px 0 rgba(0,0,0,0.15), inset -4px -4px 0 rgba(0,0,0,0.15);" onclick="startQuiz('expression')">📖 표현 퀴즈 </button>
+        <button class="btn-pixel" style="background:#BA68C8; box-shadow: 5px 5px 0 #5B4B9A, 7px 7px 0 rgba(0,0,0,0.15), inset -4px -4px 0 rgba(0,0,0,0.15);" onclick="openExplainMenu()">📚 해설집 </button>
     </div>
     <div class="nav-footer">
       <button class="btn-pixel btn-nav" onclick="showScreen('screen-home')">홈으로</button>
