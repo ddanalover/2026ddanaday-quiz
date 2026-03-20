@@ -1,155 +1,347 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>LEVEL UP! 따나 맞춤 비법노트</title>
+  <title>LEVEL UP! 따나의 일본어 노트</title>
   <link href="https://fonts.googleapis.com/css2?family=Jua&family=Kosugi+Maru&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-body: #E9ECFF; --bg-game: #FFFDF3; --primary: #A889D6;
-      --secondary: #FFD54F; --border: 4px solid #000;
+      --bg-body: #E9ECFF;
+      --bg-game: #FFFDF3;
+      --primary: #A889D6;
+      --secondary: #FFD54F;
+      --border: 4px solid #000;
     }
 
-    html, body {
-      margin: 0; padding: 0; height: 100%; min-height: 100dvh; background-color: var(--bg-body);
-      font-family: 'Jua', 'Kosugi Maru', sans-serif; image-rendering: pixelated;
-      display: grid; place-items: center; overflow: hidden;
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      min-height: 100dvh;
+      background-color: var(--bg-body);
+      font-family: 'Jua', 'Kosugi Maru', sans-serif;
+      image-rendering: pixelated;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
     }
 
     #app {
-      width: 95vw; max-width: 400px; height: min(95dvh, 711px); max-height: 711px;
-      background: var(--bg-game); border: var(--border); border-radius: 12px;
-      box-shadow: 12px 12px 0px rgba(0,0,0,0.12);
-      display: flex; flex-direction: column; position: relative; overflow: hidden;
+      width: 95vw;
+      max-width: 400px;
+      height: min(95dvh, 711px);
+      max-height: 711px;
+      background: var(--bg-game);
+      border: var(--border);
+      border-radius: 12px;
+      box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.12);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
       padding-bottom: env(safe-area-inset-bottom);
       box-sizing: border-box;
     }
 
     @supports not (height: 100dvh) {
-      html, body { min-height: 100vh; }
-      #app { height: min(95vh, 711px); }
+
+      html,
+      body {
+        min-height: 100vh;
+      }
+
+      #app {
+        height: min(95vh, 711px);
+      }
     }
 
-    .hidden { display: none !important; }
+    .hidden {
+      display: none !important;
+    }
 
     header {
-      background: var(--primary); padding: 15px; color: #fff;
-      font-size: 1.2rem; text-align: center; border-bottom: var(--border); flex-shrink: 0;
+      background: var(--primary);
+      padding: 15px;
+      color: #fff;
+      font-size: 1.2rem;
+      text-align: center;
+      border-bottom: var(--border);
+      flex-shrink: 0;
     }
 
-    .progress-bar { height: 16px; background: #fff; border-bottom: var(--border); flex-shrink: 0; }
-    #progress-fill { height: 100%; width: 0%; background: var(--secondary); transition: 0.3s; }
+    .progress-bar {
+      height: 16px;
+      background: #fff;
+      border-bottom: var(--border);
+      flex-shrink: 0;
+    }
+
+    #progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--secondary);
+      transition: 0.3s;
+    }
 
     .content {
-      flex: 1; display: flex; flex-direction: column;
-      padding: 30px 20px 10px 20px; box-sizing: border-box; overflow: hidden;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 30px 20px 10px 20px;
+      box-sizing: border-box;
+      overflow: hidden;
     }
 
     /* 하단 버튼 영역 최적화 (선 제거 / 배경 통합) */
     .nav-footer {
       padding: 18px 20px 28px 20px;
-      display: flex; justify-content: center; gap: 12px; flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-shrink: 0;
       background: var(--bg-game);
     }
 
     .btn-pixel {
-      padding: 15px; background: var(--primary); color: #fff; border: var(--border);
-      font-family: inherit; font-size: 1.1rem; cursor: pointer;
-       border-radius: 10px; outline: none;
+      padding: 15px;
+      background: var(--primary);
+      color: #fff;
+      border: var(--border);
+      font-family: inherit;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border-radius: 10px;
+      outline: none;
     }
-    
-    /* 네비게이션 버튼 사이즈 및 스타일 통일 */
-    .btn-nav { flex: 1; max-width: 160px; padding: 12px 0; font-size: 1rem; }
-    .btn-opt { background: #fff; color: #000; box-shadow: 4px 4px 0px rgba(0,0,0,0.1); }
 
-    .spacer { flex: 1; min-height: 5px; }
+    /* 네비게이션 버튼 사이즈 및 스타일 통일 */
+    .btn-nav {
+      flex: 1;
+      max-width: 160px;
+      padding: 12px 0;
+      font-size: 1rem;
+    }
+
+    .btn-opt {
+      background: #fff;
+      color: #000;
+      box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    .spacer {
+      flex: 1;
+      min-height: 5px;
+    }
 
     ruby {
       font-family: 'Noto Sans JP', sans-serif;
     }
+
     ruby rt {
-      font-size: 0.7rem; color: #6c3483; font-family: 'Noto Sans JP', 'Kosugi Maru', sans-serif;
-      font-weight: bold; transform: translateY(-1px);
+      font-size: 0.7rem;
+      color: #6c3483;
+      font-family: 'Noto Sans JP', 'Kosugi Maru', sans-serif;
+      font-weight: bold;
+      transform: translateY(-1px);
     }
 
     /* 🌟 별 애니메이션 (기존 로직 유지) */
     .home-star {
-      font-size: 7.5rem; margin-bottom: 5px;
+      font-size: 7.5rem;
+      margin-bottom: 5px;
       animation: starFloat 2.5s infinite ease-in-out;
       filter: drop-shadow(0 0 20px rgba(253, 216, 53, 0.7));
     }
-    @keyframes starFloat { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-12px) rotate(15deg); } }
 
-    /* 🏷️ LEVEL UP! 뱃지 */
-    .lvl-tag { 
-      font-size: 1rem; background: var(--primary); color: #fff; 
-      padding: 4px 14px; border-radius: 20px; margin-bottom: 8px; 
-      letter-spacing: 1px; box-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+    @keyframes starFloat {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-12px) rotate(15deg);
+      }
     }
 
-    /* 👑 메인 타이틀: '따나 맞춤 비법노트' (두터운 섀도우 적용) */
-    .main-title { 
-      font-size: 2.8rem; 
-      color: var(--secondary); 
-      text-shadow: 
-        -2px -2px 0 #5B4B9A,  
-         2px -2px 0 #5B4B9A,
-        -2px  2px 0 #5B4B9A,
-         2px  2px 0 #5B4B9A,
-         3px  3px 0 #5B4B9A, 
-         4px  4px 0 #5B4B9A, 
-         5px  5px 0 #5B4B9A,
-         7px  7px 0 rgba(0,0,0,0.15); 
+    /* 🏷️ LEVEL UP! 뱃지 */
+    .lvl-tag {
+      font-size: 1rem;
+      background: var(--primary);
+      color: #fff;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+      box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 👑 메인 타이틀: '따나의 일본어노트' (두터운 섀도우 적용) */
+    .main-title {
+      font-size: 2.8rem;
+      color: var(--secondary);
+      text-shadow:
+        -2px -2px 0 #5B4B9A,
+        2px -2px 0 #5B4B9A,
+        -2px 2px 0 #5B4B9A,
+        2px 2px 0 #5B4B9A,
+        3px 3px 0 #5B4B9A,
+        4px 4px 0 #5B4B9A,
+        5px 5px 0 #5B4B9A,
+        7px 7px 0 rgba(0, 0, 0, 0.15);
       margin-top: 5px;
-      margin-bottom: 12px; 
+      margin-bottom: 12px;
       line-height: 1.1;
       text-align: center;
       word-break: keep-all;
     }
 
-    /* ✨ 부제목: 일본어 뉘앙스 완벽 정복 */
-    .sub-title { 
-      font-size: 1.1rem; color: #7D5BA6; 
-      margin-bottom: 30px; letter-spacing: 0.5px; 
-      text-align: center; font-weight: bold;
-      text-shadow: 1px 1px 0px #fff;
+    /* ✨ 부제목: 일본어 뉘앙스 뽀개기 */
+    .sub-title {
+      font-size: 1.1rem;
+      color: #7D5BA6;
+      margin-bottom: 30px;
+      letter-spacing: 0.5px;
+      text-align: center;
+      font-weight: bold;
+      text-shadow: 1px 1px 0 #fff, 2px 2px 0 #fff, 4px 4px 0 rgba(91, 75, 154, 0.16);
     }
 
     .quiz-card {
-      background: #fff; border: var(--border); padding: 35px 15px;
-      text-align: center; position: relative; border-radius: 10px; flex-shrink: 0;
+      background: #fff;
+      border: var(--border);
+      padding: 35px 15px;
+      text-align: center;
+      position: relative;
+      border-radius: 10px;
+      flex-shrink: 0;
     }
+
     #screen-quiz .quiz-card {
       min-height: 136px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
+
     .q-tag {
-      position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
-      background: var(--secondary); border: var(--border); padding: 6px 12px; font-size: 0.9rem; z-index: 10;
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--secondary);
+      border: var(--border);
+      padding: 6px 12px;
+      font-size: 0.9rem;
+      z-index: 10;
     }
-    .question { font-size: 1.4rem; line-height: 1.6; color: #333; word-break: keep-all; text-align: center; }
-    #screen-quiz .question { width: 100%; margin: 0; }
-    .options { display: grid; gap: 15px; width: 100%; flex-shrink: 0; margin-top: 18px; }
-    .options .btn-opt { font-size: 1rem; line-height: 1.45; }
-    #screen-kanji-cat .btn-opt { width: 100%; padding: 14px 12px; font-size: 1.05rem; white-space: nowrap; }
+
+    .question {
+      font-size: 1.4rem;
+      line-height: 1.6;
+      color: #333;
+      word-break: keep-all;
+      text-align: center;
+    }
+
+    #screen-quiz .question {
+      width: 100%;
+      margin: 0;
+    }
+
+    .options {
+      display: grid;
+      gap: 15px;
+      width: 100%;
+      flex-shrink: 0;
+      margin-top: 18px;
+    }
+
+    .options .btn-opt {
+      font-size: 1rem;
+      line-height: 1.45;
+    }
+
+    #screen-kanji-cat .btn-opt {
+      width: 100%;
+      padding: 14px 12px;
+      font-size: 1.05rem;
+      white-space: nowrap;
+    }
 
     #feedback-overlay {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8); display: none; justify-content: center; align-items: center; z-index: 9999;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
     }
-    #feedback-overlay.show { display: flex !important; }
-    .modal { background: #fff; border: var(--border); width: 85%; max-height: 80%; display: flex; flex-direction: column; padding: 20px; border-radius: 15px; }
-    .f-scroll { flex: 1; overflow-y: auto; background: #FFF9C4; border: 2px dashed var(--primary); padding: 15px; margin-bottom: 15px; border-radius: 10px; }
 
-    .score-box { background: #fff; border: var(--border); padding: 10px 12px; text-align: center; border-radius: 10px; flex-shrink: 0; }
-    .review-list { margin: 15px 0; display: flex; flex-direction: column; gap: 10px; overflow-y: auto; flex: 1; min-height: 0; }
-    .review-item { background: #fff; border: 2px solid var(--primary); padding: 12px; font-size: 1rem; border-radius: 8px; cursor: pointer; }
+    #feedback-overlay.show {
+      display: flex !important;
+    }
+
+    .modal {
+      background: #fff;
+      border: var(--border);
+      width: 85%;
+      max-height: 80%;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      border-radius: 15px;
+    }
+
+    .f-scroll {
+      flex: 1;
+      overflow-y: auto;
+      background: #FFF9C4;
+      border: 2px dashed var(--primary);
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+    }
+
+    .score-box {
+      background: #fff;
+      border: var(--border);
+      padding: 10px 12px;
+      text-align: center;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    .review-list {
+      margin: 15px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      overflow-y: auto;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .review-item {
+      background: #fff;
+      border: 2px solid var(--primary);
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
     #screen-result {
       display: flex;
       flex-direction: column;
@@ -157,7 +349,14 @@
       min-height: 0;
       overflow-y: auto;
     }
-    #screen-result .content { flex: 1; min-height: 0; overflow-y: auto; padding-top: 16px; }
+
+    #screen-result .content {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      padding-top: 16px;
+    }
+
     #screen-result .nav-footer {
       padding: 4px 20px 16px 20px;
       display: flex;
@@ -166,6 +365,7 @@
       flex-shrink: 0;
       margin-bottom: 8px;
     }
+
     #screen-explain {
       display: flex;
       flex-direction: column;
@@ -173,8 +373,18 @@
       min-height: 0;
       overflow: hidden;
     }
-    #screen-explain .content { flex: 1; min-height: 0; overflow: hidden; }
-    #explain-viewer { min-height: 0; overflow: hidden; }
+
+    #screen-explain .content {
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    #explain-viewer {
+      min-height: 0;
+      overflow: hidden;
+    }
+
     #explain-nav {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -184,41 +394,153 @@
       flex-shrink: 0;
     }
 
-    .label{display:inline-flex;align-items:center;gap:6px;padding:0;border:0;background:transparent;font-weight:900;font-size:0.98rem;margin-top:2px;margin-bottom:8px;}
-    .label.bad{color:#8E3B2E;}
-    .label.why{color:#5B4B9A;}
-    .label.good{color:#1E7D4D;}
-    .label.sum{color:#8A6A00;}
-    .explain-section{margin-top:0;}
-    .explain-section + .explain-section{margin-top:18px;}
-    .section-block{margin-top:0; margin-bottom:0; line-height:1.72; text-align:left;}
-    .wrong-set{padding-left:12px; border-left:2px solid rgba(142,59,46,0.22);}
-    .wrong-lead{margin-bottom:8px;}
-    .wrong-choice{padding:6px 8px; border-radius:10px;}
-    .wrong-choice + .wrong-choice{margin-top:6px;}
-    .wrong-choice.bad{background:rgba(142,59,46,0.08);}
-    .wrong-choice.good{background:rgba(30,125,77,0.08);}
-    .mark-bad{color:#B23A2E; font-weight:900;}
-    .mark-good{color:#1E7D4D; font-weight:900;}
-    .line-pair{margin:0 0 12px 0;}
-    .line-pair:last-child{margin-bottom:0;}
-    .jp-line,.ko-line{display:block;}
-    .ko-line{margin-top:2px;}
-    .section-block ul{list-style:none; padding-left:0; margin:0;}
-    .section-block li{margin:0 0 10px 0; line-height:1.72;}
-    .section-block li:last-child{margin-bottom:0;}
-    .fix-item{padding-left:12px; border-left:2px solid rgba(44,138,75,0.22);}
-    .step-item{padding-left:12px; border-left:2px solid rgba(138,106,0,0.28); margin:0 0 10px 0;}
-    .step-item:last-child{margin-bottom:0;}
-    .sum-box{margin-top:0; padding:10px 12px; border:2px dashed #D8B95A; border-radius:12px; background:linear-gradient(180deg,#FFFDF2 0%, #FFF9DE 100%); line-height:1.72;}
-    .explain-item-title{
-      font-size:1.08rem;
-      font-weight:900;
-      line-height:1.5;
-      margin-bottom:10px;
-      color:#2c2c2c;
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      font-weight: 900;
+      font-size: 0.98rem;
+      margin-top: 2px;
+      margin-bottom: 8px;
     }
-    .explain-cat-tag{font-weight:900;}
+
+    .label.bad {
+      color: #8E3B2E;
+    }
+
+    .label.why {
+      color: #5B4B9A;
+    }
+
+    .label.good {
+      color: #1E7D4D;
+    }
+
+    .label.sum {
+      color: #8A6A00;
+    }
+
+    .explain-section {
+      margin-top: 0;
+    }
+
+    .explain-section+.explain-section {
+      margin-top: 18px;
+    }
+
+    .section-block {
+      margin-top: 0;
+      margin-bottom: 0;
+      line-height: 1.72;
+      text-align: left;
+    }
+
+    .wrong-set {
+      padding-left: 12px;
+      border-left: 2px solid rgba(142, 59, 46, 0.22);
+    }
+
+    .wrong-lead {
+      margin-bottom: 8px;
+    }
+
+    .wrong-choice {
+      padding: 6px 8px;
+      border-radius: 10px;
+    }
+
+    .wrong-choice+.wrong-choice {
+      margin-top: 6px;
+    }
+
+    .wrong-choice.bad {
+      background: rgba(142, 59, 46, 0.08);
+    }
+
+    .wrong-choice.good {
+      background: rgba(30, 125, 77, 0.08);
+    }
+
+    .mark-bad {
+      color: #B23A2E;
+      font-weight: 900;
+    }
+
+    .mark-good {
+      color: #1E7D4D;
+      font-weight: 900;
+    }
+
+    .line-pair {
+      margin: 0 0 12px 0;
+    }
+
+    .line-pair:last-child {
+      margin-bottom: 0;
+    }
+
+    .jp-line,
+    .ko-line {
+      display: block;
+    }
+
+    .ko-line {
+      margin-top: 2px;
+    }
+
+    .section-block ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .section-block li {
+      margin: 0 0 10px 0;
+      line-height: 1.72;
+    }
+
+    .section-block li:last-child {
+      margin-bottom: 0;
+    }
+
+    .fix-item {
+      padding-left: 12px;
+      border-left: 2px solid rgba(44, 138, 75, 0.22);
+    }
+
+    .step-item {
+      padding-left: 12px;
+      border-left: 2px solid rgba(138, 106, 0, 0.28);
+      margin: 0 0 10px 0;
+    }
+
+    .step-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .sum-box {
+      margin-top: 0;
+      padding: 10px 12px;
+      border: 2px dashed #D8B95A;
+      border-radius: 12px;
+      background: linear-gradient(180deg, #FFFDF2 0%, #FFF9DE 100%);
+      line-height: 1.72;
+    }
+
+    .explain-item-title {
+      font-size: 1.08rem;
+      font-weight: 900;
+      line-height: 1.5;
+      margin-bottom: 10px;
+      color: #2c2c2c;
+    }
+
+    .explain-cat-tag {
+      font-weight: 900;
+    }
 
     /* StarNote-like scrollbar */
     .review-list,
@@ -229,6 +551,7 @@
       scrollbar-color: #a889d6 #efe9ff;
       overflow-x: hidden;
     }
+
     #explain-body-card {
       height: 100%;
       padding: 0;
@@ -236,6 +559,7 @@
       display: flex;
       flex-direction: column;
     }
+
     #explain-page-scroll {
       flex: 1;
       min-height: 0;
@@ -246,6 +570,7 @@
       scrollbar-width: thin;
       scrollbar-color: #a889d6 #efe9ff;
     }
+
     .review-list::-webkit-scrollbar,
     .f-scroll::-webkit-scrollbar,
     #screen-result .content::-webkit-scrollbar,
@@ -254,6 +579,7 @@
       width: 10px;
       height: 0;
     }
+
     .review-list::-webkit-scrollbar-track,
     .f-scroll::-webkit-scrollbar-track,
     #screen-result .content::-webkit-scrollbar-track,
@@ -262,6 +588,7 @@
       background: #efe9ff;
       border-radius: 999px;
     }
+
     .review-list::-webkit-scrollbar-thumb,
     .f-scroll::-webkit-scrollbar-thumb,
     #screen-result .content::-webkit-scrollbar-thumb,
@@ -280,495 +607,510 @@
 </head>
 
 <body>
-<div id="app">
+  <div id="app">
 
-  <div id="screen-home" class="content" style="justify-content:center; align-items:center; background: radial-gradient(circle, #FFFDE7 0%, #F5F7FF 100%);">
-    <div class="home-star">🌟</div>
-    <div class="lvl-tag">LEVEL UP!</div>
-    <h1 class="main-title">따나 맞춤<br>비법노트</h1>
-    <div class="sub-title">✨일본어 뉘앙스 완벽 정복✨</div>
-    <div style="height: 15px;"></div> 
-    <button class="btn-pixel" style="width:85%;" onclick="showScreen('screen-category')">도전 시작!</button>
-  </div>
-
-  <div id="screen-category" class="hidden">
-    <header>분야 선택</header>
-    <div class="content" style="justify-content:center; gap:20px;">
-        <button class="btn-pixel" style="background:#FF8A80; box-shadow: 5px 5px 0 #5B4B9A, 7px 7px 0 rgba(0,0,0,0.15), inset -4px -4px 0 rgba(0,0,0,0.15);" onclick="showKanjiCats()">🉐 한자 퀴즈 </button>
-        <button class="btn-pixel" style="background:#4FC3F7; box-shadow: 5px 5px 0 #5B4B9A, 7px 7px 0 rgba(0,0,0,0.15), inset -4px -4px 0 rgba(0,0,0,0.15);" onclick="startQuiz('expression')">📖 표현 퀴즈 </button>
-        <button class="btn-pixel" style="background:#BA68C8; box-shadow: 5px 5px 0 #5B4B9A, 7px 7px 0 rgba(0,0,0,0.15), inset -4px -4px 0 rgba(0,0,0,0.15);" onclick="openExplainMenu()">📚 해설집 </button>
+    <div id="screen-home" class="content"
+      style="justify-content:center; align-items:center; background: radial-gradient(circle, #FFFDE7 0%, #F5F7FF 100%);">
+      <div class="home-star">🌟</div>
+      <div class="lvl-tag">LEVEL UP!</div>
+      <h1 class="main-title">따나의<br>일본어노트</h1>
+      <div class="sub-title">✨일본어 뉘앙스 뽀개기✨</div>
+      <div style="height: 15px;"></div>
+      <button class="btn-pixel" style="width:85%;" onclick="showScreen('screen-category')">도전 시작!</button>
     </div>
-    <div class="nav-footer">
-      <button class="btn-pixel btn-nav" onclick="showScreen('screen-home')">홈으로</button>
-    </div>
-  </div>
 
-  <div id="screen-kanji-cat" class="hidden">
-    <header>한자 카테고리</header>
-    <div class="content" style="justify-content:center;">
-      <div style="display:grid; grid-template-columns: 1fr; gap:12px; align-content:center;">
-        <button class="btn-pixel btn-opt" onclick="startKanjiSub('공연·행사')">🎟 공연</button>
-        <button class="btn-pixel btn-opt" onclick="startKanjiSub('호텔·숙박')">🏨 호텔</button>
-        <button class="btn-pixel btn-opt" onclick="startKanjiSub('식당·카페')">🍜 식당</button>
-        <button class="btn-pixel btn-opt" onclick="startKanjiSub('쇼핑')">🛍 쇼핑</button>
-        <button class="btn-pixel btn-opt" onclick="startKanjiSub('교통·이동')">🚦 교통</button>
-        <button class="btn-pixel btn-opt" onclick="startKanjiSub('계절·날씨')">🌦 날씨</button>
+    <div id="screen-category" class="hidden">
+      <header>분야 선택</header>
+      <div class="content" style="justify-content:center; gap:20px;">
+        <button class="btn-pixel"
+          style="background:#FF8A80; box-shadow: 5px 5px 0 #5B4B9A, 7px 7px 0 rgba(0,0,0,0.15), inset -4px -4px 0 rgba(0,0,0,0.15);"
+          onclick="showKanjiCats()">🉐 한자 퀴즈 </button>
+        <button class="btn-pixel"
+          style="background:#4FC3F7; box-shadow: 5px 5px 0 #5B4B9A, 7px 7px 0 rgba(0,0,0,0.15), inset -4px -4px 0 rgba(0,0,0,0.15);"
+          onclick="startQuiz('expression')">📖 표현 퀴즈 </button>
+        <button class="btn-pixel"
+          style="background:#BA68C8; box-shadow: 5px 5px 0 #5B4B9A, 7px 7px 0 rgba(0,0,0,0.15), inset -4px -4px 0 rgba(0,0,0,0.15);"
+          onclick="openExplainMenu()">📚 해설집 </button>
+      </div>
+      <div class="nav-footer">
+        <button class="btn-pixel btn-nav" onclick="showScreen('screen-home')">홈으로</button>
       </div>
     </div>
-    <div class="nav-footer">
-      <button class="btn-pixel btn-nav" onclick="showScreen('screen-category')">뒤로 가기</button>
-    </div>
-  </div>
 
-  <div id="screen-quiz" class="hidden">
-    <header id="quiz-header">진행 중</header>
-    <div class="progress-bar"><div id="progress-fill"></div></div>
-    <div class="content">
-      <div class="quiz-card">
-        <span class="q-tag" id="q-label">STEP 01</span>
-        <div id="q-text" class="question"></div>
+    <div id="screen-kanji-cat" class="hidden">
+      <header>한자 카테고리</header>
+      <div class="content" style="justify-content:center;">
+        <div style="display:grid; grid-template-columns: 1fr; gap:12px; align-content:center;">
+          <button class="btn-pixel btn-opt" onclick="startKanjiSub('공연·행사')">🎟 공연</button>
+          <button class="btn-pixel btn-opt" onclick="startKanjiSub('호텔·숙박')">🏨 호텔</button>
+          <button class="btn-pixel btn-opt" onclick="startKanjiSub('식당·카페')">🍜 식당</button>
+          <button class="btn-pixel btn-opt" onclick="startKanjiSub('쇼핑')">🛍 쇼핑</button>
+          <button class="btn-pixel btn-opt" onclick="startKanjiSub('교통·이동')">🚦 교통</button>
+          <button class="btn-pixel btn-opt" onclick="startKanjiSub('계절·날씨')">🌦 날씨</button>
+        </div>
       </div>
-      <div class="spacer"></div>
-      <div class="options">
-        <button class="btn-pixel btn-opt" id="opt0"></button>
-        <button class="btn-pixel btn-opt" id="opt1"></button>
+      <div class="nav-footer">
+        <button class="btn-pixel btn-nav" onclick="showScreen('screen-category')">뒤로 가기</button>
       </div>
     </div>
-    <div class="nav-footer">
-      <button class="btn-pixel btn-nav" onclick="quitQuiz()">그만 풀기</button>
-    </div>
-  </div>
 
-  <div id="screen-result" class="hidden">
-    <header>결과 리포트</header>
-    <div class="content" style="justify-content: flex-start;">
-      <div class="score-box">🌟별 개수: <span id="res-c" style="color:var(--primary); font-size:1.9rem;">0</span>/5</div>
-      <div id="review-list" class="review-list"></div>
+    <div id="screen-quiz" class="hidden">
+      <header id="quiz-header">진행 중</header>
+      <div class="progress-bar">
+        <div id="progress-fill"></div>
+      </div>
+      <div class="content">
+        <div class="quiz-card">
+          <span class="q-tag" id="q-label">STEP 01</span>
+          <div id="q-text" class="question"></div>
+        </div>
+        <div class="spacer"></div>
+        <div class="options">
+          <button class="btn-pixel btn-opt" id="opt0"></button>
+          <button class="btn-pixel btn-opt" id="opt1"></button>
+        </div>
+      </div>
+      <div class="nav-footer">
+        <button class="btn-pixel btn-nav" onclick="quitQuiz()">그만 풀기</button>
+      </div>
     </div>
-    <div class="nav-footer">
+
+    <div id="screen-result" class="hidden">
+      <header>결과 리포트</header>
+      <div class="content" style="justify-content: flex-start;">
+        <div class="score-box">🌟별 개수: <span id="res-c" style="color:var(--primary); font-size:1.9rem;">0</span>/5</div>
+        <div id="review-list" class="review-list"></div>
+      </div>
+      <div class="nav-footer">
         <button class="btn-pixel btn-nav" onclick="handleResultBack()">뒤로 가기</button>
         <button class="btn-pixel btn-nav" onclick="retryCurrentQuiz()">다시 하기</button>
         <button class="btn-pixel btn-nav" onclick="continueCurrentQuiz()">계속 풀기</button>
-    </div>
-  </div>
-
-  <div id="screen-explain" class="hidden">
-    <header id="explain-header">해설집</header>
-    <div class="content">
-      <div id="explain-cat" style="display:grid; gap:15px; margin-top:10px;">
-        <button class="btn-pixel" style="background:#FFB74D" onclick="openExplainList('조사 사용')">📍 조사</button>
-        <button class="btn-pixel" style="background:#81D4FA" onclick="openExplainList('경어와 톤')">🙇 경어</button>
-        <button class="btn-pixel" style="background:#A5D6A7" onclick="openExplainList('단어 선택')">🍎 단어</button>
       </div>
-      <div id="explain-list" class="hidden" style="flex:1; overflow-y:auto;"><div id="explain-list-scroll"></div></div>
-      <div id="explain-viewer" class="hidden" style="flex:1; display:flex; flex-direction:column;">
-        <div class="quiz-card" style="padding:15px; text-align:left; margin-bottom:10px;">
-          <div id="explain-card-title" class="question" style="font-size:1.1rem;"></div>
-          <div id="explain-page-indicator" style="text-align:right; font-size:0.8rem; color:#666;">1/3</div>
+    </div>
+
+    <div id="screen-explain" class="hidden">
+      <header id="explain-header">해설집</header>
+      <div class="content">
+        <div id="explain-cat" style="display:grid; gap:15px; margin-top:10px;">
+          <button class="btn-pixel" style="background:#FFB74D" onclick="openExplainList('조사 사용')">📍 조사</button>
+          <button class="btn-pixel" style="background:#81D4FA" onclick="openExplainList('경어와 톤')">🙇 경어</button>
+          <button class="btn-pixel" style="background:#A5D6A7" onclick="openExplainList('단어 선택')">🍎 단어</button>
         </div>
-        <div style="flex:1; min-height:0;">
-          <div id="explain-body-card" class="quiz-card">
-            <div id="explain-page-scroll">
-              <div id="explain-page-body" style="font-family:'Noto Sans KR',sans-serif; font-size:1rem; line-height:1.7;"></div>
+        <div id="explain-list" class="hidden" style="flex:1; overflow-y:auto;">
+          <div id="explain-list-scroll"></div>
+        </div>
+        <div id="explain-viewer" class="hidden" style="flex:1; display:flex; flex-direction:column;">
+          <div class="quiz-card" style="padding:15px; text-align:left; margin-bottom:10px;">
+            <div id="explain-card-title" class="question" style="font-size:1.1rem;"></div>
+            <div id="explain-page-indicator" style="text-align:right; font-size:0.8rem; color:#666;">1/3</div>
+          </div>
+          <div style="flex:1; min-height:0;">
+            <div id="explain-body-card" class="quiz-card">
+              <div id="explain-page-scroll">
+                <div id="explain-page-body"
+                  style="font-family:'Noto Sans KR',sans-serif; font-size:1rem; line-height:1.7;"></div>
+              </div>
             </div>
           </div>
-        </div>
-        <div id="explain-nav">
-          <button class="btn-pixel" onclick="prevExplainPage()">&lt; 이전</button>
-          <button class="btn-pixel" onclick="handleExplainBack()">뒤로</button>
-          <button class="btn-pixel" onclick="nextExplainPage()">다음 &gt;</button>
+          <div id="explain-nav">
+            <button class="btn-pixel" onclick="prevExplainPage()">&lt; 이전</button>
+            <button class="btn-pixel" onclick="handleExplainBack()">뒤로</button>
+            <button class="btn-pixel" onclick="nextExplainPage()">다음 &gt;</button>
+          </div>
         </div>
       </div>
+      <div id="explain-footer" class="nav-footer">
+        <button class="btn-pixel btn-nav" onclick="handleExplainBack()">뒤로 가기</button>
+      </div>
     </div>
-    <div id="explain-footer" class="nav-footer">
-      <button class="btn-pixel btn-nav" onclick="handleExplainBack()">뒤로 가기</button>
+
+    <div id="feedback-overlay">
+      <div class="modal">
+        <span id="f-mark" style="display:none; font-size:3.5rem; text-align:center;">🌟</span>
+        <div id="f-title" style="font-size: 1.4rem; font-weight: bold; text-align:center; margin:10px 0;"></div>
+        <div class="f-scroll">
+          <div id="f-exp" style="font-family:'Noto Sans KR',sans-serif; line-height:1.8;"></div>
+        </div>
+        <button class="btn-pixel" onclick="handleContinue()">계속하기 > </button>
+      </div>
     </div>
+
   </div>
 
-  <div id="feedback-overlay">
-    <div class="modal">
-      <span id="f-mark" style="display:none; font-size:3.5rem; text-align:center;">🌟</span>
-      <div id="f-title" style="font-size: 1.4rem; font-weight: bold; text-align:center; margin:10px 0;"></div>
-      <div class="f-scroll"><div id="f-exp" style="font-family:'Noto Sans KR',sans-serif; line-height:1.8;"></div></div>
-      <button class="btn-pixel" onclick="handleContinue()">계속하기 > </button>
-    </div>
-  </div>
+  <script>
+    var masterDB = { kanji: [], expression: [] };
+    var recentQuestionHistory = { expression: [], kanji: {} };
+    var masterExplainDB = [];
+  </script>
+  <script src="data/kanji.js"></script>
+  <script src="data/expression.js"></script>
+  <script src="data/explain.js"></script>
 
-</div>
-
-<script>
-  var masterDB = { kanji: [], expression: [] };
-  var recentQuestionHistory = { expression: [], kanji: {} };
-  var masterExplainDB = [];
-</script>
-<script src="data/kanji.js"></script>
-<script src="data/expression.js"></script>
-<script src="data/explain.js"></script>
-
-<script>
-  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  function playSnd(t) {
-    if(audioCtx.state === 'suspended') audioCtx.resume();
-    const o = audioCtx.createOscillator(), g = audioCtx.createGain();
-    o.connect(g); g.connect(audioCtx.destination);
-    const n = audioCtx.currentTime;
-    if(t==='c'){
-      o.type='square';
-      o.frequency.setValueAtTime(659,n);
-      o.frequency.setValueAtTime(987,n+0.1);
-      g.gain.setValueAtTime(0.055,n);
-      g.gain.exponentialRampToValueAtTime(0.0001, n+0.26);
-      o.start(n); o.stop(n+0.26);
-      return;
-    }
-    if(t==='b'){
-      o.type='triangle';
-      o.frequency.setValueAtTime(820,n);
-      o.frequency.exponentialRampToValueAtTime(1180,n+0.04);
-      g.gain.setValueAtTime(0.042,n);
-      g.gain.exponentialRampToValueAtTime(0.0001, n+0.09);
-      o.start(n); o.stop(n+0.09);
-      return;
-    }
-    o.type='sawtooth';
-    o.frequency.setValueAtTime(150,n);
-    o.frequency.exponentialRampToValueAtTime(55, n+0.28);
-    g.gain.setValueAtTime(0.05,n);
-    g.gain.exponentialRampToValueAtTime(0.0001, n+0.28);
-    o.start(n); o.stop(n+0.28);
-  }
-
-  document.addEventListener('click', (ev) => {
-    const btn = ev.target.closest('.btn-pixel');
-    if (!btn) return;
-    if (btn.id === 'opt0' || btn.id === 'opt1') return;
-    const isNavButton =
-      btn.classList.contains('btn-nav') ||
-      !!btn.closest('#explain-nav') ||
-      !!btn.closest('#screen-home');
-    if (isNavButton) playSnd('b');
-  });
-
-  let curCat = '', curSubCat = '', qSet = [], history = [], curIdx = 0, score = 0;
-  let explainCatName = '', explainList = [], explainCardIndex = 0, explainPageIndex = 0;
-
-  function showScreen(id) {
-    ['screen-home','screen-category','screen-kanji-cat','screen-quiz','screen-result','screen-explain'].forEach(s => {
-      document.getElementById(s).classList.add('hidden');
-    });
-    document.getElementById(id).classList.remove('hidden');
-    document.getElementById('feedback-overlay').classList.remove('show');
-  }
-
-  function quitQuiz() {
-    if (curCat === 'kanji') showScreen('screen-kanji-cat');
-    else showScreen('screen-category');
-  }
-
-  function handleResultBack() {
-    if (curCat === 'kanji') showScreen('screen-kanji-cat');
-    else showScreen('screen-category');
-  }
-
-  function startQuiz(cat, isRetry=false) {
-    curCat = cat; curSubCat = '';
-    const db = window.masterDB[cat];
-    if (!db || db.length === 0) { alert("문제가 없습니다."); return; }
-    if (!isRetry) {
-      const recent = recentQuestionHistory[cat] || [];
-      qSet = pickQuestions(db, 5, recent);
-      recentQuestionHistory[cat] = [...recent, ...qSet].slice(-10);
-    }
-    curIdx = 0; score = 0; history = [];
-    document.getElementById('quiz-header').innerText = cat==='expression' ? '📖 표현 퀴즈' : '🉐 한자 퀴즈';
-    showScreen('screen-quiz'); renderQuiz();
-  }
-
-  function showKanjiCats() { showScreen('screen-kanji-cat'); }
-
-  function startKanjiSub(catName, isRetry = false) {
-    curCat = 'kanji'; curSubCat = catName;
-    const filtered = (window.masterDB.kanji || []).filter(x => (x.cat || '') === catName);
-    if (!filtered.length) { alert("문제가 아직 없습니다."); return; }
-    if (!isRetry) {
-      const recent = recentQuestionHistory.kanji[catName] || [];
-      qSet = pickQuestions(filtered, 5, recent);
-      recentQuestionHistory.kanji[catName] = [...recent, ...qSet].slice(-10);
-    }
-    curIdx = 0; score = 0; history = [];
-    document.getElementById('quiz-header').innerText = `🉐 한자 · ${catName}`;
-    showScreen('screen-quiz'); renderQuiz();
-  }
-
-  function pickQuestions(pool, count, avoidSet = []) {
-    const shuffled = [...pool].sort(() => 0.5 - Math.random());
-    if (!avoidSet.length || pool.length <= count) return shuffled.slice(0, count);
-    const excluded = new Set(avoidSet);
-    const filtered = shuffled.filter(item => !excluded.has(item));
-    if (filtered.length >= count) return filtered.slice(0, count);
-    return shuffled.slice(0, count);
-  }
-
-  function retryCurrentQuiz() {
-    if (curCat === 'kanji') startKanjiSub(curSubCat, true);
-    else startQuiz('expression', true);
-  }
-
-  function continueCurrentQuiz() {
-    if (curCat === 'kanji') startKanjiSub(curSubCat, false);
-    else startQuiz('expression', false);
-  }
-
-  function formatQuizText(raw) {
-    return String(raw || "")
-      .replace(/\\n/g, "<br>")
-      .replace(/\n/g, "<br>");
-  }
-
-  function renderQuiz() {
-    const d = qSet[curIdx];
-    let opts = [
-      { text: (d.o ? d.o[0] : d.options[0]), isCorrect: ((d.a ?? d.answer) === 0) },
-      { text: (d.o ? d.o[1] : d.options[1]), isCorrect: ((d.a ?? d.answer) === 1) }
-    ].sort(() => Math.random() - 0.5);
-    document.getElementById('q-label').innerText = `STEP 0${curIdx + 1}`;
-    document.getElementById('q-text').innerHTML = formatQuizText(d.q ?? d.question);
-    document.getElementById('progress-fill').style.width = `${(curIdx / 5) * 100}%`;
-    document.getElementById('opt0').innerHTML = `A. ${formatQuizText(opts[0].text)}`;
-    document.getElementById('opt1').innerHTML = `B. ${formatQuizText(opts[1].text)}`;
-    document.getElementById('opt0').onclick = () => handleCheck(opts[0].isCorrect);
-    document.getElementById('opt1').onclick = () => handleCheck(opts[1].isCorrect);
-  }
-
-  function formatFeedbackExplanation(answerText, explanationHtml, questionText = "") {
-    const raw = String(explanationHtml || "");
-    const marker = raw.match(/한\s*줄\s*비교\s*[:：]/);
-    let formattedExp = raw;
-    if (marker) {
-      const parts = raw.split(/한\s*줄\s*비교\s*[:：]/);
-      const before = parts[0].trim();
-      const compareRaw = (parts[1] || "").trim();
-      const compareItems = compareRaw
-        .split(" / ")
-        .map(x => x.trim())
-        .filter(Boolean)
-        .map(x => {
-          if (x.includes("→")) {
-            const seg = x.split("→");
-            const left = (seg[0] || "").trim();
-            const right = (seg.slice(1).join("→") || "").trim();
-            return `・${left}<br>→ ${right}`;
-          }
-          return `・${x}`;
-        })
-        .join("<br>");
-      formattedExp = `${before}<br><b>🔎 표현 비교</b><br>${compareItems}`;
-    } else {
-      const exMatch = raw.match(/([\s\S]*?)<br><br><b>([\s\S]*?)<\/b><br>\s*([\s\S]*)$/);
-      if (exMatch) {
-        const lead = (exMatch[1] || "").trim();
-        const jp = (exMatch[2] || "").trim();
-        const ko = (exMatch[3] || "").trim();
-        formattedExp = `${lead}<br><br>・ ${jp}<br>→ ${ko}`;
+  <script>
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    function playSnd(t) {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const o = audioCtx.createOscillator(), g = audioCtx.createGain();
+      o.connect(g); g.connect(audioCtx.destination);
+      const n = audioCtx.currentTime;
+      if (t === 'c') {
+        o.type = 'square';
+        o.frequency.setValueAtTime(659, n);
+        o.frequency.setValueAtTime(987, n + 0.1);
+        g.gain.setValueAtTime(0.055, n);
+        g.gain.exponentialRampToValueAtTime(0.0001, n + 0.26);
+        o.start(n); o.stop(n + 0.26);
+        return;
       }
+      if (t === 'b') {
+        o.type = 'triangle';
+        o.frequency.setValueAtTime(820, n);
+        o.frequency.exponentialRampToValueAtTime(1180, n + 0.04);
+        g.gain.setValueAtTime(0.042, n);
+        g.gain.exponentialRampToValueAtTime(0.0001, n + 0.09);
+        o.start(n); o.stop(n + 0.09);
+        return;
+      }
+      o.type = 'sawtooth';
+      o.frequency.setValueAtTime(150, n);
+      o.frequency.exponentialRampToValueAtTime(55, n + 0.28);
+      g.gain.setValueAtTime(0.05, n);
+      g.gain.exponentialRampToValueAtTime(0.0001, n + 0.28);
+      o.start(n); o.stop(n + 0.28);
     }
-    return `<b>정답: ${answerText}</b><br><br>${formattedExp}`;
-  }
 
-  function resetFeedbackScrollTop() {
-    const scrollBox = document.querySelector('.f-scroll');
-    if (scrollBox) scrollBox.scrollTop = 0;
-  }
-
-  function handleCheck(isC) {
-    const d = qSet[curIdx]; if(isC) { score++; playSnd('c'); } else { playSnd('w'); }
-    history.push({...d, isC: isC});
-    document.getElementById('f-title').innerText = isC ? "🌟 정답입니다!" : "☁️ 아쉬워요!";
-    document.getElementById('f-exp').innerHTML = formatFeedbackExplanation(
-      (d.o ?? d.options)[d.a ?? d.answer],
-      (d.e ?? d.explanation),
-      (d.q ?? d.question ?? "")
-    );
-    resetFeedbackScrollTop();
-    document.getElementById('feedback-overlay').classList.add('show');
-  }
-
-  function handleContinue() {
-    document.getElementById('feedback-overlay').classList.remove('show');
-    curIdx++; if(curIdx < 5) renderQuiz(); else showFinalResult();
-  }
-
-  function showFinalResult() {
-    showScreen('screen-result');
-    document.getElementById('res-c').innerText = score;
-    const list = document.getElementById('review-list'); list.innerHTML = "";
-    list.scrollTop = 0;
-    history.forEach((item, i) => {
-      const div = document.createElement('div'); div.className = 'review-item';
-      div.innerHTML = `<b>${i+1}. ${item.q ?? item.question}</b><br><span style="color:${item.isC?'var(--primary)':'#E74C3C'}">정답: ${(item.o ?? item.options)[item.a ?? item.answer]}</span>`;
-      div.onclick = () => {
-        document.getElementById('f-title').innerText = item.isC ? "🌟 해설 복습" : "☁️ 해설 복습";
-        document.getElementById('f-exp').innerHTML = formatFeedbackExplanation(
-          (item.o ?? item.options)[item.a ?? item.answer],
-          (item.e ?? item.explanation),
-          (item.q ?? item.question ?? "")
-        );
-        resetFeedbackScrollTop();
-        document.getElementById('feedback-overlay').classList.add('show');
-      };
-      list.appendChild(div);
+    document.addEventListener('click', (ev) => {
+      const btn = ev.target.closest('.btn-pixel');
+      if (!btn) return;
+      if (btn.id === 'opt0' || btn.id === 'opt1') return;
+      const isNavButton =
+        btn.classList.contains('btn-nav') ||
+        !!btn.closest('#explain-nav') ||
+        !!btn.closest('#screen-home');
+      if (isNavButton) playSnd('b');
     });
-  }
 
-  function openExplainMenu() {
-    showScreen('screen-explain');
-    document.getElementById('explain-header').innerText = '해설집';
-    document.getElementById('explain-cat').classList.add('hidden');
-    document.getElementById('explain-viewer').classList.add('hidden');
-    document.getElementById('explain-list').classList.remove('hidden');
-    document.getElementById('explain-footer').classList.remove('hidden');
-    renderExplainAll();
-  }
-  function handleExplainBack() {
-    if (!document.getElementById('explain-viewer').classList.contains('hidden')) {
+    let curCat = '', curSubCat = '', qSet = [], history = [], curIdx = 0, score = 0;
+    let explainCatName = '', explainList = [], explainCardIndex = 0, explainPageIndex = 0;
+
+    function showScreen(id) {
+      ['screen-home', 'screen-category', 'screen-kanji-cat', 'screen-quiz', 'screen-result', 'screen-explain'].forEach(s => {
+        document.getElementById(s).classList.add('hidden');
+      });
+      document.getElementById(id).classList.remove('hidden');
+      document.getElementById('feedback-overlay').classList.remove('show');
+    }
+
+    function quitQuiz() {
+      if (curCat === 'kanji') showScreen('screen-kanji-cat');
+      else showScreen('screen-category');
+    }
+
+    function handleResultBack() {
+      if (curCat === 'kanji') showScreen('screen-kanji-cat');
+      else showScreen('screen-category');
+    }
+
+    function startQuiz(cat, isRetry = false) {
+      curCat = cat; curSubCat = '';
+      const db = window.masterDB[cat];
+      if (!db || db.length === 0) { alert("문제가 없습니다."); return; }
+      if (!isRetry) {
+        const recent = recentQuestionHistory[cat] || [];
+        qSet = pickQuestions(db, 5, recent);
+        recentQuestionHistory[cat] = [...recent, ...qSet].slice(-10);
+      }
+      curIdx = 0; score = 0; history = [];
+      document.getElementById('quiz-header').innerText = cat === 'expression' ? '📖 표현 퀴즈' : '🉐 한자 퀴즈';
+      showScreen('screen-quiz'); renderQuiz();
+    }
+
+    function showKanjiCats() { showScreen('screen-kanji-cat'); }
+
+    function startKanjiSub(catName, isRetry = false) {
+      curCat = 'kanji'; curSubCat = catName;
+      const filtered = (window.masterDB.kanji || []).filter(x => (x.cat || '') === catName);
+      if (!filtered.length) { alert("문제가 아직 없습니다."); return; }
+      if (!isRetry) {
+        const recent = recentQuestionHistory.kanji[catName] || [];
+        qSet = pickQuestions(filtered, 5, recent);
+        recentQuestionHistory.kanji[catName] = [...recent, ...qSet].slice(-10);
+      }
+      curIdx = 0; score = 0; history = [];
+      document.getElementById('quiz-header').innerText = `🉐 한자 · ${catName}`;
+      showScreen('screen-quiz'); renderQuiz();
+    }
+
+    function pickQuestions(pool, count, avoidSet = []) {
+      const shuffled = [...pool].sort(() => 0.5 - Math.random());
+      if (!avoidSet.length || pool.length <= count) return shuffled.slice(0, count);
+      const excluded = new Set(avoidSet);
+      const filtered = shuffled.filter(item => !excluded.has(item));
+      if (filtered.length >= count) return filtered.slice(0, count);
+      return shuffled.slice(0, count);
+    }
+
+    function retryCurrentQuiz() {
+      if (curCat === 'kanji') startKanjiSub(curSubCat, true);
+      else startQuiz('expression', true);
+    }
+
+    function continueCurrentQuiz() {
+      if (curCat === 'kanji') startKanjiSub(curSubCat, false);
+      else startQuiz('expression', false);
+    }
+
+    function formatQuizText(raw) {
+      return String(raw || "")
+        .replace(/\\n/g, "<br>")
+        .replace(/\n/g, "<br>");
+    }
+
+    function renderQuiz() {
+      const d = qSet[curIdx];
+      let opts = [
+        { text: (d.o ? d.o[0] : d.options[0]), isCorrect: ((d.a ?? d.answer) === 0) },
+        { text: (d.o ? d.o[1] : d.options[1]), isCorrect: ((d.a ?? d.answer) === 1) }
+      ].sort(() => Math.random() - 0.5);
+      document.getElementById('q-label').innerText = `STEP 0${curIdx + 1}`;
+      document.getElementById('q-text').innerHTML = formatQuizText(d.q ?? d.question);
+      document.getElementById('progress-fill').style.width = `${(curIdx / 5) * 100}%`;
+      document.getElementById('opt0').innerHTML = `A. ${formatQuizText(opts[0].text)}`;
+      document.getElementById('opt1').innerHTML = `B. ${formatQuizText(opts[1].text)}`;
+      document.getElementById('opt0').onclick = () => handleCheck(opts[0].isCorrect);
+      document.getElementById('opt1').onclick = () => handleCheck(opts[1].isCorrect);
+    }
+
+    function formatFeedbackExplanation(answerText, explanationHtml, questionText = "") {
+      const raw = String(explanationHtml || "");
+      const marker = raw.match(/한\s*줄\s*비교\s*[:：]/);
+      let formattedExp = raw;
+      if (marker) {
+        const parts = raw.split(/한\s*줄\s*비교\s*[:：]/);
+        const before = parts[0].trim();
+        const compareRaw = (parts[1] || "").trim();
+        const compareItems = compareRaw
+          .split(" / ")
+          .map(x => x.trim())
+          .filter(Boolean)
+          .map(x => {
+            if (x.includes("→")) {
+              const seg = x.split("→");
+              const left = (seg[0] || "").trim();
+              const right = (seg.slice(1).join("→") || "").trim();
+              return `・${left}<br>→ ${right}`;
+            }
+            return `・${x}`;
+          })
+          .join("<br>");
+        formattedExp = `${before}<br><b>🔎 표현 비교</b><br>${compareItems}`;
+      } else {
+        const exMatch = raw.match(/([\s\S]*?)<br><br><b>([\s\S]*?)<\/b><br>\s*([\s\S]*)$/);
+        if (exMatch) {
+          const lead = (exMatch[1] || "").trim();
+          const jp = (exMatch[2] || "").trim();
+          const ko = (exMatch[3] || "").trim();
+          formattedExp = `${lead}<br><br>・ ${jp}<br>→ ${ko}`;
+        }
+      }
+      return `<b>정답: ${answerText}</b><br><br>${formattedExp}`;
+    }
+
+    function resetFeedbackScrollTop() {
+      const scrollBox = document.querySelector('.f-scroll');
+      if (scrollBox) scrollBox.scrollTop = 0;
+    }
+
+    function handleCheck(isC) {
+      const d = qSet[curIdx]; if (isC) { score++; playSnd('c'); } else { playSnd('w'); }
+      history.push({ ...d, isC: isC });
+      document.getElementById('f-title').innerText = isC ? "🌟 정답입니다!" : "☁️ 아쉬워요!";
+      document.getElementById('f-exp').innerHTML = formatFeedbackExplanation(
+        (d.o ?? d.options)[d.a ?? d.answer],
+        (d.e ?? d.explanation),
+        (d.q ?? d.question ?? "")
+      );
+      resetFeedbackScrollTop();
+      document.getElementById('feedback-overlay').classList.add('show');
+    }
+
+    function handleContinue() {
+      document.getElementById('feedback-overlay').classList.remove('show');
+      curIdx++; if (curIdx < 5) renderQuiz(); else showFinalResult();
+    }
+
+    function showFinalResult() {
+      showScreen('screen-result');
+      document.getElementById('res-c').innerText = score;
+      const list = document.getElementById('review-list'); list.innerHTML = "";
+      list.scrollTop = 0;
+      history.forEach((item, i) => {
+        const div = document.createElement('div'); div.className = 'review-item';
+        div.innerHTML = `<b>${i + 1}. ${item.q ?? item.question}</b><br><span style="color:${item.isC ? 'var(--primary)' : '#E74C3C'}">정답: ${(item.o ?? item.options)[item.a ?? item.answer]}</span>`;
+        div.onclick = () => {
+          document.getElementById('f-title').innerText = item.isC ? "🌟 해설 복습" : "☁️ 해설 복습";
+          document.getElementById('f-exp').innerHTML = formatFeedbackExplanation(
+            (item.o ?? item.options)[item.a ?? item.answer],
+            (item.e ?? item.explanation),
+            (item.q ?? item.question ?? "")
+          );
+          resetFeedbackScrollTop();
+          document.getElementById('feedback-overlay').classList.add('show');
+        };
+        list.appendChild(div);
+      });
+    }
+
+    function openExplainMenu() {
+      showScreen('screen-explain');
+      document.getElementById('explain-header').innerText = '해설집';
+      document.getElementById('explain-cat').classList.add('hidden');
       document.getElementById('explain-viewer').classList.add('hidden');
       document.getElementById('explain-list').classList.remove('hidden');
-      document.getElementById('explain-header').innerText = '해설집';
       document.getElementById('explain-footer').classList.remove('hidden');
-      return;
+      renderExplainAll();
     }
-    showScreen('screen-category');
-  }
-  function renderExplainAll() {
-    const box = document.getElementById('explain-list-scroll');
-    box.innerHTML = "";
-    const catMeta = (cat) => {
-      if (cat === '경어와 톤') return { label: '경어', color: '#2D7AA8' };
-      if (cat === '조사 사용') return { label: '조사', color: '#C77700' };
-      if (cat === '단어 선택') return { label: '단어', color: '#2C8A4B' };
-      return { label: cat, color: '#444' };
-    };
-    explainList = (window.masterExplainDB || []);
-    explainList.forEach((card, idx) => {
-      const meta = catMeta(card.category);
-      const b = document.createElement('button');
-      b.className = 'btn-pixel btn-opt';
-      b.style.width = "100%";
-      b.style.marginBottom = "12px";
-      b.innerHTML = `<span class="explain-cat-tag" style="color:${meta.color};">[${meta.label}]</span> ${card.title}`;
-      b.onclick = () => openExplainViewer(idx);
-      box.appendChild(b);
-    });
-    box.scrollTop = 0;
-  }
-  function backToExplainCat() { 
-    explainCatName = ''; document.getElementById('explain-cat').classList.remove('hidden');
-    document.getElementById('explain-list').classList.add('hidden'); document.getElementById('explain-viewer').classList.add('hidden');
-    document.getElementById('explain-header').innerText = '해설집';
-  }
-  function openExplainList(cat) {
-    explainCatName = cat; explainList = window.masterExplainDB.filter(c => c.category === cat);
-    const box = document.getElementById('explain-list-scroll'); box.innerHTML = "";
-    explainList.forEach((c, idx) => {
-      const b = document.createElement('button'); b.className = 'btn-pixel btn-opt'; b.style.width = "100%"; b.style.marginBottom = "12px";
-      b.innerHTML = c.title; b.onclick = () => openExplainViewer(idx); box.appendChild(b);
-    });
-    document.getElementById('explain-cat').classList.add('hidden'); document.getElementById('explain-list').classList.remove('hidden');
-    document.getElementById('explain-header').innerText = cat;
-  }
-  function openExplainViewer(idx) {
-    explainCardIndex = idx; explainPageIndex = 0;
-    document.getElementById('explain-footer').classList.add('hidden');
-    document.getElementById('explain-list').classList.add('hidden'); document.getElementById('explain-viewer').classList.remove('hidden');
-    renderExplainPage();
-  }
-  function renderExplainPage() {
-    const card = explainList[explainCardIndex];
-    const fmt = (html) => {
-      const text = (html || "").trim();
-      return text
-        .split(/<br>\s*<br>/)
-        .map(block => {
-          const lines = block.split(/<br>/).map(x => x.trim()).filter(Boolean);
-          if (!lines.length) return '';
-          if (lines.some(x => x.startsWith('→'))) {
-            const parts = [];
-            for (let i = 0; i < lines.length; i++) {
-              const line = lines[i];
-              if (line.startsWith('→')) continue;
-              const next = lines[i + 1] && lines[i + 1].startsWith('→') ? lines[i + 1] : '';
-              parts.push(
-                `<div class="line-pair"><span class="jp-line">${line}</span>${next ? `<span class="ko-line">${next}</span>` : ''}</div>`
-              );
-            }
-            return parts.join('');
-          }
-          if (lines.some(x => x.includes('→'))) {
-            return lines.map(line => {
-              const [jp, ko] = line.split('→');
-              return `<div class="line-pair"><span class="jp-line">${jp.trim()}</span>${ko ? `<span class="ko-line">→ ${ko.trim()}</span>` : ''}</div>`;
-            }).join('');
-          }
-          return lines.map(line => `<div>${line}</div>`).join('');
-        })
-        .join('');
-    };
-    const fmtWrong = (html) => {
-      const lines = (html || "").trim().split(/<br>/).map(x => x.trim()).filter(Boolean);
-      if (!lines.length) return '';
-      const lead = lines[0];
-      const rest = lines.slice(1).map(line => {
-        if (line.startsWith('✖')) {
-          return `<div class="wrong-choice bad"><span class="mark-bad">✖</span> ${line.slice(1).trim()}</div>`;
-        }
-        if (line.startsWith('〇')) {
-          return `<div class="wrong-choice good"><span class="mark-good">〇</span> ${line.slice(1).trim()}</div>`;
-        }
-        return `<div>${line}</div>`;
-      }).join('');
-      return `<div class="wrong-set"><div class="wrong-lead">${lead}</div>${rest}</div>`;
-    };
-    const fmtPairList = (html, cls) => {
-      const text = (html || "").trim();
-      const lines = text.split(/<br>/).map(x => x.trim()).filter(Boolean);
-      const parts = [];
-      for (let i = 0; i < lines.length; i++) {
-        const line = lines[i];
-        if (line.startsWith('→')) continue;
-        let jp = line.replace(/^・\s*/, '');
-        let next = lines[i + 1] && lines[i + 1].startsWith('→') ? lines[i + 1] : '';
-        if (!next && jp.includes('→')) {
-          const split = jp.split('→');
-          jp = split[0].trim();
-          next = `→ ${split.slice(1).join('→').trim()}`;
-        }
-        parts.push(
-          `<div class="${cls}"><span class="jp-line">${jp}</span>${next ? `<span class="ko-line">${next}</span>` : ''}</div>`
-        );
+    function handleExplainBack() {
+      if (!document.getElementById('explain-viewer').classList.contains('hidden')) {
+        document.getElementById('explain-viewer').classList.add('hidden');
+        document.getElementById('explain-list').classList.remove('hidden');
+        document.getElementById('explain-header').innerText = '해설집';
+        document.getElementById('explain-footer').classList.remove('hidden');
+        return;
       }
-      return parts.join('');
-    };
-    const catMeta = (cat) => {
-      if (cat === '경어와 톤') return { label: '경어', color: '#2D7AA8' };
-      if (cat === '조사 사용') return { label: '조사', color: '#C77700' };
-      if (cat === '단어 선택') return { label: '단어', color: '#2C8A4B' };
-      return { label: cat, color: '#444' };
-    };
-    const meta = catMeta(card.category);
-    document.getElementById('explain-card-title').innerHTML = `<span class="explain-cat-tag" style="color:${meta.color};">[${meta.label}]</span> ${card.title}`;
-    const pages = [
-      `<div class="explain-section"><div class="label bad">📝 문장 예시</div><div class="section-block">${fmtWrong(card.wrong)}</div></div>` +
-      `<div class="explain-section"><div class="label why">🔎 왜 어색할까</div><div class="section-block">${fmt(card.why)}</div></div>`,
-      `<div class="explain-section"><div class="label good">✅ 이렇게 말해요</div><div class="section-block"><ul>${(card.fix || []).map(x => `<li><div class="fix-item">${fmt(x)}</div></li>`).join("")}</ul></div></div>` +
-      `<div class="explain-section"><div class="label sum">⭐ 한 줄 정리</div><div class="sum-box">${fmt(card.summary || "")}</div></div>`,
-      `<div class="explain-section"><div class="label sum">🚀 스텝업</div><div class="section-block">${fmtPairList(card.stepup || "추가 표현을 준비 중입니다.", "step-item")}</div></div>`
-    ];
-    document.getElementById('explain-page-indicator').innerText = `${explainPageIndex + 1}/${pages.length}`;
-    document.getElementById('explain-page-body').innerHTML = pages[explainPageIndex];
-    document.getElementById('explain-page-scroll').scrollTop = 0;
-  }
-  function prevExplainPage() { if (explainPageIndex > 0) { explainPageIndex--; renderExplainPage(); } }
-  function nextExplainPage() { if (explainPageIndex < 2) { explainPageIndex++; renderExplainPage(); } }
-</script>
+      showScreen('screen-category');
+    }
+    function renderExplainAll() {
+      const box = document.getElementById('explain-list-scroll');
+      box.innerHTML = "";
+      const catMeta = (cat) => {
+        if (cat === '경어와 톤') return { label: '경어', color: '#2D7AA8' };
+        if (cat === '조사 사용') return { label: '조사', color: '#C77700' };
+        if (cat === '단어 선택') return { label: '단어', color: '#2C8A4B' };
+        return { label: cat, color: '#444' };
+      };
+      explainList = (window.masterExplainDB || []);
+      explainList.forEach((card, idx) => {
+        const meta = catMeta(card.category);
+        const b = document.createElement('button');
+        b.className = 'btn-pixel btn-opt';
+        b.style.width = "100%";
+        b.style.marginBottom = "12px";
+        b.innerHTML = `<span class="explain-cat-tag" style="color:${meta.color};">[${meta.label}]</span> ${card.title}`;
+        b.onclick = () => openExplainViewer(idx);
+        box.appendChild(b);
+      });
+      box.scrollTop = 0;
+    }
+    function backToExplainCat() {
+      explainCatName = ''; document.getElementById('explain-cat').classList.remove('hidden');
+      document.getElementById('explain-list').classList.add('hidden'); document.getElementById('explain-viewer').classList.add('hidden');
+      document.getElementById('explain-header').innerText = '해설집';
+    }
+    function openExplainList(cat) {
+      explainCatName = cat; explainList = window.masterExplainDB.filter(c => c.category === cat);
+      const box = document.getElementById('explain-list-scroll'); box.innerHTML = "";
+      explainList.forEach((c, idx) => {
+        const b = document.createElement('button'); b.className = 'btn-pixel btn-opt'; b.style.width = "100%"; b.style.marginBottom = "12px";
+        b.innerHTML = c.title; b.onclick = () => openExplainViewer(idx); box.appendChild(b);
+      });
+      document.getElementById('explain-cat').classList.add('hidden'); document.getElementById('explain-list').classList.remove('hidden');
+      document.getElementById('explain-header').innerText = cat;
+    }
+    function openExplainViewer(idx) {
+      explainCardIndex = idx; explainPageIndex = 0;
+      document.getElementById('explain-footer').classList.add('hidden');
+      document.getElementById('explain-list').classList.add('hidden'); document.getElementById('explain-viewer').classList.remove('hidden');
+      renderExplainPage();
+    }
+    function renderExplainPage() {
+      const card = explainList[explainCardIndex];
+      const fmt = (html) => {
+        const text = (html || "").trim();
+        return text
+          .split(/<br>\s*<br>/)
+          .map(block => {
+            const lines = block.split(/<br>/).map(x => x.trim()).filter(Boolean);
+            if (!lines.length) return '';
+            if (lines.some(x => x.startsWith('→'))) {
+              const parts = [];
+              for (let i = 0; i < lines.length; i++) {
+                const line = lines[i];
+                if (line.startsWith('→')) continue;
+                const next = lines[i + 1] && lines[i + 1].startsWith('→') ? lines[i + 1] : '';
+                parts.push(
+                  `<div class="line-pair"><span class="jp-line">${line}</span>${next ? `<span class="ko-line">${next}</span>` : ''}</div>`
+                );
+              }
+              return parts.join('');
+            }
+            if (lines.some(x => x.includes('→'))) {
+              return lines.map(line => {
+                const [jp, ko] = line.split('→');
+                return `<div class="line-pair"><span class="jp-line">${jp.trim()}</span>${ko ? `<span class="ko-line">→ ${ko.trim()}</span>` : ''}</div>`;
+              }).join('');
+            }
+            return lines.map(line => `<div>${line}</div>`).join('');
+          })
+          .join('');
+      };
+      const fmtWrong = (html) => {
+        const lines = (html || "").trim().split(/<br>/).map(x => x.trim()).filter(Boolean);
+        if (!lines.length) return '';
+        const lead = lines[0];
+        const rest = lines.slice(1).map(line => {
+          if (line.startsWith('✖')) {
+            return `<div class="wrong-choice bad"><span class="mark-bad">✖</span> ${line.slice(1).trim()}</div>`;
+          }
+          if (line.startsWith('〇')) {
+            return `<div class="wrong-choice good"><span class="mark-good">〇</span> ${line.slice(1).trim()}</div>`;
+          }
+          return `<div>${line}</div>`;
+        }).join('');
+        return `<div class="wrong-set"><div class="wrong-lead">${lead}</div>${rest}</div>`;
+      };
+      const fmtPairList = (html, cls) => {
+        const text = (html || "").trim();
+        const lines = text.split(/<br>/).map(x => x.trim()).filter(Boolean);
+        const parts = [];
+        for (let i = 0; i < lines.length; i++) {
+          const line = lines[i];
+          if (line.startsWith('→')) continue;
+          let jp = line.replace(/^・\s*/, '');
+          let next = lines[i + 1] && lines[i + 1].startsWith('→') ? lines[i + 1] : '';
+          if (!next && jp.includes('→')) {
+            const split = jp.split('→');
+            jp = split[0].trim();
+            next = `→ ${split.slice(1).join('→').trim()}`;
+          }
+          parts.push(
+            `<div class="${cls}"><span class="jp-line">${jp}</span>${next ? `<span class="ko-line">${next}</span>` : ''}</div>`
+          );
+        }
+        return parts.join('');
+      };
+      const catMeta = (cat) => {
+        if (cat === '경어와 톤') return { label: '경어', color: '#2D7AA8' };
+        if (cat === '조사 사용') return { label: '조사', color: '#C77700' };
+        if (cat === '단어 선택') return { label: '단어', color: '#2C8A4B' };
+        return { label: cat, color: '#444' };
+      };
+      const meta = catMeta(card.category);
+      document.getElementById('explain-card-title').innerHTML = `<span class="explain-cat-tag" style="color:${meta.color};">[${meta.label}]</span> ${card.title}`;
+      const pages = [
+        `<div class="explain-section"><div class="label bad">📝 문장 예시</div><div class="section-block">${fmtWrong(card.wrong)}</div></div>` +
+        `<div class="explain-section"><div class="label why">🔎 왜 어색할까</div><div class="section-block">${fmt(card.why)}</div></div>`,
+        `<div class="explain-section"><div class="label good">✅ 이렇게 말해요</div><div class="section-block"><ul>${(card.fix || []).map(x => `<li><div class="fix-item">${fmt(x)}</div></li>`).join("")}</ul></div></div>` +
+        `<div class="explain-section"><div class="label sum">⭐ 한 줄 정리</div><div class="sum-box">${fmt(card.summary || "")}</div></div>`,
+        `<div class="explain-section"><div class="label sum">🚀 스텝업</div><div class="section-block">${fmtPairList(card.stepup || "추가 표현을 준비 중입니다.", "step-item")}</div></div>`
+      ];
+      document.getElementById('explain-page-indicator').innerText = `${explainPageIndex + 1}/${pages.length}`;
+      document.getElementById('explain-page-body').innerHTML = pages[explainPageIndex];
+      document.getElementById('explain-page-scroll').scrollTop = 0;
+    }
+    function prevExplainPage() { if (explainPageIndex > 0) { explainPageIndex--; renderExplainPage(); } }
+    function nextExplainPage() { if (explainPageIndex < 2) { explainPageIndex++; renderExplainPage(); } }
+  </script>
 </body>
+
 </html>
