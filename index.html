@@ -427,6 +427,18 @@
       margin-top: 0;
     }
 
+    .explain-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .explain-table th,
+    .explain-table td {
+      padding: 5px 2px;
+      border-bottom: 1px solid rgba(138, 106, 0, 0.28);
+    }
+
     .explain-section+.explain-section {
       margin-top: 18px;
     }
@@ -1104,12 +1116,20 @@
         `<div class="explain-section"><div class="label sum">⭐ 한 줄 정리</div><div class="sum-box">${fmt(card.summary || "")}</div></div>`,
         `<div class="explain-section"><div class="label sum">🚀 스텝업</div><div class="section-block">${fmtPairList(card.stepup || "추가 표현을 준비 중입니다.", "step-item")}</div></div>`
       ];
+      (card.tablePages || []).forEach(table => {
+        pages.push(`<div class="explain-section"><div class="label sum">${table.title}</div>` +
+          `<table class="explain-table"><thead><tr>${table.headers.map(header => `<th scope="col">${header}</th>`).join('')}</tr></thead>` +
+          `<tbody>${table.rows.map(row => `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`);
+      });
       document.getElementById('explain-page-indicator').innerText = `${explainPageIndex + 1}/${pages.length}`;
       document.getElementById('explain-page-body').innerHTML = pages[explainPageIndex];
       document.getElementById('explain-page-scroll').scrollTop = 0;
     }
     function prevExplainPage() { if (explainPageIndex > 0) { explainPageIndex--; renderExplainPage(); } }
-    function nextExplainPage() { if (explainPageIndex < 2) { explainPageIndex++; renderExplainPage(); } }
+    function nextExplainPage() {
+      const pageCount = 3 + (explainList[explainCardIndex].tablePages || []).length;
+      if (explainPageIndex < pageCount - 1) { explainPageIndex++; renderExplainPage(); }
+    }
   </script>
 </body>
 
